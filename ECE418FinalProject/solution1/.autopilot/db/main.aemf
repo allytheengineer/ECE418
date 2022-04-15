@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1650051504155">
+  <ports id="10" name="ap_return" direction="DirOut">
+    <dataInputObjs>ret</dataInputObjs>
+  </ports>
+  <edges source_obj="//@blocks.0/@node_objs.0" sink_obj="//@ports.0"/>
+  <blocks id="4" name="main" type="BlockType">
+    <node_objs xsi:type="cdfg:CdfgNode" id="3" name="_ln104" lineNumber="104" fileName="ECE418FinalProject/fullCode.c" fileDirectory=".." coreId="3684454080" contextFuncName="main" opcode="ret" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="ECE418FinalProject/fullCode.c" linenumber="104" fileDirectory="C:\Users\pitkinj\eceProj\ECE418" functionName="main"/>
+      <dataOutputObjs>ap_return</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <fileValidLineNumbers fileName="ECE418FinalProject/fullCode.c">
+      <validLinenumbers>104</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <ScheduleInfo time="0"/>
+  <ioPorts name="ap_return">
+    <contents name="ret">
+      <nodeIds>3</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="1" stage="1" latency="1"/>
+      <operations id="2" stage="1" latency="1"/>
+      <operations id="3" stage="1" latency="1"/>
+    </states>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="main" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>4</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

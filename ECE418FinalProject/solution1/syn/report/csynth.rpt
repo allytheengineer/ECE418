@@ -1,0 +1,24 @@
+
+
+================================================================
+== Synthesis Summary Report of 'main'
+================================================================
++ General Information: 
+    * Date:           Fri Apr 15 15:38:24 2022
+    * Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:45 MST 2020)
+    * Project:        ECE418FinalProject
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: artix7
+    * Target device:  xc7a100t-csg324-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------+------+-------+---------+--------+----------+---------+------+----------+------+----+---+----+-----+
+    | Modules| Issue|       | Latency | Latency| Iteration|         | Trip |          |      |    |   |    |     |
+    | & Loops| Type | Slack | (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP| FF| LUT| URAM|
+    +--------+------+-------+---------+--------+----------+---------+------+----------+------+----+---+----+-----+
+    |+ main  |     -|  -7.30|        0|   0.000|         -|        1|     -|        no|     -|   -|  -|   -|    -|
+    +--------+------+-------+---------+--------+----------+---------+------+----------+------+----+---+----+-----+
+

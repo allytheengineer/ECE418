@@ -1,6 +1,18 @@
 #include <stdio.h>
-#include <string.h>
 
+int getStringLength(char* str) {
+	int strLength = 0;
+	char temp = str[0];
+	int i = 0;
+	while(temp != '\0') {
+		temp = str[i];
+		strLength++;
+		i++;
+	}
+
+	printf("length %d\n", strLength);
+	return strLength;
+}
 
 char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 	binaryBuffer += (buffer_size-1); // shifting the buffer pointer
@@ -18,7 +30,7 @@ char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 		}
 		binaryBuffer--; // shifting buffer pointer
 		// right shifting num - erase least significant bit
-		num>>=1; 
+		num >>= 1;
 	}
 	// return the buffer with binary string
 	return binaryBuffer;
@@ -27,23 +39,31 @@ char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 /**
  * Creating all of the initial padding for SHA-256
  */
-void pad(char* binaryMessage){
+//void pad(char* binaryMessage, sizeBits) {
 	// find size of binaryMessage
-	int sizeBits = strlen(binaryMessage);
-	int newSizeBits = sizeBits +1; 
-	while(newSizeBits%512 != 448){
-	    newSizeBits++;
-	}
-    char* paddedBuff = malloc(sizeof(char)*1024); 
-	//strcat(paddedBuff,binaryMessage);
-	for(int i = 0; i<sizeBits; i++){
-	paddedBuff[i] = binaryMessage[i];
-	}	
-	paddedBuff[sizeBits] = '1'; 
-	for(int i = sizeBits+1; i<newSizeBits; i++){
-	    paddedBuff[i] = '0';
-	}	
-	printf("padded=%s", paddedBuff);
+//	printf("size:%d", sizeBits);
+
+//	int newSizeBits = sizeBits;
+
+
+	//while(newSizeBits % 512 != 448) {
+//	    newSizeBits++;
+//	}
+
+ //   char* paddedBuff = malloc(sizeof(char)*1024);
+//	//strcat(paddedBuff,binaryMessage);
+//	for(int i = 0; i < sizeBits; i++) {
+//		paddedBuff[i] = binaryMessage[i];
+//	}
+
+	// adding a single '1' to separate message and padding
+	//paddedBuff[sizeBits] = '1';
+//	sizeBits++;
+
+//	for(int i = sizeBits; i < newSizeBits; i++){
+//	    paddedBuff[i] = '0';
+//	}
+//	printf("padded=%s", paddedBuff);
 	/*
 	const int BUFFER_SIZE = 65;
 	char stringLength[BUFFER_SIZE];
@@ -55,9 +75,7 @@ void pad(char* binaryMessage){
 	strcpy(paddedBinary, binaryMessage);
 	printf("padded=%s", paddedBinary);
     */
-	// adding a single '1' to separate message and padding
-	//strcat(binaryMessage, "1");
-	//sizeBits++;
+
 
 	// padding message up until 512 - 64 bits
 	// message length is stored in the last 64 bits
@@ -76,11 +94,12 @@ void pad(char* binaryMessage){
 		//}
 	//}
 	//
-}
+//}
 
 int main() {
-	char* buffer = "00000011";
-	pad(buffer);
+	char* message = "00000011";
+	int messageLength = getStringLength(message)
+	//pad(message, messageLength);
  //   printf ("%s\n", buffer);
     return 0;
 
