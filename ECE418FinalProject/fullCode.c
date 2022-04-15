@@ -1,19 +1,23 @@
 #include <stdio.h>
 
+// function for getting the length of a string
 int getStringLength(char* str) {
+	// initializing string length
 	int strLength = 0;
+	// variable for checking each char in string
 	char temp = str[0];
-	int i = 0;
+	// iterator variable
+	int i = 1;
 	while(temp != '\0') {
 		temp = str[i];
+		// incrementing string length
 		strLength++;
 		i++;
 	}
-
-	printf("length %d\n", strLength);
 	return strLength;
 }
 
+// converts a given long to a binary string
 char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 	binaryBuffer += (buffer_size-1); // shifting the buffer pointer
 
@@ -38,8 +42,9 @@ char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 
 /**
  * Creating all of the initial padding for SHA-256
+ * returns an array of binary strings - each 512 characters
  */
-//void pad(char* binaryMessage, sizeBits) {
+//void pad(char* binaryMessage, char* messageBlocks[], int sizeBits) {
 	// find size of binaryMessage
 //	printf("size:%d", sizeBits);
 
@@ -98,9 +103,13 @@ char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 
 int main() {
 	char* message = "00000011";
-	int messageLength = getStringLength(message)
-	//pad(message, messageLength);
- //   printf ("%s\n", buffer);
-    return 0;
+	int messageLength = getStringLength(message);
 
+	int numBlocks = 0;
+	if (messageLength % 512 == 0) {
+		numBlocks = messageLength / 512;
+	}
+	char* messageBlocks[numBlocks];
+	pad(message, messageBlocks, messageLength);
+    return 0;
 }
