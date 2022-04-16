@@ -100,6 +100,62 @@ char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 	//}
 	//
 //}
+//Addison Added this here This works btw 
+/*
+char* pad(char* binaryMessage){
+	// find size of binaryMessage
+	int sizeBits = getStringLength(binaryMessage);
+	//+1 is added to avoid issues involving edge cases before padding is added and after the
+	//'1' separator is added 
+	int newSizeBits = sizeBits+1; 
+	//makes newSizeBits the size needed to have exactly 64 remaining spots for the size 
+	while(newSizeBits%512 != 448){
+	    newSizeBits++;
+	}
+	//ignore this this is from my IDE
+   char* paddedBuff; 
+    //copies the message into the padded buffer 
+	for(int i = 0; i<sizeBits; i++){
+	    paddedBuff[i] = binaryMessage[i];
+	}	
+	//adds a trailing '1' after the message and before the padding 
+	paddedBuff[sizeBits] = '1'; 
+	//pads the buffer up until there are only 64 spots left so 448
+	for(int i = sizeBits+1; i<newSizeBits; i++){
+	    paddedBuff[i] = '0';
+	}
+	//converts the size of the initial message into binary and concats it to the end of the message in the last 
+	//64 bits 
+	for(int i = 63; i>-1; i--){
+	    if((pow(2,i) >= 0) && (pow(2,i) <= sizeBits)){
+	        sizeBits = sizeBits - pow(2,i);
+	        paddedBuff[newSizeBits+63-i] = '1';
+	    }
+	    else{
+	      paddedBuff[newSizeBits+63-i] = '0';  
+	    }
+	    
+	}
+	return paddedBuff;
+	// split binaryMessage every 512 bits
+	//for(int i = 0; i < sizeBits; i++){
+		//if(i%512==0){
+			//split
+		//}
+	//}
+	//
+}
+
+int main() {
+	char* buffer = "0000011";
+	char* PaddedBuffer; //Uncomment to use in normal IDE // = malloc(sizeof(char)* getStringLength(buffer)*2);
+	PaddedBuffer = pad(buffer);
+   printf ("%s\n", PaddedBuffer);
+    return 0;
+
+}
+*/
+
 
 int main() {
 	char* message = "00000011";
