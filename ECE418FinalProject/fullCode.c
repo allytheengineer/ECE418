@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 // function for getting the length of a string
 int getStringLength(char* str) {
