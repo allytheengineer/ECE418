@@ -1,5 +1,7 @@
 #include <stdio.h>
-#include <math.h>
+#
+// block size for SHA-256
+const int blockSize = 512;
 
 // function for getting the length of a string
 int getStringLength(char* str) {
@@ -45,16 +47,63 @@ char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
  * Creating all of the initial padding for SHA-256
  * returns an array of binary strings - each 512 characters
  */
-//void pad(char* binaryMessage, char* messageBlocks[], int sizeBits) {
-	// find size of binaryMessage
-//	printf("size:%d", sizeBits);
+void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], int numBlocks) {
+	//printf("sizeBits:%d\n", sizeBits);
+	//printf("original message:%s\n", binaryMessage);
+	//printf("num blocks:%d\n", numBlocks);
 
-//	int newSizeBits = sizeBits;
 
+	// filling in all complete 512-bit blocks - PROBLEM HERE
+	printf("\n\n");
+	for (int k = 0; k < numBlocks-1; k++) {
+		for (int j = 0; j < blockSize; j++) {
+			messageBlocks[k][j] = binaryMessage[ (k * blockSize) + j];
+			printf("%c", messageBlocks[k][j]); 
+		}	
+		messageBlocks[k][blockSize] = '\0';
+	}
+	printf("\n\n");
 
-	//while(newSizeBits % 512 != 448) {
-//	    newSizeBits++;
-//	}
+	// filling in the last incomplete block with message bits
+	int i = 0;
+	while (binaryMessage[ ( (numBlocks - 1) * blockSize) + i] != '\0') {
+		messageBlocks[numBlocks - 1][i] = binaryMessage[ ( (numBlocks - 1) * blockSize) + i];
+		i++;
+	}
+
+	// appending 1 to separate message and padding
+	messageBlocks[numBlocks - 1][i] = '1';
+	i++;
+
+	// padding with zeros until 64 bits less than 512
+	int j = i;
+	while (j % (blockSize - 64) != 0) {
+		messageBlocks[numBlocks - 1][j] = '0';
+		j++;
+	}
+ 
+	// getting the size of the initial message in 64 bits
+	const int BUFFER_SIZE = 65;
+	char messageLengthInBinary[BUFFER_SIZE];
+	// string ends with null char
+	messageLengthInBinary[BUFFER_SIZE-1] = '\0';
+	longToBinary(sizeBits, messageLengthInBinary, BUFFER_SIZE-1);
+	//printf("messageLengthInBinary=%s\n", messageLengthInBinary);
+
+	for (int k = 0; k < BUFFER_SIZE-1; k++) {
+		messageBlocks[numBlocks - 1][j + k] = messageLengthInBinary[k];
+	}
+
+	// appending null character to end of last block
+	messageBlocks[numBlocks - 1][blockSize] = '\0';
+
+	for (int i = 0; i < numBlocks; i++) {
+		printf("\n");
+		printf("block %d: %s\n", i, messageBlocks[i]);
+		printf("\n");
+	}
+}
+
 
  //   char* paddedBuff = malloc(sizeof(char)*1024);
 //	//strcat(paddedBuff,binaryMessage);
@@ -71,11 +120,6 @@ char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 //	}
 //	printf("padded=%s", paddedBuff);
 	/*
-	const int BUFFER_SIZE = 65;
-	char stringLength[BUFFER_SIZE];
-	stringLength[BUFFER_SIZE-1] = '\0';
-	longToBinary(sizeBits, stringLength, BUFFER_SIZE-1);
-	printf("binary=%s", stringLength);
 
 	char paddedBinary[512];
 	strcpy(paddedBinary, binaryMessage);
@@ -100,7 +144,6 @@ char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 		//}
 	//}
 	//
-//}
 //Addison Added this here This works btw 
 /*
 char* pad(char* binaryMessage){
@@ -109,8 +152,8 @@ char* pad(char* binaryMessage){
 	//+1 is added to avoid issues involving edge cases before padding is added and after the
 	//'1' separator is added 
 	int newSizeBits = sizeBits+1; 
-	//makes newSizeBits the size needed to have exactly 64 remaining spots for the size 
-	while(newSizeBits%512 != 448){
+//makes newSizeBits the size needed to have exactly 64 remaining spots for the size 
+	while(newSizeBits % blockSize != 448){
 	    newSizeBits++;
 	}
 	//ignore this this is from my IDE
@@ -159,14 +202,29 @@ int main() {
 
 
 int main() {
-	char* message = "00000011";
+	// test input message
+	//char* message = "10010100100101";
+	char* message = "10101010101010101101001111000100101000110011010101001100110011001100110011001100110101010101001010101010100100101001001010010101010010100101000101010010101010101010101010001000110111110101101110010101010101010100101010101010010101001010101011111111111100000000000000111111111111111100000000000000111111111111010100000000000000011111111111110000000000000001111111111111000000000000001111111111111100000000000000111111111111111111111111111010101010101010101010101010101000000000000000001111111111111111000000000000000111111111111111110000000000000000111111111111111110000000000000011111111111111100000000000000011111111111111000000000000101010101010101010101010010101010111111111111111000000000000000001111111111111110000000000000011111111111111110010100000000000000000000111111111111111100000000000000001111111111111100000000000000001010101000000000000001111111111111110000000000000001111111111111000000000000010101000000000000000000111111111111111111000000000000000000111111111010101010100101010101010101010";
+	// getting the length of the binary string
 	int messageLength = getStringLength(message);
+	
+	// finding out how many 512-bit message blocks will be needed
+	int numBlocksNeeded = 0;
+	// least length of a message after padding a 1 and the message length
+	int leastPaddedMessageLength = messageLength + 65;
 
-	int numBlocks = 0;
-	if (messageLength % 512 == 0) {
-		numBlocks = messageLength / 512;
+	//printf("\n leastPaddedMessageLength %d\n", leastPaddedMessageLength);
+
+	// last block is 447 bits - will pad to 512 exactly
+	if (leastPaddedMessageLength % 512 == 0) {
+		numBlocksNeeded = leastPaddedMessageLength / 512;
+	} else {
+ 		// adding one for integer division
+		numBlocksNeeded = leastPaddedMessageLength / 512 + 1;
 	}
-	char* messageBlocks[numBlocks];
-	pad(message, messageBlocks, messageLength);
+	
+	// array of strings for 512-bit message blocks
+	char messageBlocks[numBlocksNeeded][blockSize+1]; // added 1 for the null character
+	pad(message, messageLength, messageBlocks, numBlocksNeeded);
     return 0;
 }
