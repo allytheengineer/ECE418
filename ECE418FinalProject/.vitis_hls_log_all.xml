@@ -6,7 +6,12 @@
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog/>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ECE418FinalProject" solutionName="solution1" date="2022-04-18T17:02:32.798-0400"/>
+        <logs message="ERROR: [APCC 202-1] APCC failed." projectName="ECE418FinalProject" solutionName="solution1" date="2022-04-18T17:02:32.688-0400"/>
+        <logs message="ERROR: [APCC 202-1] ProcessSources failed" projectName="ECE418FinalProject" solutionName="solution1" date="2022-04-18T17:02:32.679-0400"/>
+        <logs message="ERROR: [APCC 202-10] clang compile failed: child process exited abnormally" projectName="ECE418FinalProject" solutionName="solution1" date="2022-04-18T17:02:32.669-0400"/>
+      </csimLog>
     </logs>
   </errorLogs>
   <warningLogs>

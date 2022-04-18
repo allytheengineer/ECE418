@@ -29,37 +29,42 @@
 		<link>
 			<name>source</name>
 			<type>2</type>
-			<location>C:/Users/pitkinj/eceProj/ECE418/ECE418FinalProject/.apc/.src</location>
+			<location>C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/.apc/.src</location>
 		</link>
 		<link>
 			<name>testbench</name>
 			<type>2</type>
-			<location>C:/Users/pitkinj/eceProj/ECE418/ECE418FinalProject/.apc/.tb</location>
+			<location>C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/.apc/.tb</location>
 		</link>
 		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
-			<location>C:/Users/pitkinj/eceProj/ECE418/ECE418FinalProject/solution1/.tcls</location>
+			<location>C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/solution1/.tcls</location>
 		</link>
 		<link>
-			<name>source/fullCode.c</name>
+			<name>source/WorkingCodeNew.c</name>
 			<type>1</type>
-			<location>C:/Users/pitkinj/eceProj/ECE418/ECE418FinalProject/fullCode.c</location>
+			<location>C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/WorkingCodeNew.c</location>
+		</link>
+		<link>
+			<name>testbench/WorkingCodeNew.c</name>
+			<type>1</type>
+			<location>C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/WorkingCodeNew.c</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
 			<type>1</type>
-			<location>C:/Users/pitkinj/eceProj/ECE418/ECE418FinalProject/solution1/solution1.directive</location>
+			<location>C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/solution1/solution1.directive</location>
 		</link>
 		<link>
 			<name>solution1/constraints/directives.tcl</name>
 			<type>1</type>
-			<location>C:/Users/pitkinj/eceProj/ECE418/ECE418FinalProject/solution1/directives.tcl</location>
+			<location>C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/solution1/directives.tcl</location>
 		</link>
 		<link>
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
-			<location>C:/Users/pitkinj/eceProj/ECE418/ECE418FinalProject/solution1/script.tcl</location>
+			<location>C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/solution1/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

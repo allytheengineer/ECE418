@@ -4,14 +4,14 @@
 int blockSize = 512;
 
 // initializing all global hash values
-int h0 = 0x6a09e667
-int h1 = 0xbb67ae85
-int h2 = 0x3c6ef372
-int h3 = 0xa54ff53a
-int h4 = 0x510e527f
-int h5 = 0x9b05688c
-int h6 = 0x1f83d9ab
-int h7 = 0x5be0cd19
+int h0 = 0x6a09e667;
+int h1 = 0xbb67ae85;
+int h2 = 0x3c6ef372;
+int h3 = 0xa54ff53a;
+int h4 = 0x510e527f;
+int h5 = 0x9b05688c;
+int h6 = 0x1f83d9ab;
+int h7 = 0x5be0cd19;
 
 // function for getting the length of a string
 int getStringLength(char* str) {
