@@ -45,6 +45,10 @@ int getStringLength(char* str) {
 	}
 	return strLength;
 }
+//Rotate right function
+unsigned rotateRight(unsigned x, unsigned n) {
+    return (x >> n % 32) | (x << (32-n) % 32);
+}
 // converts a given long to a binary string
 char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 	binaryBuffer += (buffer_size-1); // shifting the buffer pointer
