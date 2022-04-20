@@ -990,25 +990,57 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 # 1010 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
 # 2 "ECE418FinalProject/fullCode.c" 2
 
+
+const int blockSize = 512;
+
+
+const int numWords = 16;
+
+const int wordSize = 32;
+
+
+int h0 = 0x6a09e667;
+int h1 = 0xbb67ae85;
+int h2 = 0x3c6ef372;
+int h3 = 0xa54ff53a;
+int h4 = 0x510e527f;
+int h5 = 0x9b05688c;
+int h6 = 0x1f83d9ab;
+int h7 = 0x5be0cd19;
+
+
+int constants[] = {
+0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2};
+
+
 int getStringLength(char* str) {
+
  int strLength = 0;
+
  char temp = str[0];
- int i = 0;
- VITIS_LOOP_7_1: while(temp != '\0') {
+
+ int i = 1;
+ VITIS_LOOP_40_1: while(temp != '\0') {
   temp = str[i];
+
   strLength++;
   i++;
  }
-
- printf("length %d\n", strLength);
  return strLength;
 }
 
-char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
+
+char* numToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
  binaryBuffer += (buffer_size-1);
 
-
- VITIS_LOOP_21_1: for (int i = 64; i >= 0; i--) {
+ VITIS_LOOP_53_1: for (int i = buffer_size; i >= 0; i--) {
 
 
   if ( (num & 1) == 0 ) {
@@ -1025,15 +1057,194 @@ char* longToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 
  return binaryBuffer;
 }
-# 99 "ECE418FinalProject/fullCode.c"
+
+
+
+
+
+void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], int numBlocks){
+
+
+
+ int newSizeBits = sizeBits+1;
+ int i = 0;
+
+ VITIS_LOOP_82_1: while(newSizeBits % 512 != 448){
+     newSizeBits++;
+ }
+
+
+
+ char paddedBuff[newSizeBits+64];
+
+
+ VITIS_LOOP_91_2: for(i = 0; i<sizeBits; i++){
+     paddedBuff[i] = binaryMessage[i];
+ }
+
+ printf("\n\n");
+ printf("copied message: %s\n", paddedBuff);
+ printf("\n\n");
+
+
+ paddedBuff[sizeBits] = '1';
+
+ VITIS_LOOP_102_3: for(i = sizeBits + 1; i < newSizeBits; i++){
+     paddedBuff[i] = '0';
+ }
+
+
+ const int BUFFER_SIZE = 65;
+ char messageLengthInBinary[BUFFER_SIZE];
+
+ messageLengthInBinary[BUFFER_SIZE-1] = '\0';
+ numToBinary(sizeBits, messageLengthInBinary, BUFFER_SIZE-1);
+
+
+ VITIS_LOOP_114_4: for (i = 0; i < 64; i++) {
+  paddedBuff[newSizeBits+i] = messageLengthInBinary[i];
+ }
+
+ printf("\n\n");
+ printf("everything padded: %s\n", paddedBuff);
+ printf("\n\n");
+
+
+ printf("\n\n");
+ VITIS_LOOP_124_5: for (int k = 0; k < numBlocks; k++) {
+  VITIS_LOOP_125_6: for (int j = 0; j < blockSize; j++) {
+   messageBlocks[k][j] = paddedBuff[ (k * blockSize) + j];
+  }
+
+  messageBlocks[k][blockSize] = '\0';
+ }
+ printf("\n\n");
+
+}
+
+int binaryToInt(char* binaryString) {
+
+
+    char* temp = &binaryString[0];
+
+    int val = 0;
+
+    VITIS_LOOP_142_1: while (*temp != '\0')
+    {
+
+        val <<= 1;
+
+        if (*temp == '1') {
+
+            val += 1;
+        }
+
+        temp++;
+    }
+
+    return val;
+}
+
+
+int rotateRightint(int x, int n) {
+    return (x >> n % 32) | (x << (32-n) % 32);
+}
+
+
+
+
+void createMessageSchedule(char messageBlock[blockSize+1], int messageSchedule[]) {
+
+ int j = 0;
+
+ char splitBlock[wordSize+1];
+
+ VITIS_LOOP_172_1: for (int i = 0; i < numWords; i++) {
+  VITIS_LOOP_173_2: for (j = 0; j < wordSize; j++) {
+   splitBlock[j] = messageBlock[wordSize * i + j];
+  }
+
+  splitBlock[wordSize] = '\0';
+  printf("\nsplit block %d %s\n", i, splitBlock);
+
+  messageSchedule[i] = binaryToInt(splitBlock);
+ }
+
+
+  for (i = 16; i < 64; i++) {
+   messageSchedule[i] = 0;
+  }
+
+
+  int s0 = 0;
+  int s1 = 0;
+  for (i = 16; i < 64; i++) {
+   s0 = rotateRightint(messageSchedule[i-15], 7) ^ rotateRightint(messageSchedule[i-15], 18) ^ (messageSchedule[i-15] >> 3);
+   s1 = rotateRightint(messageSchedule[i-2], 17) ^ rotateRightint(messageSchedule[i-2], 19) ^ (messageSchedule[i-2] >> 10);
+   messageSchedule[i] = messageSchedule[i-16] + s0 + messageSchedule[i-7] + s1;
+  }
+
+  printf("\n");
+  for (i = 0; i < 64; i++) {
+   printf("WORD %d %d\n", i, messageSchedule[i]);
+  }
+}
+
 __attribute__((sdx_kernel("main", 0))) int main() {
 #pragma HLS TOP name=main
-# 99 "ECE418FinalProject/fullCode.c"
+# 203 "ECE418FinalProject/fullCode.c"
 
- char* message = "00000011";
+
+
+
+ char* message = "0110100001100101011011000110110001101111001000000111011101101111011100100110110001100100";
+
  int messageLength = getStringLength(message);
 
 
-    return 0;
+ int numBlocksNeeded = 0;
 
+ int leastPaddedMessageLength = messageLength + 65;
+
+
+ if (leastPaddedMessageLength % 512 == 0) {
+  numBlocksNeeded = leastPaddedMessageLength / 512;
+ } else {
+
+  numBlocksNeeded = leastPaddedMessageLength / 512 + 1;
+ }
+
+
+ char messageBlocks[numBlocksNeeded][blockSize+1];
+
+
+ pad(message, messageLength, messageBlocks, numBlocksNeeded);
+
+
+ printf("\n\n");
+ VITIS_LOOP_232_1: for (int i = 0; i < numBlocksNeeded; i++) {
+  printf("\n\n");
+   printf ("block %d: %s\n", i, messageBlocks[i]);
+ }
+ printf("\n\n");
+
+
+
+    int messageSchedule[numWords + 48];
+ createMessageSchedule(messageBlocks[0], messageSchedule);
+
+
+
+ printf("\nMESSAGE SCHEDULE\n");
+
+
+ const int BUFFER_SIZE0 = 33;
+ char messageLengthInBinary0[BUFFER_SIZE0];
+
+ messageLengthInBinary0[BUFFER_SIZE0-1] = '\0';
+ for (i = 0; i < 64; i++) {
+  numToBinary(messageSchedule[i], messageLengthInBinary0, BUFFER_SIZE0-1);
+  printf("\nMESSAGE\n %d", messageSchedule[i]);
+ }
+    return 0;
 }

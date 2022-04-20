@@ -6,7 +6,7 @@
 open_project ECE418FinalProject
 set_top main
 add_files ECE418FinalProject/fullCode.c
-add_files -tb ECE418FinalProject/fullCode.c
+add_files -tb ECE418FinalProject/fullCode.c -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "solution1" -flow_target vivado
 set_part {xc7a100t-csg324-1}
 create_clock -period 10 -name default

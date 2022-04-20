@@ -347,3 +347,288 @@ INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
 INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 13.277 seconds; current allocated memory: 162.444 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 6.514 seconds; current allocated memory: 162.494 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 11.05 seconds; current allocated memory: 162.460 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 6.486 seconds; current allocated memory: 162.494 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 10.969 seconds; current allocated memory: 162.460 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 11.416 seconds; current allocated memory: 162.460 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 11.033 seconds; current allocated memory: 162.460 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 13.492 seconds; current allocated memory: 162.460 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 10.83 seconds; current allocated memory: 162.460 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.142 seconds; current allocated memory: 162.330 MB.
+INFO: [HLS 200-10] Analyzing design file 'ECE418FinalProject/fullCode.c' ... 
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:184
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:184
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:184
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:185
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:191
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:191
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:191
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:192
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:192
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:192
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:193
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:193
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:193
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:194
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:194
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:194
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:198
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:198
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:198
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:199
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:199
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 2.783 seconds; current allocated memory: 164.030 MB.
+INFO: [HLS 200-112] Total CPU user time: 5 seconds. Total CPU system time: 3 seconds. Total elapsed time: 7.727 seconds; peak allocated memory: 163.709 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 11.194 seconds; current allocated memory: 162.460 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 12.219 seconds; current allocated memory: 162.460 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 13.593 seconds; current allocated memory: 162.460 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -setup -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim file generation done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 14.345 seconds; current allocated memory: 162.411 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.165 seconds; current allocated memory: 162.331 MB.
+INFO: [HLS 200-10] Analyzing design file 'ECE418FinalProject/fullCode.c' ... 
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:184
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:184
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:184
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:185
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:191
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:191
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:191
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:192
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:192
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:192
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:193
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:193
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:193
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:194
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:194
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:194
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:198
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:198
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:198
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:199
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:199
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:252
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:252
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:252
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:253
+ERROR: [HLS 214-124] use of undeclared identifier 'i': C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c:254
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.771 seconds; current allocated memory: 164.060 MB.
+INFO: [HLS 200-112] Total CPU user time: 5 seconds. Total CPU system time: 3 seconds. Total elapsed time: 7.485 seconds; peak allocated memory: 163.739 MB.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: set_directive_top -name main main 
+INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 12.617 seconds; current allocated memory: 162.460 MB.
