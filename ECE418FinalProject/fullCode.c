@@ -46,7 +46,7 @@ int getStringLength(char* str) {
 	return strLength;
 }
 //Rotate right function
-unsigned rotateRight(unsigned x, unsigned n) {
+int rotateRightint x, int n) {
     return (x >> n % 32) | (x << (32-n) % 32);
 }
 // converts a given long to a binary string
