@@ -160,17 +160,17 @@ int binaryToInt(char* binaryString) {
 void createMessageSchedule(char messageBlock[blockSize+1], int messageSchedule[]) {
 
 	// block will be split into 16 words with 32 bits and a null char
-	char splitBlock[numWords][wordSize+1];
+	char splitBlock[wordSize+1];
 	// filling temporary buffers for 32 bit strings
 	for (int i = 0; i < numWords; i++) {
 		for (int j = 0; j < wordSize; j++) {
-			splitBlock[i][j] = messageBlock[wordSize * i + j];
+			splitBlock[j] = messageBlock[wordSize * i + j];
 		}
 		// appending null char to end of each 32 bit string
-		splitBlock[i][wordSize] = '\0';
-		printf("\nsplit block %s\n", splitBlock[i]);
+		splitBlock[wordSize] = '\0';
+		printf("\nsplit block %s\n", splitBlock);
 		// converting each 32 bit string into int
-		messageSchedule[i] = binaryToInt(splitBlock[i]);
+		messageSchedule[i] = binaryToInt(splitBlock);
 		printf("word %d %d\n", i, messageSchedule[i]);
 
 		// continue the rest of computation for the message schedule...
