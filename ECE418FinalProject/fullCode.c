@@ -259,16 +259,6 @@ void compression(int messageSchedule[]) {
 	}
 }
 
-/*
- * function for appending the final hash values
- * what will the final hash look like?
- * 	binary or hex
- * 
-void appendHashPieces() {
-
-}
-*/
-
 int main() {
 
 	int i = 0;
@@ -327,6 +317,9 @@ int main() {
 
 	// running the compression for the function
 	compression(messageSchedule);
+
+	// hash from the first round
+	printf("\n%X%X%X%X%X%X%X%X\n", hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7]);
 
 	/*
 	 * reinitializing hash values for second loop
