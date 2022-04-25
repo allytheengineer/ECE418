@@ -76,7 +76,7 @@ char* numToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], int numBlocks){
 
 	//+1 is added to avoid issues involving edge cases before padding is added and after the
-	//'1' separator is added 
+	//'1' separator is added
 	int newSizeBits = sizeBits+1; 
 	int i = 0;
 	// makes newSizeBits the size needed to have exactly 64 remaining spots for the size 
@@ -129,8 +129,6 @@ void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], i
 		// appending null char to each block
 		messageBlocks[k][blockSize] = '\0';
 	}
-	printf("\n\n");	
-
 }
 
 int binaryToInt(char* binaryString) {
@@ -241,98 +239,119 @@ void compression(int messageSchedule[]) {
 	int maj = 0;
 
 	// loop for the compression algorithm
-	for (i = 0; i < 64; i++) {
-		S1 = rotateRightint(e, 6) ^ rotateRightint(e, 11) ^ rotateRightint(e, 25);
-		ch = choice(e, f, g);
-		temp1 = h + S1 + ch + constants[i] + messageSchedule[i];
-		S0 = rotateRightint(a, 2) ^ rotateRightint(a, 13) ^ rotateRightint(a, 22);
-		maj = majority(a, b, c);
-		temp2 = S0 + maj;
-		h = g;
-		g = f;
-		f = e;
-		e = d + temp1;
-		d = c;
-		c = b;
-		b = a;
-		a = temp1 + temp2;
-	}
+    for(int k = 0; k < 4; k++){     //added by addison
+
+        for (i = 0; i < 64; i++) {
+            S1 = rotateRightint(e, 6) ^ rotateRightint(e, 11) ^ rotateRightint(e, 25);
+            ch = choice(e, f, g);
+            temp1 = h + S1 + ch + constants[i] + messageSchedule[i];
+            S0 = rotateRightint(a, 2) ^ rotateRightint(a, 13) ^ rotateRightint(a, 22);
+            maj = majority(a, b, c);
+            temp2 = S0 + maj;
+            h = g;
+            g = f;
+            f = e;
+            e = d + temp1;
+            d = c;
+            c = b;
+            b = a;
+            a = temp1 + temp2;
+        }
+            hash[0] += a;
+            hash[1] += b;
+            hash[2] += c;
+            hash[3] += d;
+            hash[4] += e;
+            hash[5] += f;
+            hash[6] += g;
+            hash[7] += h;
+    }
+
 }
 
-int main() {
+//was in main and looked messy so moved to own function... also can help for testing not having to call main
+void prep(char* message){
+    int i = 0;
+    // getting the length of the binary string
+    int messageLength = getStringLength(message);
 
-	int i = 0;
+    // finding out how many 512-bit message blocks will be needed
+    int numBlocksNeeded = 0;
+    // least length of a message after padding a 1 and the message length
+    int leastPaddedMessageLength = messageLength + 65;
 
-	// test input message
-	// char* message = "1101010101010101011010011110001001010001100110101010011001100110011001100110011001101010101010010101010101001001010010010100101010100101001010001010100101010101010101010100010001101111101011011100101010101010101001010101010100101010010101010111111111111101010101010101011010011110001001010001100110101010011001100110011001100110011001101010101010010101010101001001010010010100101010100101001010001010100101010101010101010100010001101111101011011100101010101010101001010101010100101010010101010111111111111010101010101010110100111100010010100011001101010100110011001100110011001100110011010101010100101010101010010010100100101001010101001010010100010101001010101010101010101000100011011111010110111001010101010101010010101010101001010100101010101111111111110000000000000011111111111111110000000000000011111111111101010000000000000001111111111111000000000000000111111111111100000000000000111111111111110000000000000011111111111111111111111111101010101010101010101010101010100000000000000000111111111111111100000000000000011111111111111111000000000000000011111111111111111000000000000001111111111111110000000000000001111111111111100000000000010101010101010101010101001010101011111111111111100000000000000000111111111111111000000000000001111111111111111001010000000000000000000011111111111111110000000000000000111111111111110000000000000000101010100000000000000111111111111111000000000000000111111111111100000000000001010100000000000000000011111111111111111100000000000000000011111111101010101010010101010101010101111";
-	//char* message = "110101010100010010100011001101010100110011001100110011001100110011010101010100101010101010010010100100101001010101001010010100010101001010101010101010101000100011011111010110111001010101010101010010101010101001010100101010101111111111111010101010101010110100111100010010100011001101010100110011001100110011001100110011010101010100101010101010010010100100101001010101001010010100010101001010101010101010101000100011011111010110111001010101010101010010101010101001010100101010101111111111110101010101010101101001111000100101000110011010101001100110011001100110011001100110101010101001010101010100100101001001010010101010010100101000101010010101010101010101010001000110111110101101110010101010101010100101010101010010101001010101011111111111100000000000000111111111111111100000000000000111111111111010100000000000000011111111111110000000000000001111111111111000000000000001111111111111100000000000000111111111111111111111111111010101010101010101010101010101000000000000000001111111111111111000000000000000111111111111111110000000000000000111111111111111110000000000000011111111111111100000000000000011111111111111000000000000101010101010101010101010010101010111111111111111000000000000000001111111111111110000000000000011111111111111110010100000000000000000000111111111111111100000000000000001111111111111100000000000000001010101000000000000001111111111111110000000000000001111111111111000000000000010101000000000000000000111111111111111111000000000000000000111111111010101010100101010101010101011111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010111101001";
-	char* message = "0110100001100101011011000110110001101111001000000111011101101111011100100110110001100100";
-	// getting the length of the binary string
-	int messageLength = getStringLength(message);
+    // last block is 447 bits - will pad to 512 exactly
+    if (leastPaddedMessageLength % 512 == 0) {
+        numBlocksNeeded = leastPaddedMessageLength / 512;
+    } else {
+        // adding one for integer division
+        numBlocksNeeded = leastPaddedMessageLength / 512 + 1;
+    }
 
-	// finding out how many 512-bit message blocks will be needed
-	int numBlocksNeeded = 0;	
-	// least length of a message after padding a 1 and the message length 
-	int leastPaddedMessageLength = messageLength + 65;
+    // creating the array of strings for the message blocks
+    char messageBlocks[numBlocksNeeded][blockSize+1];
 
-	// last block is 447 bits - will pad to 512 exactly
-	if (leastPaddedMessageLength % 512 == 0) {
-		numBlocksNeeded = leastPaddedMessageLength / 512;
-	} else {
- 		// adding one for integer division
-		numBlocksNeeded = leastPaddedMessageLength / 512 + 1;
-	}
+    // padding the message and getting the message blocks
+    pad(message, messageLength, messageBlocks, numBlocksNeeded);
 
-	// creating the array of strings for the message blocks
-	char messageBlocks[numBlocksNeeded][blockSize+1];
+    // printing all of the message blocks
+    printf("\n\n");
+    for (i = 0; i < numBlocksNeeded; i++) {
+        printf("\n\n");
+        printf ("block %d: %s\n", i, messageBlocks[i]);
+    }
+    printf("\n\n");
 
-	// padding the message and getting the message blocks
-	pad(message, messageLength, messageBlocks, numBlocksNeeded);
-
-	// printing all of the message blocks
-	printf("\n\n");
-	for (i = 0; i < numBlocksNeeded; i++) {
-		printf("\n\n");
- 		printf ("block %d: %s\n", i, messageBlocks[i]);
-	}	
-	printf("\n\n");
-
-	// creating int array for message schedule
-	// adding 48 words to complete the message schedule
+    // creating int array for message schedule
+    // adding 48 words to complete the message schedule
     int messageSchedule[numWords + 48];
-	createMessageSchedule(messageBlocks[0], messageSchedule);
+    createMessageSchedule(messageBlocks[0], messageSchedule);
 
-	/* 
-	 * should print all words correctly - double check this vs a corect example
-	for (i = 0; i < numWords + 48; i++) {
-		const int BUFFER_SIZE = 33;
-		char wordInBinary[BUFFER_SIZE];
-		// string ends with null char
-		wordInBinary[BUFFER_SIZE-1] = '\0';
-		numToBinary(messageSchedule[i], wordInBinary, BUFFER_SIZE-1);	
-		// prints correct words here... do we need to fix this in main()?
-		printf("%s\n", wordInBinary);
-	}
-	*/
 
-	// running the compression for the function
-	compression(messageSchedule);
+    //* should print all words correctly - double check this vs a corect example
+    /*
+    for (i = 0; i < numWords + 48; i++) {
+        const int BUFFER_SIZE = 33;
+        char wordInBinary[BUFFER_SIZE];
+        // string ends with null char
+        wordInBinary[BUFFER_SIZE-1] = '\0';
+        numToBinary(messageSchedule[i], wordInBinary, BUFFER_SIZE-1);
+        // prints correct words here... do we need to fix this in main()?
+        printf("%s\n", wordInBinary);
+    }
+    */
 
-	// hash from the first round
-	printf("\n%X%X%X%X%X%X%X%X\n", hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7]);
+    // running the compression for the function
+    compression(messageSchedule);
 
-	/*
-	 * reinitializing hash values for second loop
-	h[0] = h[0] + a;
-	h[1] = h[1] + b;
-	h[2] = h[2] + c;
-	h[3] = h[3] + d;
-	h[4] = h[4] + e;
-	h[5] = h[5] + f;
-	h[6] = h[6] + g;
-	h[7] = h[7] + h;
-	*/
+    // hash from the first round
+    printf("\n%X%X%X%X%X%X%X%X\n", hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7]);
 
+
+    //Addison added this in the 4x for loop in compression
+    /*
+     * reinitializing hash values for second loop
+    h[0] = h[0] + a;
+    h[1] = h[1] + b;
+    h[2] = h[2] + c;
+    h[3] = h[3] + d;
+    h[4] = h[4] + e;
+    h[5] = h[5] + f;
+    h[6] = h[6] + g;
+    h[7] = h[7] + h;
+    */
+
+
+}
+int main() {
+    //Test messages
+    //cross check with this site. All constants are the same as our program: https://www.movable-type.co.uk/scripts/sha256.html
+    char* message = "011000010110001001100011";     //abc
+    //char* message = "01101001011101000010000001110111011011110111001001101011011001010110010000001010";       //it worked
+    //char* message = "011010000110010101101100011011000110111100100000011101110110111101110010011011000110010000001010";     //hello world
+
+    //pushes message to prep aka the function
+	prep(message);
     return 0;
 }
 
