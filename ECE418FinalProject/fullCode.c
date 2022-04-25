@@ -239,7 +239,6 @@ void compression(int messageSchedule[]) {
 	int maj = 0;
 
 	// loop for the compression algorithm
-    for(int k = 0; k < 4; k++){     //added by addison
 
         for (i = 0; i < 64; i++) {
             S1 = rotateRightint(e, 6) ^ rotateRightint(e, 11) ^ rotateRightint(e, 25);
@@ -257,15 +256,6 @@ void compression(int messageSchedule[]) {
             b = a;
             a = temp1 + temp2;
         }
-            hash[0] += a;
-            hash[1] += b;
-            hash[2] += c;
-            hash[3] += d;
-            hash[4] += e;
-            hash[5] += f;
-            hash[6] += g;
-            hash[7] += h;
-    }
 
 }
 
@@ -339,6 +329,17 @@ void prep(char* message){
     h[5] = h[5] + f;
     h[6] = h[6] + g;
     h[7] = h[7] + h;
+
+
+     use this instead
+            hash[0] += a;
+            hash[1] += b;
+            hash[2] += c;
+            hash[3] += d;
+            hash[4] += e;
+            hash[5] += f;
+            hash[6] += g;
+            hash[7] += h;
     */
 
 
