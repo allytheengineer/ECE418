@@ -286,9 +286,9 @@ void prep(char* message){
 
     // creating int array for message schedule
     // adding 48 words to complete the message schedule
-    for(i =0; i< numBlocksNeeded; i++) {
+    for(int j =0; j< numBlocksNeeded; j++) {
         unsigned int messageSchedule[numWords + 48];
-        createMessageSchedule(messageBlocks[i], messageSchedule);
+        createMessageSchedule(messageBlocks[j], messageSchedule);
 
 
         //* should print all words correctly - double check this vs a corect example
@@ -315,10 +315,10 @@ void prep(char* message){
         hash[5] += f;
         hash[6] += g;
         hash[7] += h;
-
+    printf("Hash %d: %X%X%X%X%X%X%X%X\n",j, hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7]);
     }
     // hash from the first round
-    printf("\n%X%X%X%X%X%X%X%X\n", hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7]);
+    //printf("\n%X%X%X%X%X%X%X%X\n", hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7]);
 
 
 
@@ -330,7 +330,7 @@ int main() {
     //cross check with this site. All constants are the same as our program: https://www.movable-type.co.uk/scripts/sha256.html
     //char* message = "011000010110001001100011";     //abc
     //
-    char* message = "01101001011101000010000001110111011011110111001001101011011001010110010000001010";       //it worked
+    char* message = "011010010111010000100000011101110110111101110010011010110110010101100100";       //it worked
     //char* message = "0110100001100101011011000110110001101111001000000111011101101111011100100110110001100100";     //hello world
     //char* message = "0110100001101001"; //hi
     //pushes message to prep aka the function
