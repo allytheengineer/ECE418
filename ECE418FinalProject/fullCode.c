@@ -123,12 +123,12 @@ void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], i
 	}
 }
 
-int binaryToInt(char* binaryString) {
+unsigned int binaryToInt(char* binaryString) {
 
     // pointer at start of binary string
     char* temp = &binaryString[0];
 	// int value to return
-    int val = 0;
+    unsigned int val = 0;
 	// while there are still characters in string
     while (*temp != '\0')
     {
@@ -147,14 +147,14 @@ int binaryToInt(char* binaryString) {
 }
 
 //Rotate right function
-int rotateRightint(int x, int n) {
+unsigned int rotateRightint(unsigned int x, unsigned int n) {
     return (x >> n % 32) | (x << (32-n) % 32);
 }
 
 /*
  * function for taking a message block and turning it into words
  */
-void createMessageSchedule(char messageBlock[blockSize+1], int messageSchedule[]) {
+void createMessageSchedule(char messageBlock[blockSize+1], unsigned int messageSchedule[]) {
 
 	int j = 0;
 	int i = 0;
@@ -178,8 +178,8 @@ void createMessageSchedule(char messageBlock[blockSize+1], int messageSchedule[]
 		}
 
 		// continue the rest of computation for the message schedule
-		int s0 = 0;
-		int s1 = 0;
+		unsigned int s0 = 0;
+		unsigned int s1 = 0;
 		for (i = 16; i < 64; i++) {
 			s0 = rotateRightint(messageSchedule[i-15], 7) ^ rotateRightint(messageSchedule[i-15], 18) ^ (messageSchedule[i-15] >> 3);
 			s1 = rotateRightint(messageSchedule[i-2], 17) ^ rotateRightint(messageSchedule[i-2], 19) ^ (messageSchedule[i-2] >> 10);
@@ -200,15 +200,15 @@ void createMessageSchedule(char messageBlock[blockSize+1], int messageSchedule[]
 		}
 }
 
-int choice(int x, int y, int z) {
+unsigned int choice(unsigned int x, unsigned int y, unsigned int z) {
 	return (x & y) ^ ((~ x) & z);
 }
 
-int majority(int x, int y, int z) {
+unsigned int majority(unsigned int x, unsigned int y, unsigned int z) {
 	return (x & y) ^ (x & z) ^ (y & z);
 }
 
-void compression(int messageSchedule[]) {
+void compression(unsigned int messageSchedule[]) {
 
 
 	// initializing hash values
@@ -222,13 +222,13 @@ void compression(int messageSchedule[]) {
 	h = hash[7];
 
 	// variables needed for the loop
-	int i = 0;
-	int S0 = 0;
-	int S1 = 0;
-	int temp1 = 0;
-	int temp2 = 0;
-	int ch = 0;
-	int maj = 0;
+	unsigned int i = 0;
+	unsigned int S0 = 0;
+	unsigned int S1 = 0;
+	unsigned int temp1 = 0;
+	unsigned int temp2 = 0;
+	unsigned int ch = 0;
+	unsigned int maj = 0;
 
 	// loop for the compression algorithm
 
@@ -286,36 +286,37 @@ void prep(char* message){
 
     // creating int array for message schedule
     // adding 48 words to complete the message schedule
-    int messageSchedule[numWords + 48];
-    createMessageSchedule(messageBlocks[0], messageSchedule);
+    for(i =0; i< numBlocksNeeded; i++) {
+        unsigned int messageSchedule[numWords + 48];
+        createMessageSchedule(messageBlocks[i], messageSchedule);
 
 
-    //* should print all words correctly - double check this vs a corect example
-    /*
-    for (i = 0; i < numWords + 48; i++) {
-        const int BUFFER_SIZE = 33;
-        char wordInBinary[BUFFER_SIZE];
-        // string ends with null char
-        wordInBinary[BUFFER_SIZE-1] = '\0';
-        numToBinary(messageSchedule[i], wordInBinary, BUFFER_SIZE-1);
-        // prints correct words here... do we need to fix this in main()?
-        printf("%s\n", wordInBinary);
+        //* should print all words correctly - double check this vs a corect example
+
+        for (i = 0; i < numWords + 48; i++) {
+            const int BUFFER_SIZE = 33;
+            char wordInBinary[BUFFER_SIZE];
+            // string ends with null char
+            wordInBinary[BUFFER_SIZE-1] = '\0';
+            numToBinary(messageSchedule[i], wordInBinary, BUFFER_SIZE-1);
+            // prints correct words here... do we need to fix this in main()?
+            printf("%s\n", wordInBinary);
+        }
+
+
+        // running the compression for the function
+        compression(messageSchedule);
+
+        hash[0] += a;
+        hash[1] += b;
+        hash[2] += c;
+        hash[3] += d;
+        hash[4] += e;
+        hash[5] += f;
+        hash[6] += g;
+        hash[7] += h;
+
     }
-    */
-
-    // running the compression for the function
-    compression(messageSchedule);
-
-    hash[0] += a;
-    hash[1] += b;
-    hash[2] += c;
-    hash[3] += d;
-    hash[4] += e;
-    hash[5] += f;
-    hash[6] += g;
-    hash[7] += h;
-
-
     // hash from the first round
     printf("\n%X%X%X%X%X%X%X%X\n", hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7]);
 
@@ -324,17 +325,17 @@ void prep(char* message){
 
 }
 
-/*
 int main() {
     //Test messages
     //cross check with this site. All constants are the same as our program: https://www.movable-type.co.uk/scripts/sha256.html
-    char* message = "011000010110001001100011";     //abc
-    //char* message = "01101001011101000010000001110111011011110111001001101011011001010110010000001010";       //it worked
-    //char* message = "011010000110010101101100011011000110111100100000011101110110111101110010011011000110010000001010";     //hello world
-
+    //char* message = "011000010110001001100011";     //abc
+    //
+    char* message = "01101001011101000010000001110111011011110111001001101011011001010110010000001010";       //it worked
+    //char* message = "0110100001100101011011000110110001101111001000000111011101101111011100100110110001100100";     //hello world
+    //char* message = "0110100001101001"; //hi
     //pushes message to prep aka the function
 	prep(message);
     return 0;
 }
-*/
+
 

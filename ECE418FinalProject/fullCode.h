@@ -11,15 +11,15 @@ const int numWords = 16;
 const int wordSize = 32;
 
 // initializing all global hash values
-int hash[] = {0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19};
-int a = 0;
-int b = 0;
-int c = 0;
-int d = 0;
-int e = 0;
-int f = 0;
-int g = 0;
-int h = 0;
+unsigned int hash[] = {0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19};
+unsigned int a = 0;
+unsigned int b = 0;
+unsigned int c = 0;
+unsigned int d = 0;
+unsigned int e = 0;
+unsigned int f = 0;
+unsigned int g = 0;
+unsigned int h = 0;
 
 // initializing round constants
 int constants[] = {
@@ -35,12 +35,12 @@ int constants[] = {
 extern int getStringLength(char* str);
 extern char* numToBinary(unsigned long num, char* binaryBuffer, int buffer_size);
 extern void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], int numBlocks);
-extern int binaryToInt(char* binaryString);
-extern int rotateRightint(int x, int n);
-extern void createMessageSchedule(char messageBlock[blockSize+1], int messageSchedule[]);
-extern int choice(int x, int y, int z);
-extern int majority(int x, int y, int z);
-extern void compression(int messageSchedule[]);
+extern unsigned int binaryToInt(char* binaryString);
+extern unsigned int rotateRightint(unsigned int x, unsigned int n);
+extern void createMessageSchedule(char messageBlock[blockSize+1], unsigned int messageSchedule[]);
+extern unsigned int choice(unsigned int x, unsigned int y, unsigned int z);
+extern unsigned int majority(unsigned int x, unsigned int y, unsigned int z);
+extern void compression(unsigned int messageSchedule[]);
 extern void prep(char* message);
 
 #endif
