@@ -85,10 +85,6 @@ void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], i
 	    paddedBuff[i] = binaryMessage[i];
 	}	
 
-	printf("\n\n");
-	printf("copied message: %s\n", paddedBuff);
-	printf("\n\n");
-
 	// adds a trailing '1' after the message and before the padding of 0's
 	paddedBuff[sizeBits] = '1'; 
 	//pads the buffer up until there are only 64 spots left for the length 
@@ -108,12 +104,7 @@ void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], i
 		paddedBuff[newSizeBits+i] = messageLengthInBinary[i];
 	}
 
-	printf("\n\n");
-	printf("everything padded: %s\n", paddedBuff);
-	printf("\n\n");
-
 	// splitting the string into blocks of 512 bits and null char
-	printf("\n\n");
 	for (int k = 0; k < numBlocks; k++) {
 		for (int j = 0; j < blockSize; j++) {
 			messageBlocks[k][j] = paddedBuff[ (k * blockSize) + j];
@@ -167,7 +158,6 @@ void createMessageSchedule(char messageBlock[blockSize+1], unsigned int messageS
 		}
 		// appending null char to end of each 32 bit string
 		splitBlock[wordSize] = '\0';
-		printf("\nsplit block %d %s\n", i, splitBlock);
 		// converting each 32 bit string into int
 		messageSchedule[i] = binaryToInt(splitBlock);
 	}
@@ -187,17 +177,6 @@ void createMessageSchedule(char messageBlock[blockSize+1], unsigned int messageS
 			messageSchedule[i] = (messageSchedule[i-16] + s0 + messageSchedule[i-7] + s1) % 4294967296;
 		}
 
-		printf("\n");
-		for (i = 0; i < 64; i++) {
-			printf("WORD %d %d\n", i, messageSchedule[i]);
-
-			const int BUFFER_SIZE = 33;
-			char wordInBinary[BUFFER_SIZE];
-			// string ends with null char
-			wordInBinary[BUFFER_SIZE-1] = '\0';
-			numToBinary(messageSchedule[i], wordInBinary, BUFFER_SIZE-1);	
-			printf("%s\n", wordInBinary);
-		}
 }
 
 unsigned int choice(unsigned int x, unsigned int y, unsigned int z) {
@@ -275,15 +254,6 @@ void prep(char* message){
 
     // padding the message and getting the message blocks
     pad(message, messageLength, messageBlocks, numBlocksNeeded);
-
-    // printing all of the message blocks
-    printf("\n\n");
-    for (i = 0; i < numBlocksNeeded; i++) {
-        printf("\n\n");
-        printf ("block %d: %s\n", i, messageBlocks[i]);
-    }
-    printf("\n\n");
-
     // creating int array for message schedule
     // adding 48 words to complete the message schedule
     for(int j =0; j< numBlocksNeeded; j++) {
@@ -292,16 +262,6 @@ void prep(char* message){
 
 
         //* should print all words correctly - double check this vs a corect example
-
-        for (i = 0; i < numWords + 48; i++) {
-            const int BUFFER_SIZE = 33;
-            char wordInBinary[BUFFER_SIZE];
-            // string ends with null char
-            wordInBinary[BUFFER_SIZE-1] = '\0';
-            numToBinary(messageSchedule[i], wordInBinary, BUFFER_SIZE-1);
-            // prints correct words here... do we need to fix this in main()?
-            printf("%s\n", wordInBinary);
-        }
 
 
         // running the compression for the function
@@ -315,10 +275,9 @@ void prep(char* message){
         hash[5] += f;
         hash[6] += g;
         hash[7] += h;
-    printf("Hash %d: %X%X%X%X%X%X%X%X\n",j, hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7]);
     }
     // hash from the first round
-    //printf("\n%X%X%X%X%X%X%X%X\n", hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7]);
+    printf("\n%X%X%X%X%X%X%X%X\n", hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7]);
 
 
 
@@ -340,7 +299,6 @@ int main() {
     //6 blocks 327 char
     char* message5 = "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.";
     char message5binary[getStringLength(message5)*8];
-
     //from the list above pick one message and its respective binary ie message# , message#binary
     prep(charToBinary(message5,message5binary));
 
