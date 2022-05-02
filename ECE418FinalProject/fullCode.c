@@ -1,4 +1,5 @@
 #include "fullCode.h"
+#define SF 64
 // function for getting the length of a string
 int getStringLength(char* str) {
 	// initializing string length
@@ -40,7 +41,7 @@ char* numToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 
 
 //input char array.. output is 8*length of input
-char* stringToBinary(char* input, char* output){
+char* charToBinary(char* input, char* output){
 
      int placeholder = 0;
     output[(getStringLength(input)*8)] = '\0';
@@ -105,8 +106,10 @@ unsigned int binaryToInt(char* binaryString) {
 	// int value to return
     unsigned int val = 0;
 	// while there are still characters in string
+	#pragma HLS DEPENDENCE variable=temp type=intra direction=RAW dependent=false
     while (*temp != '\0')
     {
+	#pragma HLS PIPELINE II=2
 		// left shift int value
         val <<= 1;
 		// if the string has a one...
@@ -154,7 +157,9 @@ void createMessageSchedule(char messageBlock[blockSize+1], unsigned int messageS
 		// continue the rest of computation for the message schedule
 		unsigned int s0 = 0;
 		unsigned int s1 = 0;
-		for (i = 16; i < 64; i++) {
+		#pragma HLS DEPENDENCE variable=i type=intra direction=RAW dependent=true
+		for (i = 16; i < SF; i++) {
+		#pragma HLS PIPELINE II=3
 			s0 = rotateRightint(messageSchedule[i-15], 7) ^ rotateRightint(messageSchedule[i-15], 18) ^ (messageSchedule[i-15] >> 3);
 			s1 = rotateRightint(messageSchedule[i-2], 17) ^ rotateRightint(messageSchedule[i-2], 19) ^ (messageSchedule[i-2] >> 10);
 			// generating the message schedule with modulus 2^32 to keep all words into 32 bits
@@ -191,8 +196,9 @@ void compression(unsigned int messageSchedule[]) {
 	unsigned int maj = 0;
 
 	// loop for the compression algorithm
-
-        for (i = 0; i < 64; i++) {
+	#pragma HLS DEPENDENCE variable=i type=intra direction=RAW dependent=true
+        for (i = 0; i < SF; i++) {
+	#pragma HLS PIPELINE II=2
             S1 = rotateRightint(e, 6) ^ rotateRightint(e, 11) ^ rotateRightint(e, 25);
             ch = choice(e, f, g);
             temp1 = h + S1 + ch + constants[i] + messageSchedule[i];
@@ -268,7 +274,7 @@ int main() {
     //Test messages
     //cross check with this site. All constants are the same as our program: https://www.movable-type.co.uk/scripts/sha256.html
     char* message1 = "abc";
-    char messagebinary[100000];
+    char messagebinary[32000];
     //BA7816BF8F01CFEA414140DE5DAE2223B00361A396177A9CB410FF61F20015AD
     char* message2 = "it worked";
      //EA86226D3A82DBDD4FB2F1929193B8961B5548DA7368417A92EC1EF08D0D3695
@@ -281,7 +287,7 @@ int main() {
     //a15c9ccfe5690dfca6fa8af361ba76afefc8c968240586e6f3d4812c7c0925ca
     //28 blocks 865 char
     char* message6 = "Our services allow users to add content in a number of different ways, including via direct messages and in smaller and larger communities. Some of these spaces are public, and if you share content within them, that content may be accessed by people you do not know. For example, some servers are available in the Server Discovery section of the app and do not require an invite link to join. Other server owners may publish their server invite link on public websites. Anyone can access these spaces. You should be aware that these permissions are set by server owners or admins, and they may change over time. Please understand the difference between posting in public and private spaces on Discord, and choose the right space, features, and settings for you and your content. To understand how we treat your personal information, see our Privacy Policy.";
-    prep(stringToBinary(message5,messagebinary));
+    prep(charToBinary(message5,messagebinary));
 
     return 0;
 }
