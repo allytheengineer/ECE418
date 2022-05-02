@@ -145,6 +145,7 @@ int main() {
 	printf("testing prep function: \n");
     char messagebinary[100000];
     char* message5 = "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.";
+    printf("Here is the message to hash: %s\n", message5);
     printf("running prep: \n");
     prep(stringToBinary(message5,messagebinary));
 
