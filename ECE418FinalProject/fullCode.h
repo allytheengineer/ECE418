@@ -34,7 +34,7 @@ int constants[] = {
 
 extern int getStringLength(char* str);
 extern char* numToBinary(unsigned long num, char* binaryBuffer, int buffer_size);
-extern void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], int numBlocks);
+extern int padv4(char* message,char messageBlocks[][513]);
 extern unsigned int binaryToInt(char* binaryString);
 extern unsigned int rotateRightint(unsigned int x, unsigned int n);
 extern void createMessageSchedule(char messageBlock[blockSize+1], unsigned int messageSchedule[]);
