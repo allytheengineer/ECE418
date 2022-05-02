@@ -78,7 +78,7 @@ void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], i
 	
 	// creating a buffer for the message and padding
 	// including the length of the message in bits
-	char paddedBuff[newSizeBits+64]; 
+	char paddedBuff[newSizeBits+64];
 
     // copies the message into the padded buffer 
 	for(i = 0; i<sizeBits; i++){
@@ -108,12 +108,131 @@ void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], i
 	for (int k = 0; k < numBlocks; k++) {
 		for (int j = 0; j < blockSize; j++) {
 			messageBlocks[k][j] = paddedBuff[ (k * blockSize) + j];
-		}	
+            printf("%c",paddedBuff[ (k * blockSize) + j]);
+		}
+        printf("\n");
 		// appending null char to each block
 		messageBlocks[k][blockSize] = '\0';
 	}
 }
 
+
+void padv2(char* message,char messageBlocks[][512]){
+    int blockCounter = 0;
+    int totalSize = getStringLength(message);
+    while((totalSize+64)%512 != 0){
+        totalSize++;
+    }
+    int i = 0;
+    printf("%s size: %d", message, getStringLength(message));
+    while(message[i] != '\0'){
+        if(i == 512){
+            blockCounter++;
+        }
+        messageBlocks[blockCounter][i%512] = message[i];
+        i++;
+    }
+    messageBlocks[blockCounter][getStringLength(message)] = '1';
+    i++;
+    while(i+64 != 512){
+        messageBlocks[blockCounter][i%512] = '0';
+        i++;
+    }
+
+    char messageLengthInBinary[65];
+    // string ends with null char
+    messageLengthInBinary[64] = '\0';
+    numToBinary(getStringLength(message), messageLengthInBinary, 64);
+
+    // appending the length of the initial string in binary
+    for (int j = 0; j < 64; j++) {
+        messageBlocks[blockCounter][j+i-1] = messageLengthInBinary[j];
+    }
+
+    int blk = 0;
+    printf("\n");
+    for(int f = 0; f < 2; f++){
+
+        printf("block: %d\n%s\n",f,messageBlocks[f]);
+    }
+
+}
+void padv3(char* message,char messageBlocks[][512]){
+    int sizeNeeded = getStringLength(message)+1;
+    while(sizeNeeded%512 !=448){
+        sizeNeeded++;
+    }
+    int blocksNeeded = 0;
+    blocksNeeded = (sizeNeeded/512)+1;   //may need to be changed
+    int iter = 0;
+    for(int i =0; i<blocksNeeded;i++){
+        for(int j = 0; j < 512; j++) {
+            if((i == blocksNeeded-1) && (iter == 447)){
+                char messageLengthInBinary[65];
+                numToBinary(getStringLength(message), messageLengthInBinary, 64);
+                // appending the length of the initial string in binary
+                for (int k = 0; k < 64; k++) {
+                    messageBlocks[i][j+k] = messageLengthInBinary[k];
+                }
+            }
+            else if (iter == getStringLength(message)) {
+                messageBlocks[i][j] = '1';
+            }
+            else if (iter < getStringLength(message)){
+                messageBlocks[i][j] = message[iter];
+
+            } else if( iter > getStringLength(message)){
+                messageBlocks[i][j] = '0';
+            }
+            iter++;
+        }
+
+    }
+    printf("\n");
+    for(int f = 0; f < 2; f++){
+
+        printf("block: %d\n%s\n",f,messageBlocks[f]);
+    }
+
+}
+
+//this one works do not mess with it.. it is ugly but whatever
+int padv4(char* message,char messageBlocks[][513]) {
+    //takes binary string and fills and pads messageBlocks. NO overflow protection implemented
+    int sizeNeeded = getStringLength(message) + 1;
+    while (sizeNeeded % 512 != 448) {
+        sizeNeeded++;
+    }
+    int blocksNeeded = 0;
+    blocksNeeded = (sizeNeeded / 512) + 1;
+    int iter = 0;
+    for(int i = 0; i< getStringLength(message); i ++){
+        messageBlocks[i/512][i%512] = message[iter];
+        iter++;
+    }
+    messageBlocks[iter/512][iter%512] = '1';
+    iter++;
+    while(iter % 512 != 447){
+        messageBlocks[iter/512][iter%512] = '0';
+        iter++;
+    }
+    //appends size to end of last block
+    char messageLengthInBinary2[65];
+    numToBinary(getStringLength(message), messageLengthInBinary2, 64);
+    // appending the length of the initial string in binary
+    for (int kt = 0; kt < 64; kt++) {
+        messageBlocks[blocksNeeded-1][448+kt] = messageLengthInBinary2[kt];
+    }
+    messageBlocks[blocksNeeded-1][512] = '\0';
+    // print for testing
+/*
+    printf("\n");
+    for(int f = 0; f < blocksNeeded; f++){
+        printf("block: %d\n%s\n",f,messageBlocks[f]);
+    }
+*/
+    return blocksNeeded;
+}
 unsigned int binaryToInt(char* binaryString) {
 
     // pointer at start of binary string
@@ -176,6 +295,7 @@ void createMessageSchedule(char messageBlock[blockSize+1], unsigned int messageS
 			// generating the message schedule with modulus 2^32 to keep all words into 32 bits
 			messageSchedule[i] = (messageSchedule[i-16] + s0 + messageSchedule[i-7] + s1) % 4294967296;
 		}
+
 
 }
 
@@ -250,18 +370,21 @@ void prep(char* message){
     }
 
     // creating the array of strings for the message blocks
-    char messageBlocks[numBlocksNeeded][blockSize+1];
+    char messageBlocks[128][513];
 
     // padding the message and getting the message blocks
-    pad(message, messageLength, messageBlocks, numBlocksNeeded);
+   // pad(message, messageLength, messageBlocks, numBlocksNeeded);
+   int blocksUsed = 0;
+    blocksUsed = padv4(message,messageBlocks);
+
     // creating int array for message schedule
     // adding 48 words to complete the message schedule
-    for(int j =0; j< numBlocksNeeded; j++) {
-        unsigned int messageSchedule[numWords + 48];
+    for(int j =0; j< blocksUsed; j++) {
+        unsigned int messageSchedule[64];
         createMessageSchedule(messageBlocks[j], messageSchedule);
 
 
-        //* should print all words correctly - double check this vs a corect example
+        //* should print all words correctly - double check this vs a correct example
 
 
         // running the compression for the function
@@ -288,19 +411,26 @@ int main() {
     //Test messages
     //cross check with this site. All constants are the same as our program: https://www.movable-type.co.uk/scripts/sha256.html
     char* message1 = "abc";
-    char message1binary[getStringLength(message1)*8];
+    char message1binary[3*8];
+    //BA7816BF8F01CFEA414140DE5DAE2223B00361A396177A9CB410FF61F20015AD
     char* message2 = "it worked";
     char message2binary[getStringLength(message2)*8];
+    //EA86226D3A82DBDD4FB2F1929193B8961B5548DA7368417A92EC1EF08D0D3695
     char* message3 = "hello world";
     char message3binary[getStringLength(message3)*8];
     //2 blocks 105 char
     char* message4 = "i am so stressed out from running my pet lizards instagram account i’m about to have a nervous breakdown";
-    char message4binary[getStringLength(message4)*8];
+    //c98b04d01b7f99c0c0f069fee7c7ca6dce15aa55e78a39241c34fbfb850e0006
+    char message4binary[105*8];
     //6 blocks 327 char
     char* message5 = "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.";
-    char message5binary[getStringLength(message5)*8];
+    char message5binary[327*8];
+    //a15c9ccfe5690dfca6fa8af361ba76afefc8c968240586e6f3d4812c7c0925ca
+    //28 blocks 865 char
+    char* message6 = "Our services allow users to add content in a number of different ways, including via direct messages and in smaller and larger communities. Some of these spaces are public, and if you share content within them, that content may be accessed by people you do not know. For example, some servers are available in the Server Discovery section of the app and do not require an invite link to join. Other server owners may publish their server invite link on public websites. Anyone can access these spaces. You should be aware that these permissions are set by server owners or admins, and they may change over time. Please understand the difference between posting in public and private spaces on Discord, and choose the right space, features, and settings for you and your content. To understand how we treat your personal information, see our Privacy Policy.";
+    char message6binary[getStringLength(message6)*8];
     //from the list above pick one message and its respective binary ie message# , message#binary
-    prep(charToBinary(message5,message5binary));
+    prep(charToBinary(message6,message6binary));
 
     return 0;
 }
