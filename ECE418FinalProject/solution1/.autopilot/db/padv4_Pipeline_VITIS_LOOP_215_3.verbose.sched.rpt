@@ -1,0 +1,171 @@
+
+
+================================================================
+== Vitis HLS Report for 'padv4_Pipeline_VITIS_LOOP_215_3'
+================================================================
+* Date:           Mon May  2 01:13:00 2022
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:48:09 MDT 2021)
+* Project:        ECE418FinalProject
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: artix7
+* Target device:  xc7a100t-csg324-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.722 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_215_3  |        ?|        ?|         3|          1|          1|     ?|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 5.72>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%iter = alloca i32 1"   --->   Operation 6 'alloca' 'iter' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%iter_0_lcssa_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %iter_0_lcssa"   --->   Operation 7 'read' 'iter_0_lcssa_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (1.61ns)   --->   "%store_ln0 = store i32 %iter_0_lcssa_read, i32 %iter"   --->   Operation 8 'store' 'store_ln0' <Predicate = true> <Delay = 1.61>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 9 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%iter_load = load i32 %iter"   --->   Operation 10 'load' 'iter_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node sub_ln215)   --->   "%empty = trunc i32 %iter_load"   --->   Operation 11 'trunc' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 12 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (2.70ns)   --->   "%iter_1 = add i32 %iter_load, i32 1" [ECE418FinalProject/fullCode.c:208]   --->   Operation 13 'add' 'iter_1' <Predicate = true> <Delay = 2.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.03> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%tmp = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %iter_1, i32 31" [ECE418FinalProject/fullCode.c:215]   --->   Operation 14 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%trunc_ln215 = trunc i32 %iter_1" [ECE418FinalProject/fullCode.c:215]   --->   Operation 15 'trunc' 'trunc_ln215' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%p_and_f7_cast = bitconcatenate i17 @_ssdm_op_BitConcatenate.i17.i8.i9, i8 0, i9 %trunc_ln215" [ECE418FinalProject/fullCode.c:215]   --->   Operation 16 'bitconcatenate' 'p_and_f7_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node sub_ln215)   --->   "%xor_ln215 = xor i9 %empty, i9 511" [ECE418FinalProject/fullCode.c:215]   --->   Operation 17 'xor' 'xor_ln215' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node sub_ln215)   --->   "%p_and_t9_cast = bitconcatenate i17 @_ssdm_op_BitConcatenate.i17.i8.i9, i8 0, i9 %xor_ln215" [ECE418FinalProject/fullCode.c:215]   --->   Operation 18 'bitconcatenate' 'p_and_t9_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (2.18ns) (out node of the LUT)   --->   "%sub_ln215 = sub i17 0, i17 %p_and_t9_cast" [ECE418FinalProject/fullCode.c:215]   --->   Operation 19 'sub' 'sub_ln215' <Predicate = true> <Delay = 2.18> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.03> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 20 [1/1] (1.31ns)   --->   "%select_ln215 = select i1 %tmp, i17 %sub_ln215, i17 %p_and_f7_cast" [ECE418FinalProject/fullCode.c:215]   --->   Operation 20 'select' 'select_ln215' <Predicate = true> <Delay = 1.31> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%trunc_ln215_1 = trunc i17 %select_ln215" [ECE418FinalProject/fullCode.c:215]   --->   Operation 21 'trunc' 'trunc_ln215_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (1.70ns)   --->   "%icmp_ln215 = icmp_eq  i10 %trunc_ln215_1, i10 447" [ECE418FinalProject/fullCode.c:215]   --->   Operation 22 'icmp' 'icmp_ln215' <Predicate = true> <Delay = 1.70> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%br_ln215 = br i1 %icmp_ln215, void, void %.preheader.preheader.exitStub" [ECE418FinalProject/fullCode.c:215]   --->   Operation 23 'br' 'br_ln215' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%empty_42 = trunc i32 %iter_load"   --->   Operation 24 'trunc' 'empty_42' <Predicate = (!icmp_ln215)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (2.14ns)   --->   "%add_ln208_1 = add i16 %empty_42, i16 1" [ECE418FinalProject/fullCode.c:208]   --->   Operation 25 'add' 'add_ln208_1' <Predicate = (!icmp_ln215)> <Delay = 2.14> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.03> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%trunc_ln216_1 = partselect i7 @_ssdm_op_PartSelect.i7.i32.i32.i32, i32 %iter_load, i32 9, i32 15" [ECE418FinalProject/fullCode.c:216]   --->   Operation 26 'partselect' 'trunc_ln216_1' <Predicate = (!icmp_ln215)> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (2.03ns)   --->   "%add_ln216 = add i7 %trunc_ln216_1, i7 1" [ECE418FinalProject/fullCode.c:216]   --->   Operation 27 'add' 'add_ln216' <Predicate = (!icmp_ln215)> <Delay = 2.03> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.03> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%trunc_ln216_2 = partselect i7 @_ssdm_op_PartSelect.i7.i16.i32.i32, i16 %add_ln208_1, i32 9, i32 15" [ECE418FinalProject/fullCode.c:216]   --->   Operation 28 'partselect' 'trunc_ln216_2' <Predicate = (!icmp_ln215)> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.99ns)   --->   "%select_ln216 = select i1 %tmp, i7 %add_ln216, i7 %trunc_ln216_2" [ECE418FinalProject/fullCode.c:216]   --->   Operation 29 'select' 'select_ln216' <Predicate = (!icmp_ln215)> <Delay = 0.99> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+
+State 2 <SV = 1> <Delay = 4.06>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%zext_ln216 = zext i7 %select_ln216" [ECE418FinalProject/fullCode.c:216]   --->   Operation 30 'zext' 'zext_ln216' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%tmp_s = bitconcatenate i16 @_ssdm_op_BitConcatenate.i16.i7.i9, i7 %select_ln216, i9 0" [ECE418FinalProject/fullCode.c:216]   --->   Operation 31 'bitconcatenate' 'tmp_s' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%zext_ln216_1 = zext i16 %tmp_s" [ECE418FinalProject/fullCode.c:216]   --->   Operation 32 'zext' 'zext_ln216_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln216_1 = add i17 %zext_ln216_1, i17 %zext_ln216" [ECE418FinalProject/fullCode.c:216]   --->   Operation 33 'add' 'add_ln216_1' <Predicate = true> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.03> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_2 : Operation 34 [1/1] (4.06ns) (root node of TernaryAdder)   --->   "%add_ln216_2 = add i17 %add_ln216_1, i17 %select_ln215" [ECE418FinalProject/fullCode.c:216]   --->   Operation 34 'add' 'add_ln216_2' <Predicate = true> <Delay = 4.06> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.03> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_2 : Operation 35 [1/1] (1.61ns)   --->   "%store_ln215 = store i32 %iter_1, i32 %iter" [ECE418FinalProject/fullCode.c:215]   --->   Operation 35 'store' 'store_ln215' <Predicate = true> <Delay = 1.61>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 41 'ret' 'ret_ln0' <Predicate = (icmp_ln215)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 3.25>
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%specloopname_ln216 = specloopname void @_ssdm_op_SpecLoopName, void @empty_1" [ECE418FinalProject/fullCode.c:216]   --->   Operation 36 'specloopname' 'specloopname_ln216' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%zext_ln216_2 = zext i17 %add_ln216_2" [ECE418FinalProject/fullCode.c:216]   --->   Operation 37 'zext' 'zext_ln216_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%messageBlocks_addr = getelementptr i5 %messageBlocks, i64 0, i64 %zext_ln216_2" [ECE418FinalProject/fullCode.c:216]   --->   Operation 38 'getelementptr' 'messageBlocks_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (3.25ns)   --->   "%store_ln216 = store i5 16, i17 %messageBlocks_addr" [ECE418FinalProject/fullCode.c:216]   --->   Operation 39 'store' 'store_ln216' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 5> <Depth = 65664> <RAM>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%br_ln215 = br void" [ECE418FinalProject/fullCode.c:215]   --->   Operation 40 'br' 'br_ln215' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 5.72ns
+The critical path consists of the following:
+	'alloca' operation ('iter') [3]  (0 ns)
+	'load' operation ('iter_load') on local variable 'iter' [8]  (0 ns)
+	'add' operation ('iter', ECE418FinalProject/fullCode.c:208) [11]  (2.7 ns)
+	'select' operation ('select_ln215', ECE418FinalProject/fullCode.c:215) [18]  (1.32 ns)
+	'icmp' operation ('icmp_ln215', ECE418FinalProject/fullCode.c:215) [20]  (1.7 ns)
+
+ <State 2>: 4.07ns
+The critical path consists of the following:
+	'add' operation ('add_ln216_1', ECE418FinalProject/fullCode.c:216) [33]  (0 ns)
+	'add' operation ('add_ln216_2', ECE418FinalProject/fullCode.c:216) [34]  (4.07 ns)
+
+ <State 3>: 3.26ns
+The critical path consists of the following:
+	'getelementptr' operation ('messageBlocks_addr', ECE418FinalProject/fullCode.c:216) [36]  (0 ns)
+	'store' operation ('store_ln216', ECE418FinalProject/fullCode.c:216) of constant 16 on array 'messageBlocks' [37]  (3.26 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

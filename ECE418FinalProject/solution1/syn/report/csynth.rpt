@@ -4,8 +4,8 @@
 == Synthesis Summary Report of 'main'
 ================================================================
 + General Information: 
-    * Date:           Fri Apr 15 15:38:24 2022
-    * Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:45 MST 2020)
+    * Date:           Mon May  2 01:13:09 2022
+    * Version:        2021.2 (Build 3367213 on Tue Oct 19 02:48:09 MDT 2021)
     * Project:        ECE418FinalProject
     * Solution:       solution1 (Vivado IP Flow Target)
     * Product family: artix7
@@ -15,10 +15,189 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +--------+------+-------+---------+--------+----------+---------+------+----------+------+----+---+----+-----+
-    | Modules| Issue|       | Latency | Latency| Iteration|         | Trip |          |      |    |   |    |     |
-    | & Loops| Type | Slack | (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP| FF| LUT| URAM|
-    +--------+------+-------+---------+--------+----------+---------+------+----------+------+----+---+----+-----+
-    |+ main  |     -|  -7.30|        0|   0.000|         -|        1|     -|        no|     -|   -|  -|   -|    -|
-    +--------+------+-------+---------+--------+----------+---------+------+----------+------+----+---+----+-----+
+    +--------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+----------+----+-----------+-----------+-----+
+    |                Modules               |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |          |    |           |           |     |
+    |                & Loops               |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|   BRAM   | DSP|     FF    |    LUT    | URAM|
+    +--------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+----------+----+-----------+-----------+-----+
+    |+ main                                |  Timing|  -0.84|        -|          -|         -|        -|     -|        no|  45 (16%)|   -|  2224 (1%)|  3900 (6%)|    -|
+    | + prep                               |  Timing|  -0.84|        -|          -|         -|        -|     -|        no|  45 (16%)|   -|  2155 (1%)|  3700 (5%)|    -|
+    |  + padv4                             |  Timing|  -0.84|        -|          -|         -|        -|     -|        no|   2 (~0%)|   -|  605 (~0%)|  1273 (2%)|    -|
+    |   + padv4_Pipeline_VITIS_LOOP_10_1   |       -|   2.13|        -|          -|         -|        -|     -|        no|         -|   -|  101 (~0%)|  184 (~0%)|    -|
+    |    o VITIS_LOOP_10_1                 |       -|   7.30|        -|          -|         2|        1|     -|       yes|         -|   -|          -|          -|    -|
+    |   + padv4_Pipeline_VITIS_LOOP_203_1  |       -|   0.77|        -|          -|         -|        -|     -|        no|         -|   -|   67 (~0%)|  158 (~0%)|    -|
+    |    o VITIS_LOOP_203_1                |       -|   7.30|        -|          -|         2|        1|     -|       yes|         -|   -|          -|          -|    -|
+    |   + padv4_Pipeline_VITIS_LOOP_209_2  |       -|   0.79|        -|          -|         -|        -|     -|        no|         -|   -|   51 (~0%)|  127 (~0%)|    -|
+    |    o VITIS_LOOP_209_2                |       -|   7.30|        -|          -|         2|        1|     -|       yes|         -|   -|          -|          -|    -|
+    |   + padv4_Pipeline_VITIS_LOOP_215_3  |       -|   1.58|        -|          -|         -|        -|     -|        no|         -|   -|  110 (~0%)|  220 (~0%)|    -|
+    |    o VITIS_LOOP_215_3                |       -|   7.30|        -|          -|         3|        1|     -|       yes|         -|   -|          -|          -|    -|
+    |   + padv4_Pipeline_VITIS_LOOP_223_4  |       -|   1.86|       66|    660.000|         -|       66|     -|        no|         -|   -|   22 (~0%)|  101 (~0%)|    -|
+    |    o VITIS_LOOP_223_4                |       -|   7.30|       64|    640.000|         2|        1|    64|       yes|         -|   -|          -|          -|    -|
+    |  o VITIS_LOOP_382_1                  |       -|   7.30|        -|          -|         -|        -|     -|        no|         -|   -|          -|          -|    -|
+    |   + prep_Pipeline_VITIS_LOOP_285_3   |       -|   2.58|       50|    500.000|         -|       50|     -|        no|         -|   -|    9 (~0%)|   52 (~0%)|    -|
+    |    o VITIS_LOOP_285_3                |       -|   7.30|       48|    480.000|         1|        1|    48|       yes|         -|   -|          -|          -|    -|
+    |   + prep_Pipeline_VITIS_LOOP_292_4   |       -|   1.34|      148|  1.480e+03|         -|      148|     -|        no|         -|   -|  162 (~0%)|  406 (~0%)|    -|
+    |    o VITIS_LOOP_292_4                |      II|   7.30|      146|  1.460e+03|         6|        3|    48|       yes|         -|   -|          -|          -|    -|
+    |   + prep_Pipeline_VITIS_LOOP_334_1   |       -|   0.19|       70|    700.000|         -|       70|     -|        no|   1 (~0%)|   -|  530 (~0%)|   800 (1%)|    -|
+    |    o VITIS_LOOP_334_1                |       -|   7.30|       68|    680.000|         5|        1|    64|       yes|         -|   -|          -|          -|    -|
+    |   o VITIS_LOOP_274_1                 |       -|   7.30|        -|          -|         -|        -|     -|        no|         -|   -|          -|          -|    -|
+    |    + prep_Pipeline_VITIS_LOOP_275_2  |       -|   1.86|       35|    350.000|         -|       35|     -|        no|         -|   -|   32 (~0%)|  102 (~0%)|    -|
+    |     o VITIS_LOOP_275_2               |       -|   7.30|       33|    330.000|         3|        1|    32|       yes|         -|   -|          -|          -|    -|
+    |    + prep_Pipeline_VITIS_LOOP_243_1  |       -|   1.29|        -|          -|         -|        -|     -|        no|         -|   -|   99 (~0%)|  170 (~0%)|    -|
+    |     o VITIS_LOOP_243_1               |      II|   7.30|        -|          -|         2|        2|     -|       yes|         -|   -|          -|          -|    -|
+    | o VITIS_LOOP_10_1                    |       -|   7.30|        -|          -|         1|        1|     -|       yes|         -|   -|          -|          -|    -|
+    +--------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+----------+----+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* REGISTER
++-----------+----------+
+| Interface | Bitwidth |
++-----------+----------+
+| ap_return | 32       |
++-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------+
+| Argument | Direction | Datatype |
++----------+-----------+----------+
+| return   | out       | int      |
++----------+-----------+----------+
+
+* SW-to-HW Mapping
++----------+--------------+---------+
+| Argument | HW Interface | HW Type |
++----------+--------------+---------+
+| return   | ap_return    | port    |
++----------+--------------+---------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+  No burst in design
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------------------+-----+--------+--------------+-----+--------+---------+
+| Name                                 | DSP | Pragma | Variable     | Op  | Impl   | Latency |
++--------------------------------------+-----+--------+--------------+-----+--------+---------+
+| + main                               | 0   |        |              |     |        |         |
+|   add_ln14_fu_64_p2                  | -   |        | add_ln14     | add | fabric | 0       |
+|   add_ln10_fu_75_p2                  | -   |        | add_ln10     | add | fabric | 0       |
+|  + prep                              | 0   |        |              |     |        |         |
+|    add_ln382_fu_372_p2               | -   |        | add_ln382    | add | fabric | 0       |
+|    add_ln276_1_fu_394_p2             | -   |        | add_ln276_1  | add | fabric | 0       |
+|    add_ln274_fu_406_p2               | -   |        | add_ln274    | add | fabric | 0       |
+|    add_ln393_fu_462_p2               | -   |        | add_ln393    | add | fabric | 0       |
+|    add_ln394_fu_467_p2               | -   |        | add_ln394    | add | fabric | 0       |
+|    add_ln395_fu_472_p2               | -   |        | add_ln395    | add | fabric | 0       |
+|    add_ln396_fu_477_p2               | -   |        | add_ln396    | add | fabric | 0       |
+|    add_ln397_fu_482_p2               | -   |        | add_ln397    | add | fabric | 0       |
+|    add_ln398_fu_487_p2               | -   |        | add_ln398    | add | fabric | 0       |
+|    add_ln399_fu_492_p2               | -   |        | add_ln399    | add | fabric | 0       |
+|    add_ln400_fu_497_p2               | -   |        | add_ln400    | add | fabric | 0       |
+|   + padv4                            | 0   |        |              |     |        |         |
+|     sub_ln207_fu_187_p2              | -   |        | sub_ln207    | sub | fabric | 0       |
+|     blocksNeeded_fu_219_p2           | -   |        | blocksNeeded | add | fabric | 0       |
+|     sub_ln213_fu_252_p2              | -   |        | sub_ln213    | sub | fabric | 0       |
+|     sub_ln213_1_fu_268_p2            | -   |        | sub_ln213_1  | sub | fabric | 0       |
+|     add_ln213_fu_362_p2              | -   |        | add_ln213    | add | tadder | 0       |
+|     sub_ln213_2_fu_300_p2            | -   |        | sub_ln213_2  | sub | fabric | 0       |
+|     sub_ln213_3_fu_314_p2            | -   |        | sub_ln213_3  | sub | fabric | 0       |
+|     add_ln213_1_fu_368_p2            | -   |        | add_ln213_1  | add | tadder | 0       |
+|     add_ln224_fu_342_p2              | -   |        | add_ln224    | add | fabric | 0       |
+|     add_ln226_fu_377_p2              | -   |        | add_ln226    | add | fabric | 0       |
+|    + padv4_Pipeline_VITIS_LOOP_10_1  | 0   |        |              |     |        |         |
+|      sizeNeeded_fu_91_p2             | -   |        | sizeNeeded   | add | fabric | 0       |
+|      add_ln14_fu_102_p2              | -   |        | add_ln14     | add | fabric | 0       |
+|    + padv4_Pipeline_VITIS_LOOP_203_1 | 0   |        |              |     |        |         |
+|      sub_ln203_fu_93_p2              | -   |        | sub_ln203    | sub | fabric | 0       |
+|      sub_ln203_1_fu_112_p2           | -   |        | sub_ln203_1  | sub | fabric | 0       |
+|      sizeNeeded_2_fu_140_p2          | -   |        | sizeNeeded_2 | add | fabric | 0       |
+|    + padv4_Pipeline_VITIS_LOOP_209_2 | 0   |        |              |     |        |         |
+|      iter_fu_95_p2                   | -   |        | iter         | add | fabric | 0       |
+|      add_ln210_fu_136_p2             | -   |        | add_ln210    | add | tadder | 0       |
+|      add_ln210_1_fu_146_p2           | -   |        | add_ln210_1  | add | tadder | 0       |
+|    + padv4_Pipeline_VITIS_LOOP_215_3 | 0   |        |              |     |        |         |
+|      iter_1_fu_90_p2                 | -   |        | iter_1       | add | fabric | 0       |
+|      sub_ln215_fu_130_p2             | -   |        | sub_ln215    | sub | fabric | 0       |
+|      add_ln208_1_fu_158_p2           | -   |        | add_ln208_1  | add | fabric | 0       |
+|      add_ln216_fu_174_p2             | -   |        | add_ln216    | add | fabric | 0       |
+|      add_ln216_1_fu_212_p2           | -   |        | add_ln216_1  | add | tadder | 0       |
+|      add_ln216_2_fu_218_p2           | -   |        | add_ln216_2  | add | tadder | 0       |
+|    + padv4_Pipeline_VITIS_LOOP_223_4 | 0   |        |              |     |        |         |
+|      add_ln223_fu_85_p2              | -   |        | add_ln223    | add | fabric | 0       |
+|      add_ln224_1_fu_114_p2           | -   |        | add_ln224_1  | add | fabric | 0       |
+|   + prep_Pipeline_VITIS_LOOP_275_2   | 0   |        |              |     |        |         |
+|     add_ln275_fu_95_p2               | -   |        | add_ln275    | add | fabric | 0       |
+|     add_ln276_fu_105_p2              | -   |        | add_ln276    | add | fabric | 0       |
+|     add_ln276_2_fu_119_p2            | -   |        | add_ln276_2  | add | fabric | 0       |
+|   + prep_Pipeline_VITIS_LOOP_285_3   | 0   |        |              |     |        |         |
+|     add_ln285_fu_65_p2               | -   |        | add_ln285    | add | fabric | 0       |
+|   + prep_Pipeline_VITIS_LOOP_243_1   | 0   |        |              |     |        |         |
+|     add_ln253_fu_78_p2               | -   |        | add_ln253    | add | fabric | 0       |
+|   + prep_Pipeline_VITIS_LOOP_292_4   | 0   |        |              |     |        |         |
+|     add_ln293_fu_141_p2              | -   |        | add_ln293    | add | fabric | 0       |
+|     add_ln294_fu_152_p2              | -   |        | add_ln294    | add | fabric | 0       |
+|     add_ln296_fu_314_p2              | -   |        | add_ln296    | add | fabric | 0       |
+|     add_ln296_1_fu_324_p2            | -   |        | add_ln296_1  | add | fabric | 0       |
+|     add_ln296_2_fu_340_p2            | -   |        | add_ln296_2  | add | tadder | 0       |
+|     add_ln296_3_fu_334_p2            | -   |        | add_ln296_3  | add | fabric | 0       |
+|     add_ln296_4_fu_344_p2            | -   |        | add_ln296_4  | add | tadder | 0       |
+|     add_ln292_fu_163_p2              | -   |        | add_ln292    | add | fabric | 0       |
+|   + prep_Pipeline_VITIS_LOOP_334_1   | 0   |        |              |     |        |         |
+|     add_ln334_fu_324_p2              | -   |        | add_ln334    | add | fabric | 0       |
+|     add_ln337_1_fu_465_p2            | -   |        | add_ln337_1  | add | tadder | 0       |
+|     add_ln337_fu_344_p2              | -   |        | add_ln337    | add | tadder | 0       |
+|     add_ln337_2_fu_348_p2            | -   |        | add_ln337_2  | add | tadder | 0       |
+|     temp1_fu_471_p2                  | -   |        | temp1        | add | tadder | 0       |
+|     add_ln344_fu_607_p2              | -   |        | add_ln344    | add | fabric | 0       |
+|     add_ln348_1_fu_612_p2            | -   |        | add_ln348_1  | add | tadder | 0       |
+|     add_ln348_fu_617_p2              | -   |        | add_ln348    | add | tadder | 0       |
++--------------------------------------+-----+--------+--------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++--------------------------------------+------+------+--------+------------------------+---------+------+---------+
+| Name                                 | BRAM | URAM | Pragma | Variable               | Storage | Impl | Latency |
++--------------------------------------+------+------+--------+------------------------+---------+------+---------+
+| + main                               | 45   | 0    |        |                        |         |      |         |
+|  + prep                              | 45   | 0    |        |                        |         |      |         |
+|    splitBlock_U                      | -    | -    |        | splitBlock             | ram_1p  | auto | 1       |
+|    messageBlocks_U                   | 40   | -    |        | messageBlocks          | ram_1p  | auto | 1       |
+|    messageSchedule_U                 | 2    | -    |        | messageSchedule        | ram_s2p | auto | 1       |
+|    hash_U                            | -    | -    |        | hash                   | ram_t2p | auto | 1       |
+|   + padv4                            | 2    | 0    |        |                        |         |      |         |
+|     message5binary_U                 | 2    | -    |        | message5binary         | rom_1p  | auto | 1       |
+|    + padv4_Pipeline_VITIS_LOOP_223_4 | 0    | 0    |        |                        |         |      |         |
+|      messageLengthInBinary2_U        | -    | -    |        | messageLengthInBinary2 | rom_1p  | auto | 1       |
+|   + prep_Pipeline_VITIS_LOOP_334_1   | 1    | 0    |        |                        |         |      |         |
+|     constants_U                      | 1    | -    |        | constants              | rom_1p  | auto | 1       |
++--------------------------------------+------+------+--------+------------------------+---------+------+---------+
+
+
+================================================================
+== User Pragma Report
+================================================================
+  No pragmas found
 

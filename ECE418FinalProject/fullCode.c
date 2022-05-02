@@ -410,27 +410,27 @@ void prep(char* message){
 int main() {
     //Test messages
     //cross check with this site. All constants are the same as our program: https://www.movable-type.co.uk/scripts/sha256.html
-    char* message1 = "abc";
-    char message1binary[3*8];
+    char* message1 = "abc\0";
+    char message1binary[25];
     //BA7816BF8F01CFEA414140DE5DAE2223B00361A396177A9CB410FF61F20015AD
-    char* message2 = "it worked";
+    char* message2 = "it worked\0";
     char message2binary[getStringLength(message2)*8];
     //EA86226D3A82DBDD4FB2F1929193B8961B5548DA7368417A92EC1EF08D0D3695
-    char* message3 = "hello world";
+    char* message3 = "hello world\0";
     char message3binary[getStringLength(message3)*8];
     //2 blocks 105 char
-    char* message4 = "i am so stressed out from running my pet lizards instagram account i’m about to have a nervous breakdown";
+    char* message4 = "i am so stressed out from running my pet lizards instagram account i’m about to have a nervous breakdown\0";
     //c98b04d01b7f99c0c0f069fee7c7ca6dce15aa55e78a39241c34fbfb850e0006
-    char message4binary[105*8];
+    char message4binary[(105*8)+1];
     //6 blocks 327 char
-    char* message5 = "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.";
-    char message5binary[327*8];
+    char* message5 = "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.\0";
+    char message5binary[(327*8)+1];
     //a15c9ccfe5690dfca6fa8af361ba76afefc8c968240586e6f3d4812c7c0925ca
     //28 blocks 865 char
-    char* message6 = "Our services allow users to add content in a number of different ways, including via direct messages and in smaller and larger communities. Some of these spaces are public, and if you share content within them, that content may be accessed by people you do not know. For example, some servers are available in the Server Discovery section of the app and do not require an invite link to join. Other server owners may publish their server invite link on public websites. Anyone can access these spaces. You should be aware that these permissions are set by server owners or admins, and they may change over time. Please understand the difference between posting in public and private spaces on Discord, and choose the right space, features, and settings for you and your content. To understand how we treat your personal information, see our Privacy Policy.";
+    char* message6 = "Our services allow users to add content in a number of different ways, including via direct messages and in smaller and larger communities. Some of these spaces are public, and if you share content within them, that content may be accessed by people you do not know. For example, some servers are available in the Server Discovery section of the app and do not require an invite link to join. Other server owners may publish their server invite link on public websites. Anyone can access these spaces. You should be aware that these permissions are set by server owners or admins, and they may change over time. Please understand the difference between posting in public and private spaces on Discord, and choose the right space, features, and settings for you and your content. To understand how we treat your personal information, see our Privacy Policy.\0";
     char message6binary[getStringLength(message6)*8];
     //from the list above pick one message and its respective binary ie message# , message#binary
-    prep(charToBinary(message6,message6binary));
+    prep(charToBinary(message5,message5binary));
 
     return 0;
 }

@@ -1,7 +1,7 @@
 <profile>
 
 <ReportVersion>
-<Version>2020.2</Version>
+<Version>2021.2</Version>
 </ReportVersion>
 
 <UserAssignments>
@@ -11,35 +11,47 @@
 <TopModelName>main</TopModelName>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>2.70</ClockUncertainty>
+<TargetInitiationInterval>4294967295</TargetInitiationInterval>
 <FlowTarget>vivado</FlowTarget>
 </UserAssignments>
 
 <PerformanceEstimates>
-<PipelineType>none</PipelineType>
+<PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>0.000</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.136</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>0</Best-caseLatency>
-<Average-caseLatency>0</Average-caseLatency>
-<Worst-caseLatency>0</Worst-caseLatency>
-<Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
-<Interval-min>1</Interval-min>
-<Interval-max>1</Interval-max>
+<Best-caseLatency>undef</Best-caseLatency>
+<Average-caseLatency>undef</Average-caseLatency>
+<Worst-caseLatency>undef</Worst-caseLatency>
+<Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+<Interval-min>undef</Interval-min>
+<Interval-max>undef</Interval-max>
 </SummaryOfOverallLatency>
+<SummaryOfLoopLatency>
+<VITIS_LOOP_10_1>
+<TripCount>undef</TripCount>
+<Latency>undef</Latency>
+<AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+<PipelineII>1</PipelineII>
+<PipelineDepth>1</PipelineDepth>
+<InstanceList>
+</InstanceList>
+</VITIS_LOOP_10_1>
+</SummaryOfLoopLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>0</BRAM_18K>
-<DSP>0</DSP>
-<FF>0</FF>
-<LUT>0</LUT>
+<BRAM_18K>45</BRAM_18K>
+<FF>2224</FF>
+<LUT>3900</LUT>
 <URAM>0</URAM>
+<DSP>0</DSP>
 </Resources>
 <AvailableResources>
 <BRAM_18K>270</BRAM_18K>
@@ -51,6 +63,50 @@
 </AreaEstimates>
 
 <InterfaceSummary>
+<RtlPorts>
+<name>ap_local_block</name>
+<Object>main</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>unknown</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_local_deadlock</name>
+<Object>main</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>unknown</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_clk</name>
+<Object>main</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_rst</name>
+<Object>main</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
 <RtlPorts>
 <name>ap_start</name>
 <Object>main</Object>

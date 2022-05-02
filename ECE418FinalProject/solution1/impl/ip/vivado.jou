@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Mon May  2 01:14:01 2022
+# Process ID: 19212
+# Current directory: C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/solution1/impl/ip
+# Command line: vivado.exe -notrace -mode batch -source run_ippack.tcl
+# Log file: C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/solution1/impl/ip/vivado.log
+# Journal file: C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/solution1/impl/ip\vivado.jou
+# Running On: Cloctavia, OS: Windows, CPU Frequency: 2712 MHz, CPU Physical cores: 4, Host memory: 34315 MB
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace

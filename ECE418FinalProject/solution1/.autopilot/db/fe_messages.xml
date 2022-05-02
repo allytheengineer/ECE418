@@ -1,0 +1,42 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="ECE418FinalProject/fullCode.c:411:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="main" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=main" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ECE418FinalProject/fullCode.c:43:0" msg_body="Inlining function 'getStringLength' into 'charToBinary'">
+        <args Callee="getStringLength" Caller="charToBinary"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ECE418FinalProject/fullCode.c:43:0" msg_body="Inlining function 'numToBinary' into 'charToBinary'">
+        <args Callee="numToBinary" Caller="charToBinary"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ECE418FinalProject/fullCode.c:200:0" msg_body="Inlining function 'getStringLength' into 'padv4'">
+        <args Callee="getStringLength" Caller="padv4"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ECE418FinalProject/fullCode.c:200:0" msg_body="Inlining function 'numToBinary' into 'padv4'">
+        <args Callee="numToBinary" Caller="padv4"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ECE418FinalProject/fullCode.c:267:0" msg_body="Inlining function 'binaryToInt' into 'createMessageSchedule'">
+        <args Callee="binaryToInt" Caller="createMessageSchedule"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ECE418FinalProject/fullCode.c:267:0" msg_body="Inlining function 'rotateRightint' into 'createMessageSchedule'">
+        <args Callee="rotateRightint" Caller="createMessageSchedule"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ECE418FinalProject/fullCode.c:310:0" msg_body="Inlining function 'rotateRightint' into 'compression'">
+        <args Callee="rotateRightint" Caller="compression"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ECE418FinalProject/fullCode.c:310:0" msg_body="Inlining function 'choice' into 'compression'">
+        <args Callee="choice" Caller="compression"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ECE418FinalProject/fullCode.c:310:0" msg_body="Inlining function 'majority' into 'compression'">
+        <args Callee="majority" Caller="compression"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ECE418FinalProject/fullCode.c:354:0" msg_body="Inlining function 'createMessageSchedule' into 'prep'">
+        <args Callee="createMessageSchedule" Caller="prep"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ECE418FinalProject/fullCode.c:354:0" msg_body="Inlining function 'compression' into 'prep'">
+        <args Callee="compression" Caller="prep"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="ECE418FinalProject/fullCode.c:410:0" msg_body="Inlining function 'charToBinary' into 'main'">
+        <args Callee="charToBinary" Caller="main"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

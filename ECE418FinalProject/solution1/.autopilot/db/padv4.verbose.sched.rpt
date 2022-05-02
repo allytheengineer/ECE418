@@ -1,0 +1,272 @@
+
+
+================================================================
+== Vitis HLS Report for 'padv4'
+================================================================
+* Date:           Mon May  2 01:13:00 2022
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:48:09 MDT 2021)
+* Project:        ECE418FinalProject
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: artix7
+* Target device:  xc7a100t-csg324-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  8.136 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 13
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%sub_ln203_loc = alloca i64 1"   --->   Operation 14 'alloca' 'sub_ln203_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%p_cond_loc = alloca i64 1"   --->   Operation 15 'alloca' 'p_cond_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%sizeNeeded_loc = alloca i64 1"   --->   Operation 16 'alloca' 'sizeNeeded_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%sizeNeeded_3_loc = alloca i64 1"   --->   Operation 17 'alloca' 'sizeNeeded_3_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%strLength_loc = alloca i64 1"   --->   Operation 18 'alloca' 'strLength_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [2/2] (0.00ns)   --->   "%call_ln0 = call void @padv4_Pipeline_VITIS_LOOP_10_1, i32 %strLength_loc, i32 %sizeNeeded_3_loc, i5 %message5binary"   --->   Operation 19 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 2.70>
+ST_2 : Operation 20 [1/2] (2.70ns)   --->   "%call_ln0 = call void @padv4_Pipeline_VITIS_LOOP_10_1, i32 %strLength_loc, i32 %sizeNeeded_3_loc, i5 %message5binary"   --->   Operation 20 'call' 'call_ln0' <Predicate = true> <Delay = 2.70> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 7.30>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%sizeNeeded_3_loc_load = load i32 %sizeNeeded_3_loc"   --->   Operation 21 'load' 'sizeNeeded_3_loc_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 22 [2/2] (7.30ns)   --->   "%call_ln0 = call void @padv4_Pipeline_VITIS_LOOP_203_1, i32 %sizeNeeded_3_loc_load, i32 %sizeNeeded_loc, i1 %p_cond_loc, i32 %sub_ln203_loc"   --->   Operation 22 'call' 'call_ln0' <Predicate = true> <Delay = 7.30> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 8.13>
+ST_4 : Operation 23 [1/2] (8.13ns)   --->   "%call_ln0 = call void @padv4_Pipeline_VITIS_LOOP_203_1, i32 %sizeNeeded_3_loc_load, i32 %sizeNeeded_loc, i1 %p_cond_loc, i32 %sub_ln203_loc"   --->   Operation 23 'call' 'call_ln0' <Predicate = true> <Delay = 8.13> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 6.48>
+ST_5 : Operation 24 [1/1] (0.00ns)   --->   "%strLength_loc_load = load i32 %strLength_loc"   --->   Operation 24 'load' 'strLength_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 25 [1/1] (0.00ns)   --->   "%sizeNeeded_loc_load = load i32 %sizeNeeded_loc"   --->   Operation 25 'load' 'sizeNeeded_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 26 [1/1] (0.00ns)   --->   "%p_cond_loc_load = load i1 %p_cond_loc"   --->   Operation 26 'load' 'p_cond_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 27 [1/1] (0.00ns)   --->   "%sub_ln203_loc_load = load i32 %sub_ln203_loc"   --->   Operation 27 'load' 'sub_ln203_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 28 [1/1] (0.00ns)   --->   "%trunc_ln207_1 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %sub_ln203_loc_load, i32 9, i32 31" [ECE418FinalProject/fullCode.c:207]   --->   Operation 28 'partselect' 'trunc_ln207_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 29 [1/1] (0.00ns)   --->   "%zext_ln207 = zext i23 %trunc_ln207_1" [ECE418FinalProject/fullCode.c:207]   --->   Operation 29 'zext' 'zext_ln207' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 30 [1/1] (2.38ns)   --->   "%sub_ln207 = sub i24 0, i24 %zext_ln207" [ECE418FinalProject/fullCode.c:207]   --->   Operation 30 'sub' 'sub_ln207' <Predicate = true> <Delay = 2.38> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.18> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 31 [1/1] (0.00ns)   --->   "%trunc_ln207_2 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %sizeNeeded_loc_load, i32 9, i32 31" [ECE418FinalProject/fullCode.c:207]   --->   Operation 31 'partselect' 'trunc_ln207_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 32 [1/1] (0.00ns)   --->   "%zext_ln207_1 = zext i23 %trunc_ln207_2" [ECE418FinalProject/fullCode.c:207]   --->   Operation 32 'zext' 'zext_ln207_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 33 [1/1] (0.83ns)   --->   "%select_ln207 = select i1 %p_cond_loc_load, i24 %sub_ln207, i24 %zext_ln207_1" [ECE418FinalProject/fullCode.c:207]   --->   Operation 33 'select' 'select_ln207' <Predicate = true> <Delay = 0.83> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 1.31> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 34 [1/1] (0.00ns)   --->   "%sext_ln207 = sext i24 %select_ln207" [ECE418FinalProject/fullCode.c:207]   --->   Operation 34 'sext' 'sext_ln207' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 35 [1/1] (2.42ns)   --->   "%blocksNeeded = add i25 %sext_ln207, i25 1" [ECE418FinalProject/fullCode.c:207]   --->   Operation 35 'add' 'blocksNeeded' <Predicate = true> <Delay = 2.42> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.18> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 36 [1/1] (2.43ns)   --->   "%icmp_ln209 = icmp_sgt  i32 %strLength_loc_load, i32 0" [ECE418FinalProject/fullCode.c:209]   --->   Operation 36 'icmp' 'icmp_ln209' <Predicate = true> <Delay = 2.43> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.43> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 37 [1/1] (1.61ns)   --->   "%br_ln209 = br i1 %icmp_ln209, void %._crit_edge15, void %.lr.ph14" [ECE418FinalProject/fullCode.c:209]   --->   Operation 37 'br' 'br_ln209' <Predicate = true> <Delay = 1.61>
+ST_5 : Operation 38 [1/1] (0.00ns)   --->   "%trunc_ln209 = trunc i32 %strLength_loc_load" [ECE418FinalProject/fullCode.c:209]   --->   Operation 38 'trunc' 'trunc_ln209' <Predicate = (icmp_ln209)> <Delay = 0.00>
+ST_5 : Operation 39 [2/2] (4.04ns)   --->   "%call_ln209 = call void @padv4_Pipeline_VITIS_LOOP_209_2, i31 %trunc_ln209, i5 %messageBlocks, i5 %message5binary" [ECE418FinalProject/fullCode.c:209]   --->   Operation 39 'call' 'call_ln209' <Predicate = (icmp_ln209)> <Delay = 4.04> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 7.22>
+ST_6 : Operation 40 [1/2] (0.00ns)   --->   "%call_ln209 = call void @padv4_Pipeline_VITIS_LOOP_209_2, i31 %trunc_ln209, i5 %messageBlocks, i5 %message5binary" [ECE418FinalProject/fullCode.c:209]   --->   Operation 40 'call' 'call_ln209' <Predicate = (icmp_ln209)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 41 [1/1] (1.61ns)   --->   "%br_ln0 = br void %._crit_edge15"   --->   Operation 41 'br' 'br_ln0' <Predicate = (icmp_ln209)> <Delay = 1.61>
+ST_6 : Operation 42 [1/1] (0.00ns)   --->   "%iter_0_lcssa = phi i32 %strLength_loc_load, void %.lr.ph14, i32 0, void %codeRepl"   --->   Operation 42 'phi' 'iter_0_lcssa' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 43 [1/1] (0.00ns)   --->   "%trunc_ln213 = trunc i32 %iter_0_lcssa" [ECE418FinalProject/fullCode.c:213]   --->   Operation 43 'trunc' 'trunc_ln213' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 44 [1/1] (0.00ns)   --->   "%trunc_ln213_1 = trunc i32 %iter_0_lcssa" [ECE418FinalProject/fullCode.c:213]   --->   Operation 44 'trunc' 'trunc_ln213_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 45 [1/1] (0.00ns)   --->   "%tmp = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %iter_0_lcssa, i32 31" [ECE418FinalProject/fullCode.c:213]   --->   Operation 45 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 46 [1/1] (2.14ns)   --->   "%sub_ln213 = sub i16 0, i16 %trunc_ln213_1" [ECE418FinalProject/fullCode.c:213]   --->   Operation 46 'sub' 'sub_ln213' <Predicate = true> <Delay = 2.14> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.18> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 47 [1/1] (0.00ns)   --->   "%trunc_ln213_2 = partselect i7 @_ssdm_op_PartSelect.i7.i16.i32.i32, i16 %sub_ln213, i32 9, i32 15" [ECE418FinalProject/fullCode.c:213]   --->   Operation 47 'partselect' 'trunc_ln213_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 48 [1/1] (2.03ns)   --->   "%sub_ln213_1 = sub i7 0, i7 %trunc_ln213_2" [ECE418FinalProject/fullCode.c:213]   --->   Operation 48 'sub' 'sub_ln213_1' <Predicate = true> <Delay = 2.03> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.18> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 49 [1/1] (0.00ns)   --->   "%trunc_ln213_3 = partselect i7 @_ssdm_op_PartSelect.i7.i32.i32.i32, i32 %iter_0_lcssa, i32 9, i32 15" [ECE418FinalProject/fullCode.c:213]   --->   Operation 49 'partselect' 'trunc_ln213_3' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 50 [1/1] (0.99ns)   --->   "%select_ln213 = select i1 %tmp, i7 %sub_ln213_1, i7 %trunc_ln213_3" [ECE418FinalProject/fullCode.c:213]   --->   Operation 50 'select' 'select_ln213' <Predicate = true> <Delay = 0.99> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 1.31> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 51 [1/1] (0.00ns)   --->   "%p_and_f_cast = bitconcatenate i17 @_ssdm_op_BitConcatenate.i17.i8.i9, i8 0, i9 %trunc_ln213" [ECE418FinalProject/fullCode.c:213]   --->   Operation 51 'bitconcatenate' 'p_and_f_cast' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 52 [1/1] (2.11ns)   --->   "%sub_ln213_2 = sub i9 0, i9 %trunc_ln213" [ECE418FinalProject/fullCode.c:213]   --->   Operation 52 'sub' 'sub_ln213_2' <Predicate = true> <Delay = 2.11> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.18> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 53 [1/1] (0.00ns)   --->   "%p_and_t3_cast = bitconcatenate i17 @_ssdm_op_BitConcatenate.i17.i8.i9, i8 0, i9 %sub_ln213_2" [ECE418FinalProject/fullCode.c:213]   --->   Operation 53 'bitconcatenate' 'p_and_t3_cast' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 54 [1/1] (2.18ns)   --->   "%sub_ln213_3 = sub i17 0, i17 %p_and_t3_cast" [ECE418FinalProject/fullCode.c:213]   --->   Operation 54 'sub' 'sub_ln213_3' <Predicate = true> <Delay = 2.18> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.18> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 55 [1/1] (1.31ns)   --->   "%select_ln213_1 = select i1 %tmp, i17 %sub_ln213_3, i17 %p_and_f_cast" [ECE418FinalProject/fullCode.c:213]   --->   Operation 55 'select' 'select_ln213_1' <Predicate = true> <Delay = 1.31> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 1.31> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 56 [1/1] (0.00ns)   --->   "%trunc_ln224 = trunc i24 %select_ln207" [ECE418FinalProject/fullCode.c:224]   --->   Operation 56 'trunc' 'trunc_ln224' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 57 [1/1] (0.00ns)   --->   "%trunc_ln224_1 = trunc i24 %select_ln207" [ECE418FinalProject/fullCode.c:224]   --->   Operation 57 'trunc' 'trunc_ln224_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 58 [1/1] (0.00ns)   --->   "%tmp_24_cast = bitconcatenate i17 @_ssdm_op_BitConcatenate.i17.i8.i9, i8 %trunc_ln224_1, i9 0" [ECE418FinalProject/fullCode.c:224]   --->   Operation 58 'bitconcatenate' 'tmp_24_cast' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 59 [1/1] (2.18ns)   --->   "%add_ln224 = add i17 %tmp_24_cast, i17 %trunc_ln224" [ECE418FinalProject/fullCode.c:224]   --->   Operation 59 'add' 'add_ln224' <Predicate = true> <Delay = 2.18> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.18> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 4.06>
+ST_7 : Operation 60 [1/1] (0.00ns)   --->   "%zext_ln213 = zext i7 %select_ln213" [ECE418FinalProject/fullCode.c:213]   --->   Operation 60 'zext' 'zext_ln213' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 61 [1/1] (0.00ns)   --->   "%tmp_s = bitconcatenate i16 @_ssdm_op_BitConcatenate.i16.i7.i9, i7 %select_ln213, i9 0" [ECE418FinalProject/fullCode.c:213]   --->   Operation 61 'bitconcatenate' 'tmp_s' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 62 [1/1] (0.00ns)   --->   "%zext_ln213_1 = zext i16 %tmp_s" [ECE418FinalProject/fullCode.c:213]   --->   Operation 62 'zext' 'zext_ln213_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 63 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln213 = add i17 %zext_ln213_1, i17 %zext_ln213" [ECE418FinalProject/fullCode.c:213]   --->   Operation 63 'add' 'add_ln213' <Predicate = true> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.03> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 64 [1/1] (4.06ns) (root node of TernaryAdder)   --->   "%add_ln213_1 = add i17 %add_ln213, i17 %select_ln213_1" [ECE418FinalProject/fullCode.c:213]   --->   Operation 64 'add' 'add_ln213_1' <Predicate = true> <Delay = 4.06> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.03> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+State 8 <SV = 7> <Delay = 3.25>
+ST_8 : Operation 65 [1/1] (0.00ns)   --->   "%zext_ln213_2 = zext i17 %add_ln213_1" [ECE418FinalProject/fullCode.c:213]   --->   Operation 65 'zext' 'zext_ln213_2' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 66 [1/1] (0.00ns)   --->   "%messageBlocks_addr = getelementptr i5 %messageBlocks, i64 0, i64 %zext_ln213_2" [ECE418FinalProject/fullCode.c:213]   --->   Operation 66 'getelementptr' 'messageBlocks_addr' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 67 [1/1] (3.25ns)   --->   "%store_ln213 = store i5 17, i17 %messageBlocks_addr" [ECE418FinalProject/fullCode.c:213]   --->   Operation 67 'store' 'store_ln213' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 5> <Depth = 65664> <RAM>
+
+State 9 <SV = 8> <Delay = 7.30>
+ST_9 : Operation 68 [2/2] (7.30ns)   --->   "%call_ln0 = call void @padv4_Pipeline_VITIS_LOOP_215_3, i32 %iter_0_lcssa, i5 %messageBlocks"   --->   Operation 68 'call' 'call_ln0' <Predicate = true> <Delay = 7.30> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 10 <SV = 9> <Delay = 0.00>
+ST_10 : Operation 69 [1/2] (0.00ns)   --->   "%call_ln0 = call void @padv4_Pipeline_VITIS_LOOP_215_3, i32 %iter_0_lcssa, i5 %messageBlocks"   --->   Operation 69 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 11 <SV = 10> <Delay = 0.00>
+ST_11 : Operation 70 [2/2] (0.00ns)   --->   "%call_ln224 = call void @padv4_Pipeline_VITIS_LOOP_223_4, i17 %add_ln224, i5 %messageBlocks, i5 %messageLengthInBinary2" [ECE418FinalProject/fullCode.c:224]   --->   Operation 70 'call' 'call_ln224' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 12 <SV = 11> <Delay = 0.00>
+ST_12 : Operation 71 [1/2] (0.00ns)   --->   "%call_ln224 = call void @padv4_Pipeline_VITIS_LOOP_223_4, i17 %add_ln224, i5 %messageBlocks, i5 %messageLengthInBinary2" [ECE418FinalProject/fullCode.c:224]   --->   Operation 71 'call' 'call_ln224' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 13 <SV = 12> <Delay = 5.43>
+ST_13 : Operation 72 [1/1] (2.18ns)   --->   "%add_ln226 = add i17 %add_ln224, i17 512" [ECE418FinalProject/fullCode.c:226]   --->   Operation 72 'add' 'add_ln226' <Predicate = true> <Delay = 2.18> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.18> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 73 [1/1] (0.00ns)   --->   "%zext_ln226 = zext i17 %add_ln226" [ECE418FinalProject/fullCode.c:226]   --->   Operation 73 'zext' 'zext_ln226' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 74 [1/1] (0.00ns)   --->   "%messageBlocks_addr_1 = getelementptr i5 %messageBlocks, i64 0, i64 %zext_ln226" [ECE418FinalProject/fullCode.c:226]   --->   Operation 74 'getelementptr' 'messageBlocks_addr_1' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 75 [1/1] (3.25ns)   --->   "%store_ln226 = store i5 0, i17 %messageBlocks_addr_1" [ECE418FinalProject/fullCode.c:226]   --->   Operation 75 'store' 'store_ln226' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 5> <Depth = 65664> <RAM>
+ST_13 : Operation 76 [1/1] (0.00ns)   --->   "%ret_ln234 = ret i25 %blocksNeeded" [ECE418FinalProject/fullCode.c:234]   --->   Operation 76 'ret' 'ret_ln234' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 2.7ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'padv4_Pipeline_VITIS_LOOP_10_1' [9]  (2.7 ns)
+
+ <State 3>: 7.3ns
+The critical path consists of the following:
+	'load' operation ('sizeNeeded_3_loc_load') on local variable 'sizeNeeded_3_loc' [11]  (0 ns)
+	'call' operation ('call_ln0') to 'padv4_Pipeline_VITIS_LOOP_203_1' [12]  (7.3 ns)
+
+ <State 4>: 8.14ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'padv4_Pipeline_VITIS_LOOP_203_1' [12]  (8.14 ns)
+
+ <State 5>: 6.48ns
+The critical path consists of the following:
+	'load' operation ('sub_ln203_loc_load') on local variable 'sub_ln203_loc' [15]  (0 ns)
+	'sub' operation ('sub_ln207', ECE418FinalProject/fullCode.c:207) [18]  (2.39 ns)
+	'select' operation ('select_ln207', ECE418FinalProject/fullCode.c:207) [21]  (0.838 ns)
+	'add' operation ('blocksNeeded', ECE418FinalProject/fullCode.c:207) [23]  (2.42 ns)
+	blocking operation 0.831 ns on control path)
+
+ <State 6>: 7.23ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('iter_0_lcssa') with incoming values : ('strLength_loc_load') [31]  (1.61 ns)
+	'phi' operation ('iter_0_lcssa') with incoming values : ('strLength_loc_load') [31]  (0 ns)
+	'sub' operation ('sub_ln213_2', ECE418FinalProject/fullCode.c:213) [45]  (2.12 ns)
+	'sub' operation ('sub_ln213_3', ECE418FinalProject/fullCode.c:213) [47]  (2.18 ns)
+	'select' operation ('select_ln213_1', ECE418FinalProject/fullCode.c:213) [48]  (1.32 ns)
+
+ <State 7>: 4.07ns
+The critical path consists of the following:
+	'add' operation ('add_ln213', ECE418FinalProject/fullCode.c:213) [43]  (0 ns)
+	'add' operation ('add_ln213_1', ECE418FinalProject/fullCode.c:213) [49]  (4.07 ns)
+
+ <State 8>: 3.26ns
+The critical path consists of the following:
+	'getelementptr' operation ('messageBlocks_addr', ECE418FinalProject/fullCode.c:213) [51]  (0 ns)
+	'store' operation ('store_ln213', ECE418FinalProject/fullCode.c:213) of constant 17 on array 'messageBlocks' [52]  (3.26 ns)
+
+ <State 9>: 7.3ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'padv4_Pipeline_VITIS_LOOP_215_3' [53]  (7.3 ns)
+
+ <State 10>: 0ns
+The critical path consists of the following:
+
+ <State 11>: 0ns
+The critical path consists of the following:
+
+ <State 12>: 0ns
+The critical path consists of the following:
+
+ <State 13>: 5.44ns
+The critical path consists of the following:
+	'add' operation ('add_ln226', ECE418FinalProject/fullCode.c:226) [58]  (2.18 ns)
+	'getelementptr' operation ('messageBlocks_addr_1', ECE418FinalProject/fullCode.c:226) [60]  (0 ns)
+	'store' operation ('store_ln226', ECE418FinalProject/fullCode.c:226) of constant 0 on array 'messageBlocks' [62]  (3.26 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

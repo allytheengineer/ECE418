@@ -1,9 +1,9 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'main'" level="0">
-<item name = "Date">Fri Apr 15 15:38:23 2022
+<item name = "Date">Mon May  2 01:13:03 2022
 </item>
-<item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:45 MST 2020)</item>
+<item name = "Version">2021.2 (Build 3367213 on Tue Oct 19 02:48:09 MDT 2021)</item>
 <item name = "Project">ECE418FinalProject</item>
 <item name = "Solution">solution1 (Vivado IP Flow Target)</item>
 <item name = "Product family">artix7</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 0 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 8.136 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,17 +24,19 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">0, 0, 0 ns, 0 ns, 1, 1, none</column>
+<column name="">?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_prep_fu_44">prep, ?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_10_1">?, ?, 1, 1, 1, ?, yes</column>
 </table>
 </item>
 </section>

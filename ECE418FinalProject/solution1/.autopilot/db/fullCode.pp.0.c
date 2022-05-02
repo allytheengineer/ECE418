@@ -4,8 +4,8 @@
 # 359 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\\etc/autopilot_ssdm_op.h" 1
-# 314 "C:/Xilinx/Vitis_HLS/2020.2/common/technology/autopilot\\etc/autopilot_ssdm_op.h"
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot\\etc/autopilot_ssdm_op.h" 1
+# 314 "C:/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot\\etc/autopilot_ssdm_op.h"
     void _ssdm_op_IfRead() __attribute__ ((nothrow));
     void _ssdm_op_IfWrite() __attribute__ ((nothrow));
     unsigned int __attribute__ ((bitwidth(1))) _ssdm_op_IfNbRead() __attribute__ ((nothrow));
@@ -31,6 +31,10 @@
 
 
     void _ssdm_op_MemShiftRead() __attribute__ ((nothrow));
+
+    void _ssdm_op_PrintNone() __attribute__ ((nothrow));
+    void _ssdm_op_PrintInt() __attribute__ ((nothrow));
+    void _ssdm_op_PrintDouble() __attribute__ ((nothrow));
 
     void _ssdm_op_Wait() __attribute__ ((nothrow));
     void _ssdm_op_Poll() __attribute__ ((nothrow));
@@ -138,7 +142,10 @@
     void _ssdm_op_SpecLicense() __attribute__ ((nothrow));
 # 2 "<built-in>" 2
 # 1 "ECE418FinalProject/fullCode.c" 2
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 1 3
+# 1 "ECE418FinalProject/fullCode.h" 1
+
+
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 1 3
 
 
 
@@ -147,18 +154,18 @@
 
 
 
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 1 3
-# 10 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 1 3
-# 12 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 3
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include/_mingw_mac.h" 1 3
-# 13 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 2 3
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include/_mingw_secapi.h" 1 3
-# 14 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 2 3
-# 275 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 3
-# 1 "C:\\Xilinx\\Vitis_HLS\\2020.2\\win64\\tools\\clang-3.9-csynth\\lib\\clang\\7.0.0\\include\\vadefs.h" 1 3
-# 26 "C:\\Xilinx\\Vitis_HLS\\2020.2\\win64\\tools\\clang-3.9-csynth\\lib\\clang\\7.0.0\\include\\vadefs.h" 3
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\vadefs.h" 1 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 1 3
+# 10 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 1 3
+# 12 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include/_mingw_mac.h" 1 3
+# 13 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 2 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include/_mingw_secapi.h" 1 3
+# 14 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 2 3
+# 275 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 3
+# 1 "C:\\Xilinx\\Vitis_HLS\\2021.2\\win64\\tools\\clang-3.9-csynth\\lib\\clang\\7.0.0\\include\\vadefs.h" 1 3
+# 26 "C:\\Xilinx\\Vitis_HLS\\2021.2\\win64\\tools\\clang-3.9-csynth\\lib\\clang\\7.0.0\\include\\vadefs.h" 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\vadefs.h" 1 3
 
 
 
@@ -167,19 +174,19 @@
 
 
 
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 1 3
-# 565 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 3
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include/sdks/_mingw_directx.h" 1 3
-# 566 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 2 3
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include/sdks/_mingw_ddk.h" 1 3
-# 567 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 2 3
-# 10 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\vadefs.h" 2 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 1 3
+# 565 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include/sdks/_mingw_directx.h" 1 3
+# 566 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 2 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include/sdks/_mingw_ddk.h" 1 3
+# 567 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 2 3
+# 10 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\vadefs.h" 2 3
 
 
 
 
 #pragma pack(push,_CRT_PACKING)
-# 24 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\vadefs.h" 3
+# 24 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\vadefs.h" 3
  typedef __builtin_va_list __gnuc_va_list;
 
 
@@ -188,21 +195,21 @@
 
 
   typedef __gnuc_va_list va_list;
-# 103 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\vadefs.h" 3
+# 103 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\vadefs.h" 3
 #pragma pack(pop)
-# 27 "C:\\Xilinx\\Vitis_HLS\\2020.2\\win64\\tools\\clang-3.9-csynth\\lib\\clang\\7.0.0\\include\\vadefs.h" 2 3
-# 276 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 2 3
-# 548 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 3
+# 27 "C:\\Xilinx\\Vitis_HLS\\2021.2\\win64\\tools\\clang-3.9-csynth\\lib\\clang\\7.0.0\\include\\vadefs.h" 2 3
+# 276 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 2 3
+# 548 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw.h" 3
 const char *__mingw_get_crt_info (void);
-# 11 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 2 3
+# 11 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 2 3
 
 
 
 
 #pragma pack(push,_CRT_PACKING)
-# 35 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
+# 35 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
 __extension__ typedef unsigned long size_t;
-# 45 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
+# 45 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
 __extension__ typedef long ssize_t;
 
 
@@ -211,13 +218,13 @@ __extension__ typedef long ssize_t;
 
 
 typedef size_t rsize_t;
-# 62 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
+# 62 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
 __extension__ typedef long intptr_t;
-# 75 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
+# 75 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
 __extension__ typedef unsigned long uintptr_t;
-# 88 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
+# 88 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
 __extension__ typedef long ptrdiff_t;
-# 98 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
+# 98 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
 typedef unsigned short wchar_t;
 
 
@@ -244,9 +251,9 @@ typedef long __time32_t;
 
 
 __extension__ typedef long __time64_t;
-# 138 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
+# 138 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
 typedef __time64_t time_t;
-# 422 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
+# 422 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\crtdefs.h" 3
 struct threadlocaleinfostruct;
 struct threadmbcinfostruct;
 typedef struct threadlocaleinfostruct *pthreadlocinfo;
@@ -302,13 +309,13 @@ typedef struct threadlocaleinfostruct {
 
 
 #pragma pack(pop)
-# 10 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
+# 10 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
 
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw_print_push.h" 1 3
-# 12 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw_print_push.h" 1 3
+# 12 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
 
 #pragma pack(push,_CRT_PACKING)
-# 26 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 26 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
  struct _iobuf {
     char *_ptr;
     int _cnt;
@@ -320,8 +327,8 @@ typedef struct threadlocaleinfostruct {
     char *_tmpfname;
   };
   typedef struct _iobuf FILE;
-# 80 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw_off_t.h" 1 3
+# 80 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw_off_t.h" 1 3
 
 
 
@@ -337,16 +344,16 @@ typedef struct threadlocaleinfostruct {
   __extension__ typedef long long _off64_t;
 
   __extension__ typedef long long off64_t;
-# 26 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw_off_t.h" 3
+# 26 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw_off_t.h" 3
 typedef off32_t off_t;
-# 81 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
+# 81 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
 
 
 
   __attribute__ ((__dllimport__)) FILE *__attribute__((__cdecl__)) __iob_func(void);
-# 103 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 103 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
   __extension__ typedef long fpos_t;
-# 139 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 139 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
 extern
   __attribute__((__format__ (gnu_scanf, 2, 3))) __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __mingw_sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...);
@@ -397,7 +404,7 @@ extern
 extern
   __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__((nonnull (1,2)))
   int __attribute__((__cdecl__)) __mingw_vasprintf(char ** __restrict__ , const char * __restrict__ , va_list) __attribute__ ((__nothrow__));
-# 377 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 377 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
   __attribute__((__format__ (ms_printf, 2, 3))) __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) fprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
   __attribute__((__format__ (ms_printf, 1, 2))) __attribute__ ((__nonnull__ (1)))
@@ -497,12 +504,12 @@ extern
 
   int fseeko64(FILE* stream, _off64_t offset, int whence);
   int fseeko(FILE* stream, _off_t offset, int whence);
-# 484 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 484 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
   long __attribute__((__cdecl__)) ftell(FILE *_File);
 
   _off_t ftello(FILE * stream);
   _off64_t ftello64(FILE * stream);
-# 496 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 496 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
   __extension__ int __attribute__((__cdecl__)) _fseeki64(FILE *_File,long _Offset,int _Origin);
   __extension__ long __attribute__((__cdecl__)) _ftelli64(FILE *_File);
   size_t __attribute__((__cdecl__)) fwrite(const void * __restrict__ _Str,size_t _Size,size_t _Count,FILE * __restrict__ _File);
@@ -551,7 +558,7 @@ extern
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _snprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,...) ;
   __attribute__((__format__ (ms_printf, 3, 0))) __attribute__ ((__nonnull__ (3)))
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _vsnprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,va_list _Args) ;
-# 552 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 552 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
   __attribute__((__format__ (ms_printf, 3, 0))) __attribute__ ((__nonnull__ (3)))
   int __attribute__((__cdecl__)) __ms_vsnprintf(char * __restrict__ d,size_t n,const char * __restrict__ format,va_list arg)
                                                                          ;
@@ -619,7 +626,7 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
   int __attribute__((__cdecl__)) __mingw_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
                                                       __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __mingw_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
-# 741 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 741 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
   int __attribute__((__cdecl__)) fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...) ;
   int __attribute__((__cdecl__)) swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...) ;
   int __attribute__((__cdecl__)) wscanf(const wchar_t * __restrict__ _Format,...) ;
@@ -654,7 +661,7 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
   int __attribute__((__cdecl__)) wprintf(const wchar_t * __restrict__ _Format,...);
   int __attribute__((__cdecl__)) vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
   int __attribute__((__cdecl__)) vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-# 784 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 784 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
   __attribute__ ((__dllimport__)) FILE *__attribute__((__cdecl__)) _wfsopen(const wchar_t *_Filename,const wchar_t *_Mode,int _ShFlag);
 
 
@@ -677,7 +684,7 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _vswprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,va_list _ArgList);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) ;
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) ;
-# 814 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 814 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
   int __attribute__((__cdecl__)) __ms_snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
   int __attribute__((__cdecl__)) __ms_vsnwprintf (wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
   static __attribute__ ((__unused__)) __inline__ __attribute__((__cdecl__))
@@ -705,11 +712,11 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
 
 
 
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\swprintf.inl" 1 3
-# 10 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\swprintf.inl" 3
-# 1 "C:\\Xilinx\\Vitis_HLS\\2020.2\\win64\\tools\\clang-3.9-csynth\\lib\\clang\\7.0.0\\include\\vadefs.h" 1 3
-# 11 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\swprintf.inl" 2 3
-# 21 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\swprintf.inl" 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\swprintf.inl" 1 3
+# 10 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\swprintf.inl" 3
+# 1 "C:\\Xilinx\\Vitis_HLS\\2021.2\\win64\\tools\\clang-3.9-csynth\\lib\\clang\\7.0.0\\include\\vadefs.h" 1 3
+# 11 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\swprintf.inl" 2 3
+# 21 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\swprintf.inl" 3
 static __attribute__ ((__unused__)) __inline__ __attribute__((__cdecl__))
                                                       __attribute__ ((__nonnull__ (3)))
 int vswprintf (wchar_t *__stream, size_t __count, const wchar_t *__format, __builtin_va_list __local_argv)
@@ -729,8 +736,8 @@ int swprintf (wchar_t *__stream, size_t __count, const wchar_t *__format, ...)
   __builtin_va_end( __local_argv );
   return __retval;
 }
-# 841 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
-# 850 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 841 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
+# 850 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
   __attribute__ ((__dllimport__)) wchar_t *__attribute__((__cdecl__)) _wtempnam(const wchar_t *_Directory,const wchar_t *_FilePrefix);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _vscwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _snwscanf(const wchar_t * __restrict__ _Src,size_t _MaxCount,const wchar_t * __restrict__ _Format,...);
@@ -752,7 +759,7 @@ int swprintf (wchar_t *__stream, size_t __count, const wchar_t *__format, ...)
   __attribute__ ((__dllimport__)) wint_t __attribute__((__cdecl__)) _fgetwc_nolock(FILE *_File);
   __attribute__ ((__dllimport__)) wint_t __attribute__((__cdecl__)) _fputwc_nolock(wchar_t _Ch,FILE *_File);
   __attribute__ ((__dllimport__)) wint_t __attribute__((__cdecl__)) _ungetwc_nolock(wint_t _Ch,FILE *_File);
-# 900 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 900 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
   __attribute__ ((__dllimport__)) void __attribute__((__cdecl__)) _lock_file(FILE *_File);
   __attribute__ ((__dllimport__)) void __attribute__((__cdecl__)) _unlock_file(FILE *_File);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _fclose_nolock(FILE *_File);
@@ -779,11 +786,11 @@ int swprintf (wchar_t *__stream, size_t __count, const wchar_t *__format, ...)
   int __attribute__((__cdecl__)) getw(FILE *_File) ;
   int __attribute__((__cdecl__)) putw(int _Ch,FILE *_File) ;
   int __attribute__((__cdecl__)) rmtmp(void) ;
-# 942 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 942 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
 int __attribute__((__cdecl__)) __mingw_str_wide_utf8 (const wchar_t * const wptr, char **mbptr, size_t * buflen);
-# 956 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 956 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
 int __attribute__((__cdecl__)) __mingw_str_utf8_wide (const char *const mbptr, wchar_t ** wptr, size_t * buflen);
-# 965 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 965 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
 void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 
 
@@ -798,7 +805,7 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
   __attribute__ ((__dllimport__)) intptr_t __attribute__((__cdecl__)) _wspawnve(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList,const wchar_t *const *_Env);
   __attribute__ ((__dllimport__)) intptr_t __attribute__((__cdecl__)) _wspawnvp(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList);
   __attribute__ ((__dllimport__)) intptr_t __attribute__((__cdecl__)) _wspawnvpe(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList,const wchar_t *const *_Env);
-# 995 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
+# 995 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 3
   __attribute__ ((__dllimport__)) intptr_t __attribute__((__cdecl__)) _spawnv(int _Mode,const char *_Filename,const char *const *_ArgList);
   __attribute__ ((__dllimport__)) intptr_t __attribute__((__cdecl__)) _spawnve(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
   __attribute__ ((__dllimport__)) intptr_t __attribute__((__cdecl__)) _spawnvp(int _Mode,const char *_Filename,const char *const *_ArgList);
@@ -812,7 +819,7 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 #pragma pack(pop)
 
 
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\sec_api/stdio_s.h" 1 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\sec_api/stdio_s.h" 1 3
 
 
 
@@ -821,9 +828,9 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 
 
 
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 1 3
-# 10 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\sec_api/stdio_s.h" 2 3
-# 19 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\sec_api/stdio_s.h" 3
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 1 3
+# 10 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\sec_api/stdio_s.h" 2 3
+# 19 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\sec_api/stdio_s.h" 3
   __attribute__ ((__dllimport__)) errno_t __attribute__((__cdecl__)) clearerr_s(FILE *_File);
   int __attribute__((__cdecl__)) fprintf_s(FILE *_File,const char *_Format,...);
   size_t __attribute__((__cdecl__)) fread_s(void *_DstBuf,size_t _DstSize,size_t _ElementSize,size_t _Count,FILE *_File);
@@ -984,11 +991,11 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 
 
   __attribute__ ((__dllimport__)) size_t __attribute__((__cdecl__)) _fread_nolock_s(void *_DstBuf,size_t _DstSize,size_t _ElementSize,size_t _Count,FILE *_File);
-# 1008 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
+# 1008 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
 
-# 1 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw_print_pop.h" 1 3
-# 1010 "C:/Xilinx/Vitis_HLS/2020.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
-# 2 "ECE418FinalProject/fullCode.c" 2
+# 1 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\_mingw_print_pop.h" 1 3
+# 1010 "C:/Xilinx/Vitis_HLS/2021.2/tps/mingw/6.2.0/win64.o/nt\\x86_64-w64-mingw32\\include\\stdio.h" 2 3
+# 4 "ECE418FinalProject/fullCode.h" 2
 
 
 const int blockSize = 512;
@@ -999,26 +1006,38 @@ const int numWords = 16;
 const int wordSize = 32;
 
 
-int h0 = 0x6a09e667;
-int h1 = 0xbb67ae85;
-int h2 = 0x3c6ef372;
-int h3 = 0xa54ff53a;
-int h4 = 0x510e527f;
-int h5 = 0x9b05688c;
-int h6 = 0x1f83d9ab;
-int h7 = 0x5be0cd19;
+unsigned int hash[] = {0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19};
+unsigned int a = 0;
+unsigned int b = 0;
+unsigned int c = 0;
+unsigned int d = 0;
+unsigned int e = 0;
+unsigned int f = 0;
+unsigned int g = 0;
+unsigned int h = 0;
 
 
 int constants[] = {
-0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
-0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
-0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
-0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
-0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
-0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
-0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
-0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2};
+        0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+        0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+        0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+        0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+        0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+        0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+        0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+        0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2};
 
+extern int getStringLength(char* str);
+extern char* numToBinary(unsigned long num, char* binaryBuffer, int buffer_size);
+extern void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], int numBlocks);
+extern unsigned int binaryToInt(char* binaryString);
+extern unsigned int rotateRightint(unsigned int x, unsigned int n);
+extern void createMessageSchedule(char messageBlock[blockSize+1], unsigned int messageSchedule[]);
+extern unsigned int choice(unsigned int x, unsigned int y, unsigned int z);
+extern unsigned int majority(unsigned int x, unsigned int y, unsigned int z);
+extern void compression(unsigned int messageSchedule[]);
+extern void prep(char* message);
+# 2 "ECE418FinalProject/fullCode.c" 2
 
 int getStringLength(char* str) {
 
@@ -1027,7 +1046,7 @@ int getStringLength(char* str) {
  char temp = str[0];
 
  int i = 1;
- VITIS_LOOP_40_1: while(temp != '\0') {
+ VITIS_LOOP_10_1: while(temp != '\0') {
   temp = str[i];
 
   strLength++;
@@ -1040,7 +1059,7 @@ int getStringLength(char* str) {
 char* numToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
  binaryBuffer += (buffer_size-1);
 
- VITIS_LOOP_53_1: for (int i = buffer_size; i >= 0; i--) {
+ VITIS_LOOP_23_1: for (int i = buffer_size; i >= 0; i--) {
 
 
   if ( (num & 1) == 0 ) {
@@ -1060,6 +1079,29 @@ char* numToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 
 
 
+char* charToBinary(char* input, char* output){
+
+     int placeholder = 0;
+    output[(getStringLength(input)*8)] = '\0';
+    VITIS_LOOP_47_1: for(int i = 0; i<getStringLength(input); i++){
+        char temp[9];
+           temp[8] = '\0';
+        numToBinary(input[i], temp, 8);
+        VITIS_LOOP_51_2: for(int j = 0; j < 8; j++){
+            output[placeholder] = temp[j];
+            placeholder++;
+        }
+
+    }
+
+
+
+    return output;
+}
+
+
+
+
 
 
 void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], int numBlocks){
@@ -1069,7 +1111,7 @@ void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], i
  int newSizeBits = sizeBits+1;
  int i = 0;
 
- VITIS_LOOP_82_1: while(newSizeBits % 512 != 448){
+ VITIS_LOOP_75_1: while(newSizeBits % 512 != 448){
      newSizeBits++;
  }
 
@@ -1078,18 +1120,14 @@ void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], i
  char paddedBuff[newSizeBits+64];
 
 
- VITIS_LOOP_91_2: for(i = 0; i<sizeBits; i++){
+ VITIS_LOOP_84_2: for(i = 0; i<sizeBits; i++){
      paddedBuff[i] = binaryMessage[i];
  }
-
- printf("\n\n");
- printf("copied message: %s\n", paddedBuff);
- printf("\n\n");
 
 
  paddedBuff[sizeBits] = '1';
 
- VITIS_LOOP_102_3: for(i = sizeBits + 1; i < newSizeBits; i++){
+ VITIS_LOOP_91_3: for(i = sizeBits + 1; i < newSizeBits; i++){
      paddedBuff[i] = '0';
  }
 
@@ -1101,35 +1139,147 @@ void pad(char* binaryMessage, int sizeBits, char messageBlocks[][blockSize+1], i
  numToBinary(sizeBits, messageLengthInBinary, BUFFER_SIZE-1);
 
 
- VITIS_LOOP_114_4: for (i = 0; i < 64; i++) {
+ VITIS_LOOP_103_4: for (i = 0; i < 64; i++) {
   paddedBuff[newSizeBits+i] = messageLengthInBinary[i];
  }
 
- printf("\n\n");
- printf("everything padded: %s\n", paddedBuff);
- printf("\n\n");
 
-
- printf("\n\n");
- VITIS_LOOP_124_5: for (int k = 0; k < numBlocks; k++) {
-  VITIS_LOOP_125_6: for (int j = 0; j < blockSize; j++) {
+ VITIS_LOOP_108_5: for (int k = 0; k < numBlocks; k++) {
+  VITIS_LOOP_109_6: for (int j = 0; j < blockSize; j++) {
    messageBlocks[k][j] = paddedBuff[ (k * blockSize) + j];
+            printf("%c",paddedBuff[ (k * blockSize) + j]);
   }
+        printf("\n");
 
   messageBlocks[k][blockSize] = '\0';
  }
- printf("\n\n");
+}
+
+
+void padv2(char* message,char messageBlocks[][512]){
+    int blockCounter = 0;
+    int totalSize = getStringLength(message);
+    VITIS_LOOP_123_1: while((totalSize+64)%512 != 0){
+        totalSize++;
+    }
+    int i = 0;
+    printf("%s size: %d", message, getStringLength(message));
+    VITIS_LOOP_128_2: while(message[i] != '\0'){
+        if(i == 512){
+            blockCounter++;
+        }
+        messageBlocks[blockCounter][i%512] = message[i];
+        i++;
+    }
+    messageBlocks[blockCounter][getStringLength(message)] = '1';
+    i++;
+    VITIS_LOOP_137_3: while(i+64 != 512){
+        messageBlocks[blockCounter][i%512] = '0';
+        i++;
+    }
+
+    char messageLengthInBinary[65];
+
+    messageLengthInBinary[64] = '\0';
+    numToBinary(getStringLength(message), messageLengthInBinary, 64);
+
+
+    VITIS_LOOP_148_4: for (int j = 0; j < 64; j++) {
+        messageBlocks[blockCounter][j+i-1] = messageLengthInBinary[j];
+    }
+
+    int blk = 0;
+    printf("\n");
+    VITIS_LOOP_154_5: for(int f = 0; f < 2; f++){
+
+        printf("block: %d\n%s\n",f,messageBlocks[f]);
+    }
+
+}
+void padv3(char* message,char messageBlocks[][512]){
+    int sizeNeeded = getStringLength(message)+1;
+    VITIS_LOOP_162_1: while(sizeNeeded%512 !=448){
+        sizeNeeded++;
+    }
+    int blocksNeeded = 0;
+    blocksNeeded = (sizeNeeded/512)+1;
+    int iter = 0;
+    VITIS_LOOP_168_2: for(int i =0; i<blocksNeeded;i++){
+        VITIS_LOOP_169_3: for(int j = 0; j < 512; j++) {
+            if((i == blocksNeeded-1) && (iter == 447)){
+                char messageLengthInBinary[65];
+                numToBinary(getStringLength(message), messageLengthInBinary, 64);
+
+                VITIS_LOOP_174_4: for (int k = 0; k < 64; k++) {
+                    messageBlocks[i][j+k] = messageLengthInBinary[k];
+                }
+            }
+            else if (iter == getStringLength(message)) {
+                messageBlocks[i][j] = '1';
+            }
+            else if (iter < getStringLength(message)){
+                messageBlocks[i][j] = message[iter];
+
+            } else if( iter > getStringLength(message)){
+                messageBlocks[i][j] = '0';
+            }
+            iter++;
+        }
+
+    }
+    printf("\n");
+    VITIS_LOOP_192_5: for(int f = 0; f < 2; f++){
+
+        printf("block: %d\n%s\n",f,messageBlocks[f]);
+    }
 
 }
 
-int binaryToInt(char* binaryString) {
+
+int padv4(char* message,char messageBlocks[][513]) {
+
+    int sizeNeeded = getStringLength(message) + 1;
+    VITIS_LOOP_203_1: while (sizeNeeded % 512 != 448) {
+        sizeNeeded++;
+    }
+    int blocksNeeded = 0;
+    blocksNeeded = (sizeNeeded / 512) + 1;
+    int iter = 0;
+    VITIS_LOOP_209_2: for(int i = 0; i< getStringLength(message); i ++){
+        messageBlocks[i/512][i%512] = message[iter];
+        iter++;
+    }
+    messageBlocks[iter/512][iter%512] = '1';
+    iter++;
+    VITIS_LOOP_215_3: while(iter % 512 != 447){
+        messageBlocks[iter/512][iter%512] = '0';
+        iter++;
+    }
+
+    char messageLengthInBinary2[65];
+    numToBinary(getStringLength(message), messageLengthInBinary2, 64);
+
+    VITIS_LOOP_223_4: for (int kt = 0; kt < 64; kt++) {
+        messageBlocks[blocksNeeded-1][448+kt] = messageLengthInBinary2[kt];
+    }
+    messageBlocks[blocksNeeded-1][512] = '\0';
+
+
+    printf("\n");
+    VITIS_LOOP_230_5: for(int f = 0; f < blocksNeeded; f++){
+        printf("block: %d\n%s\n",f,messageBlocks[f]);
+    }
+
+    return blocksNeeded;
+}
+unsigned int binaryToInt(char* binaryString) {
 
 
     char* temp = &binaryString[0];
 
-    int val = 0;
+    unsigned int val = 0;
 
-    VITIS_LOOP_142_1: while (*temp != '\0')
+    VITIS_LOOP_243_1: while (*temp != '\0')
     {
 
         val <<= 1;
@@ -1146,105 +1296,183 @@ int binaryToInt(char* binaryString) {
 }
 
 
-int rotateRightint(int x, int n) {
+unsigned int rotateRightint(unsigned int x, unsigned int n) {
     return (x >> n % 32) | (x << (32-n) % 32);
 }
 
 
 
 
-void createMessageSchedule(char messageBlock[blockSize+1], int messageSchedule[]) {
+void createMessageSchedule(char messageBlock[blockSize+1], unsigned int messageSchedule[]) {
 
  int j = 0;
+ int i = 0;
 
  char splitBlock[wordSize+1];
 
- VITIS_LOOP_172_1: for (int i = 0; i < numWords; i++) {
-  VITIS_LOOP_173_2: for (j = 0; j < wordSize; j++) {
+ VITIS_LOOP_274_1: for (i = 0; i < numWords; i++) {
+  VITIS_LOOP_275_2: for (j = 0; j < wordSize; j++) {
    splitBlock[j] = messageBlock[wordSize * i + j];
   }
 
   splitBlock[wordSize] = '\0';
-  printf("\nsplit block %d %s\n", i, splitBlock);
 
   messageSchedule[i] = binaryToInt(splitBlock);
  }
 
 
-  for (i = 16; i < 64; i++) {
+  VITIS_LOOP_285_3: for (i = 16; i < 64; i++) {
    messageSchedule[i] = 0;
   }
 
 
-  int s0 = 0;
-  int s1 = 0;
-  for (i = 16; i < 64; i++) {
+  unsigned int s0 = 0;
+  unsigned int s1 = 0;
+  VITIS_LOOP_292_4: for (i = 16; i < 64; i++) {
    s0 = rotateRightint(messageSchedule[i-15], 7) ^ rotateRightint(messageSchedule[i-15], 18) ^ (messageSchedule[i-15] >> 3);
    s1 = rotateRightint(messageSchedule[i-2], 17) ^ rotateRightint(messageSchedule[i-2], 19) ^ (messageSchedule[i-2] >> 10);
-   messageSchedule[i] = messageSchedule[i-16] + s0 + messageSchedule[i-7] + s1;
+
+   messageSchedule[i] = (messageSchedule[i-16] + s0 + messageSchedule[i-7] + s1) % 4294967296;
   }
 
-  printf("\n");
-  for (i = 0; i < 64; i++) {
-   printf("WORD %d %d\n", i, messageSchedule[i]);
-  }
+
+}
+
+unsigned int choice(unsigned int x, unsigned int y, unsigned int z) {
+ return (x & y) ^ ((~ x) & z);
+}
+
+unsigned int majority(unsigned int x, unsigned int y, unsigned int z) {
+ return (x & y) ^ (x & z) ^ (y & z);
+}
+
+void compression(unsigned int messageSchedule[]) {
+
+
+
+ a = hash[0];
+ b = hash[1];
+ c = hash[2];
+ d = hash[3];
+ e = hash[4];
+ f = hash[5];
+ g = hash[6];
+ h = hash[7];
+
+
+ unsigned int i = 0;
+ unsigned int S0 = 0;
+ unsigned int S1 = 0;
+ unsigned int temp1 = 0;
+ unsigned int temp2 = 0;
+ unsigned int ch = 0;
+ unsigned int maj = 0;
+
+
+
+        VITIS_LOOP_334_1: for (i = 0; i < 64; i++) {
+            S1 = rotateRightint(e, 6) ^ rotateRightint(e, 11) ^ rotateRightint(e, 25);
+            ch = choice(e, f, g);
+            temp1 = h + S1 + ch + constants[i] + messageSchedule[i];
+            S0 = rotateRightint(a, 2) ^ rotateRightint(a, 13) ^ rotateRightint(a, 22);
+            maj = majority(a, b, c);
+            temp2 = S0 + maj;
+            h = g;
+            g = f;
+            f = e;
+            e = d + temp1;
+            d = c;
+            c = b;
+            b = a;
+            a = temp1 + temp2;
+        }
+
+}
+
+
+void prep(char* message){
+    int i = 0;
+
+    int messageLength = getStringLength(message);
+
+
+    int numBlocksNeeded = 0;
+
+    int leastPaddedMessageLength = messageLength + 65;
+
+
+    if (leastPaddedMessageLength % 512 == 0) {
+        numBlocksNeeded = leastPaddedMessageLength / 512;
+    } else {
+
+        numBlocksNeeded = leastPaddedMessageLength / 512 + 1;
+    }
+
+
+    char messageBlocks[128][513];
+
+
+
+   int blocksUsed = 0;
+    blocksUsed = padv4(message,messageBlocks);
+
+
+
+    VITIS_LOOP_382_1: for(int j =0; j< blocksUsed; j++) {
+        unsigned int messageSchedule[64];
+        createMessageSchedule(messageBlocks[j], messageSchedule);
+
+
+
+
+
+
+        compression(messageSchedule);
+
+        hash[0] += a;
+        hash[1] += b;
+        hash[2] += c;
+        hash[3] += d;
+        hash[4] += e;
+        hash[5] += f;
+        hash[6] += g;
+        hash[7] += h;
+    }
+
+    printf("\n%X%X%X%X%X%X%X%X\n", hash[0], hash[1], hash[2], hash[3], hash[4], hash[5], hash[6], hash[7]);
+
+
+
+
 }
 
 __attribute__((sdx_kernel("main", 0))) int main() {
-#pragma HLS TOP name=main
-# 203 "ECE418FinalProject/fullCode.c"
+#pragma HLSDIRECTIVE TOP name=main
+# 410 "ECE418FinalProject/fullCode.c"
 
 
 
+    char* message1 = "abc\0";
+    char message1binary[25];
 
- char* message = "0110100001100101011011000110110001101111001000000111011101101111011100100110110001100100";
+    char* message2 = "it worked\0";
+    char message2binary[getStringLength(message2)*8];
 
- int messageLength = getStringLength(message);
+    char* message3 = "hello world\0";
+    char message3binary[getStringLength(message3)*8];
 
+    char* message4 = "i am so stressed out from running my pet lizards instagram account i’m about to have a nervous breakdown\0";
 
- int numBlocksNeeded = 0;
+    char message4binary[(105*8)+1];
 
- int leastPaddedMessageLength = messageLength + 65;
-
-
- if (leastPaddedMessageLength % 512 == 0) {
-  numBlocksNeeded = leastPaddedMessageLength / 512;
- } else {
-
-  numBlocksNeeded = leastPaddedMessageLength / 512 + 1;
- }
+    char* message5 = "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.\0";
+    char message5binary[(327*8)+1];
 
 
- char messageBlocks[numBlocksNeeded][blockSize+1];
+    char* message6 = "Our services allow users to add content in a number of different ways, including via direct messages and in smaller and larger communities. Some of these spaces are public, and if you share content within them, that content may be accessed by people you do not know. For example, some servers are available in the Server Discovery section of the app and do not require an invite link to join. Other server owners may publish their server invite link on public websites. Anyone can access these spaces. You should be aware that these permissions are set by server owners or admins, and they may change over time. Please understand the difference between posting in public and private spaces on Discord, and choose the right space, features, and settings for you and your content. To understand how we treat your personal information, see our Privacy Policy.\0";
+    char message6binary[getStringLength(message6)*8];
 
+    prep(charToBinary(message5,message5binary));
 
- pad(message, messageLength, messageBlocks, numBlocksNeeded);
-
-
- printf("\n\n");
- VITIS_LOOP_232_1: for (int i = 0; i < numBlocksNeeded; i++) {
-  printf("\n\n");
-   printf ("block %d: %s\n", i, messageBlocks[i]);
- }
- printf("\n\n");
-
-
-
-    int messageSchedule[numWords + 48];
- createMessageSchedule(messageBlocks[0], messageSchedule);
-
-
-
- printf("\nMESSAGE SCHEDULE\n");
-
-
- const int BUFFER_SIZE0 = 33;
- char messageLengthInBinary0[BUFFER_SIZE0];
-
- messageLengthInBinary0[BUFFER_SIZE0-1] = '\0';
- for (i = 0; i < 64; i++) {
-  numToBinary(messageSchedule[i], messageLengthInBinary0, BUFFER_SIZE0-1);
-  printf("\nMESSAGE\n %d", messageSchedule[i]);
- }
     return 0;
 }

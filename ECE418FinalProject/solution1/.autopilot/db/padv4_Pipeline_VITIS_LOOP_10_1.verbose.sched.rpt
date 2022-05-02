@@ -1,0 +1,157 @@
+
+
+================================================================
+== Vitis HLS Report for 'padv4_Pipeline_VITIS_LOOP_10_1'
+================================================================
+* Date:           Mon May  2 01:12:59 2022
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:48:09 MDT 2021)
+* Project:        ECE418FinalProject
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: artix7
+* Target device:  xc7a100t-csg324-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.170 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_10_1  |        ?|        ?|         2|          1|          1|     ?|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.61>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%strLength = alloca i32 1"   --->   Operation 5 'alloca' 'strLength' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 6 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (1.61ns)   --->   "%store_ln0 = store i64 1, i64 %i"   --->   Operation 7 'store' 'store_ln0' <Predicate = true> <Delay = 1.61>
+ST_1 : Operation 8 [1/1] (1.61ns)   --->   "%store_ln0 = store i32 0, i32 %strLength"   --->   Operation 8 'store' 'store_ln0' <Predicate = true> <Delay = 1.61>
+ST_1 : Operation 9 [1/1] (1.61ns)   --->   "%br_ln0 = br void"   --->   Operation 9 'br' 'br_ln0' <Predicate = true> <Delay = 1.61>
+
+State 2 <SV = 1> <Delay = 5.17>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%phi_ln10 = phi i1 %icmp_ln10, void, i1 0, void %newFuncRoot" [ECE418FinalProject/fullCode.c:10]   --->   Operation 10 'phi' 'phi_ln10' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%strLength_1 = load i32 %strLength" [ECE418FinalProject/fullCode.c:202]   --->   Operation 11 'load' 'strLength_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 12 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (2.70ns)   --->   "%sizeNeeded = add i32 %strLength_1, i32 1" [ECE418FinalProject/fullCode.c:202]   --->   Operation 13 'add' 'sizeNeeded' <Predicate = true> <Delay = 2.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.56> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%br_ln10 = br i1 %phi_ln10, void, void %getStringLength.exit.preheader.exitStub" [ECE418FinalProject/fullCode.c:10]   --->   Operation 14 'br' 'br_ln10' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%i_load = load i64 %i" [ECE418FinalProject/fullCode.c:14]   --->   Operation 15 'load' 'i_load' <Predicate = (!phi_ln10)> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%message5binary_addr = getelementptr i5 %message5binary, i64 0, i64 %i_load" [ECE418FinalProject/fullCode.c:11]   --->   Operation 16 'getelementptr' 'message5binary_addr' <Predicate = (!phi_ln10)> <Delay = 0.00>
+ST_2 : Operation 17 [2/2] (3.25ns)   --->   "%temp = load i12 %message5binary_addr" [ECE418FinalProject/fullCode.c:11]   --->   Operation 17 'load' 'temp' <Predicate = (!phi_ln10)> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 5> <Depth = 2617> <ROM>
+ST_2 : Operation 18 [1/1] (3.56ns)   --->   "%add_ln14 = add i64 %i_load, i64 1" [ECE418FinalProject/fullCode.c:14]   --->   Operation 18 'add' 'add_ln14' <Predicate = (!phi_ln10)> <Delay = 3.56> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.56> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 19 [1/1] (1.61ns)   --->   "%store_ln10 = store i64 %add_ln14, i64 %i" [ECE418FinalProject/fullCode.c:10]   --->   Operation 19 'store' 'store_ln10' <Predicate = (!phi_ln10)> <Delay = 1.61>
+ST_2 : Operation 20 [1/1] (1.61ns)   --->   "%store_ln10 = store i32 %sizeNeeded, i32 %strLength" [ECE418FinalProject/fullCode.c:10]   --->   Operation 20 'store' 'store_ln10' <Predicate = (!phi_ln10)> <Delay = 1.61>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%write_ln202 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %strLength_out, i32 %strLength_1" [ECE418FinalProject/fullCode.c:202]   --->   Operation 25 'write' 'write_ln202' <Predicate = (phi_ln10)> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%write_ln202 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sizeNeeded_3_out, i32 %sizeNeeded" [ECE418FinalProject/fullCode.c:202]   --->   Operation 26 'write' 'write_ln202' <Predicate = (phi_ln10)> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 27 'ret' 'ret_ln0' <Predicate = (phi_ln10)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 4.70>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%specloopname_ln11 = specloopname void @_ssdm_op_SpecLoopName, void @empty_0" [ECE418FinalProject/fullCode.c:11]   --->   Operation 21 'specloopname' 'specloopname_ln11' <Predicate = (!phi_ln10)> <Delay = 0.00>
+ST_3 : Operation 22 [1/2] (3.25ns)   --->   "%temp = load i12 %message5binary_addr" [ECE418FinalProject/fullCode.c:11]   --->   Operation 22 'load' 'temp' <Predicate = (!phi_ln10)> <Delay = 3.25> <CoreInst = "ROM">   --->   Core 95 'ROM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 5> <Depth = 2617> <ROM>
+ST_3 : Operation 23 [1/1] (1.44ns)   --->   "%icmp_ln10 = icmp_eq  i5 %temp, i5 0" [ECE418FinalProject/fullCode.c:10]   --->   Operation 23 'icmp' 'icmp_ln10' <Predicate = (!phi_ln10)> <Delay = 1.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%br_ln10 = br void" [ECE418FinalProject/fullCode.c:10]   --->   Operation 24 'br' 'br_ln10' <Predicate = (!phi_ln10)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 1.61ns
+The critical path consists of the following:
+	'alloca' operation ('i') [5]  (0 ns)
+	'store' operation ('store_ln0') of constant 1 on local variable 'i' [6]  (1.61 ns)
+
+ <State 2>: 5.17ns
+The critical path consists of the following:
+	'load' operation ('i_load', ECE418FinalProject/fullCode.c:14) on local variable 'i' [16]  (0 ns)
+	'add' operation ('add_ln14', ECE418FinalProject/fullCode.c:14) [20]  (3.56 ns)
+	'store' operation ('store_ln10', ECE418FinalProject/fullCode.c:10) of variable 'add_ln14', ECE418FinalProject/fullCode.c:14 on local variable 'i' [22]  (1.61 ns)
+
+ <State 3>: 4.71ns
+The critical path consists of the following:
+	'load' operation ('temp', ECE418FinalProject/fullCode.c:11) on array 'message5binary' [19]  (3.26 ns)
+	'icmp' operation ('icmp_ln10', ECE418FinalProject/fullCode.c:10) [21]  (1.45 ns)
+	'phi' operation ('phi_ln10', ECE418FinalProject/fullCode.c:10) with incoming values : ('icmp_ln10', ECE418FinalProject/fullCode.c:10) [10]  (0 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

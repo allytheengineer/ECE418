@@ -1,35 +1,231 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1650478312634">
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1651468389734">
   <ports id="10" name="ap_return" direction="DirOut">
     <dataInputObjs>ret</dataInputObjs>
   </ports>
-  <edges source_obj="//@blocks.0/@node_objs.0" sink_obj="//@ports.0"/>
-  <blocks id="4" name="main" type="BlockType">
-    <node_objs xsi:type="cdfg:CdfgNode" id="3" name="_ln104" lineNumber="104" fileName="ECE418FinalProject/fullCode.c" fileDirectory=".." coreId="3684454080" contextFuncName="main" opcode="ret" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="ECE418FinalProject/fullCode.c" linenumber="104" fileDirectory="C:\Users\pitkinj\eceProj\ECE418" functionName="main"/>
+  <edges id="29" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.1"/>
+  <edges id="30" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="31" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
+  <edges id="32" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
+  <edges id="34" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2"/>
+  <edges id="35" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2"/>
+  <edges id="36" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
+  <edges id="41" source_obj="//@regions.0/@basic_blocks.0/@node_objs.3" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.4"/>
+  <edges id="45" source_obj="//@regions.0/@basic_blocks.0/@node_objs.4" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.5"/>
+  <edges id="48" source_obj="//@regions.0/@basic_blocks.0/@node_objs.5" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.6"/>
+  <edges id="49" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.6"/>
+  <edges id="50" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.6"/>
+  <edges id="55" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="56" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="57" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="58" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="85" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@regions.0/@basic_blocks.0"/>
+  <edges id="86" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@blocks.1"/>
+  <edges id="87" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@regions.0/@basic_blocks.0" is_back_edge="1"/>
+  <edges id="88" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2"/>
+  <edges id="89" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
+  <edges id="90" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2"/>
+  <edges source_obj="//@blocks.1/@node_objs.1" sink_obj="//@ports.0"/>
+  <blocks id="11" name=".critedge" type="BlockType">
+    <controlOutputObjs>block_21</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="5" name="i" originalName="i" coreId="0" bitwidth="64" opcode="alloca" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="8" name="i_write_ln10" lineNumber="10" fileName="ECE418FinalProject/fullCode.c" fileDirectory=".." coreId="0" contextFuncName="getStringLength" opcode="store" m_display="0" m_delay="1.61" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="ECE418FinalProject/fullCode.c" linenumber="10" fileDirectory="C:\Users\addis\OneDrive\Documents\GitHub\ECE418" functionName="getStringLength"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="10" name="br_ln0" coreId="0" opcode="br" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <controlInputObjs>block_21</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="ECE418FinalProject/fullCode.c">
+      <validLinenumbers>10</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="24" name="getStringLength.exit.i" type="BlockType">
+    <controlInputObjs>block_21</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="22" name="_ln433" lineNumber="433" fileName="ECE418FinalProject/fullCode.c" fileDirectory=".." rtlName="grp_prep_fu_44" coreId="0" contextFuncName="main" opcode="call" nodeLabel="2.0" nodeLatency="1" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="ECE418FinalProject/fullCode.c" linenumber="433" fileDirectory="C:\Users\addis\OneDrive\Documents\GitHub\ECE418" functionName="main"/>
+      <constName>prep</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="23" name="_ln436" lineNumber="436" fileName="ECE418FinalProject/fullCode.c" fileDirectory=".." coreId="0" contextFuncName="main" opcode="ret" nodeLabel="3.0" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="ECE418FinalProject/fullCode.c" linenumber="436" fileDirectory="C:\Users\addis\OneDrive\Documents\GitHub\ECE418" functionName="main"/>
       <dataOutputObjs>ap_return</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
     <fileValidLineNumbers fileName="ECE418FinalProject/fullCode.c">
-      <validLinenumbers>104</validLinenumbers>
+      <validLinenumbers>433</validLinenumbers>
+      <validLinenumbers>436</validLinenumbers>
     </fileValidLineNumbers>
   </blocks>
+  <regions anchor_node="-1" region_type="8" interval="1" typeName="Pipeline" iiViolation="" id="86" pipe_depth="1" RegionName="VITIS_LOOP_10_1">
+    <basic_blocks id="21" name="block_21" type="BlockType">
+      <controlInputObjs>.critedge</controlInputObjs>
+      <controlInputObjs>block_21</controlInputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>getStringLength.exit.i</controlOutputObjs>
+      <controlOutputObjs>block_21</controlOutputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="12" name="i_load" lineNumber="14" fileName="ECE418FinalProject/fullCode.c" fileDirectory=".." coreId="0" contextFuncName="getStringLength" bitwidth="64" opcode="load" nodeLabel="1.0" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="ECE418FinalProject/fullCode.c" linenumber="14" fileDirectory="C:\Users\addis\OneDrive\Documents\GitHub\ECE418" functionName="getStringLength"/>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataOutputObjs>add</dataOutputObjs>
+        <dataOutputObjs>add</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="14" name="add_ln14" lineNumber="14" fileName="ECE418FinalProject/fullCode.c" fileDirectory=".." rtlName="add_ln14_fu_64_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="getStringLength" bitwidth="64" opcode="add" nodeLabel="1.0" m_display="0" m_delay="3.56" m_topoIndex="5" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="ECE418FinalProject/fullCode.c" linenumber="14" fileDirectory="C:\Users\addis\OneDrive\Documents\GitHub\ECE418" functionName="getStringLength"/>
+        <dataInputObjs>load</dataInputObjs>
+        <dataOutputObjs>store</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="15" name="i_write_ln10" lineNumber="10" fileName="ECE418FinalProject/fullCode.c" fileDirectory=".." coreId="0" contextFuncName="getStringLength" opcode="store" nodeLabel="1.0" m_display="0" m_delay="1.61" m_topoIndex="6" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="ECE418FinalProject/fullCode.c" linenumber="10" fileDirectory="C:\Users\addis\OneDrive\Documents\GitHub\ECE418" functionName="getStringLength"/>
+        <dataInputObjs>add</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="17" name="add_ln10" lineNumber="10" fileName="ECE418FinalProject/fullCode.c" fileDirectory=".." rtlName="add_ln10_fu_75_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="getStringLength" bitwidth="64" opcode="add" nodeLabel="1.0" m_display="0" m_delay="3.56" m_topoIndex="7" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="ECE418FinalProject/fullCode.c" linenumber="10" fileDirectory="C:\Users\addis\OneDrive\Documents\GitHub\ECE418" functionName="getStringLength"/>
+        <dataInputObjs>load</dataInputObjs>
+        <dataOutputObjs>partselect</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="18" name="tmp" lineNumber="10" fileName="ECE418FinalProject/fullCode.c" fileDirectory=".." rtlName="tmp_fu_81_p4" coreId="0" contextFuncName="getStringLength" bitwidth="63" opcode="partselect" nodeLabel="1.0" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="ECE418FinalProject/fullCode.c" linenumber="10" fileDirectory="C:\Users\addis\OneDrive\Documents\GitHub\ECE418" functionName="getStringLength"/>
+        <dataInputObjs>add</dataInputObjs>
+        <dataOutputObjs>icmp</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="19" name="icmp_ln10" lineNumber="10" fileName="ECE418FinalProject/fullCode.c" fileDirectory=".." rtlName="icmp_ln10_fu_91_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="getStringLength" bitwidth="1" opcode="icmp" nodeLabel="1.0" m_display="0" m_delay="2.83" m_topoIndex="9" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="ECE418FinalProject/fullCode.c" linenumber="10" fileDirectory="C:\Users\addis\OneDrive\Documents\GitHub\ECE418" functionName="getStringLength"/>
+        <dataInputObjs>partselect</dataInputObjs>
+        <dataOutputObjs>br</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="20" name="br_ln10" lineNumber="10" fileName="ECE418FinalProject/fullCode.c" fileDirectory=".." coreId="0" contextFuncName="getStringLength" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="ECE418FinalProject/fullCode.c" linenumber="10" fileDirectory="C:\Users\addis\OneDrive\Documents\GitHub\ECE418" functionName="getStringLength"/>
+        <dataInputObjs>icmp</dataInputObjs>
+        <controlInputObjs>block_21</controlInputObjs>
+        <controlInputObjs>getStringLength.exit.i</controlInputObjs>
+      </node_objs>
+      <fileValidLineNumbers fileName="ECE418FinalProject/fullCode.c">
+        <validLinenumbers>14</validLinenumbers>
+        <validLinenumbers>10</validLinenumbers>
+      </fileValidLineNumbers>
+    </basic_blocks>
+  </regions>
   <ScheduleInfo time="0"/>
+  <ScheduleInfo time="1"/>
+  <ScheduleInfo time="2"/>
+  <ScheduleInfo time="3"/>
+  <regnodes realName="i_reg_97">
+    <nodeIds>5</nodeIds>
+  </regnodes>
+  <expressionNodes realName="icmp_ln10_fu_91">
+    <nodeIds>19</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="i_fu_40">
+    <nodeIds>5</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln10_fu_75">
+    <nodeIds>17</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tmp_fu_81">
+    <nodeIds>18</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln14_fu_64">
+    <nodeIds>14</nodeIds>
+  </expressionNodes>
+  <moduleNodes realName="grp_prep_fu_44">
+    <nodeIds>22</nodeIds>
+  </moduleNodes>
+  <ioNodes realName="store_ln10_store_fu_56">
+    <nodeIds>8</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln10_store_fu_70">
+    <nodeIds>15</nodeIds>
+  </ioNodes>
+  <ioNodes realName="i_load_load_fu_61">
+    <nodeIds>12</nodeIds>
+  </ioNodes>
+  <memoryPorts dataString="constants" portID="100">
+    <nodeIds>22</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="hash" portID="100">
+    <nodeIds>22</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="message5binary" portID="100">
+    <nodeIds>22</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="messageLengthInBinary2" portID="100">
+    <nodeIds>22</nodeIds>
+  </memoryPorts>
   <ioPorts name="ap_return">
     <contents name="ret">
-      <nodeIds>3</nodeIds>
+      <nodeIds>23</nodeIds>
     </contents>
   </ioPorts>
   <fsm>
     <states id="1">
-      <operations id="1" stage="1" latency="1"/>
-      <operations id="2" stage="1" latency="1"/>
-      <operations id="3" stage="1" latency="1"/>
+      <operations id="5" stage="1" latency="1"/>
+      <operations id="6" stage="1" latency="1"/>
+      <operations id="7" stage="1" latency="1"/>
+      <operations id="8" stage="1" latency="1"/>
+      <operations id="9" stage="1" latency="1"/>
+      <operations id="10" stage="1" latency="1"/>
     </states>
+    <states id="2">
+      <operations id="12" stage="1" latency="1"/>
+      <operations id="13" stage="1" latency="1"/>
+      <operations id="14" stage="1" latency="1"/>
+      <operations id="15" stage="1" latency="1"/>
+      <operations id="16" stage="1" latency="1"/>
+      <operations id="17" stage="1" latency="1"/>
+      <operations id="18" stage="1" latency="1"/>
+      <operations id="19" stage="1" latency="1"/>
+      <operations id="20" stage="1" latency="1"/>
+    </states>
+    <states id="3">
+      <operations id="22" stage="2" latency="2"/>
+    </states>
+    <states id="4">
+      <operations id="22" stage="1" latency="2"/>
+      <operations id="23" stage="1" latency="1"/>
+    </states>
+    <transitions inState="1" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="3" outState="4">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="3">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="2">
+      <condition id="-1"/>
+    </transitions>
   </fsm>
   <CFGRegionsRoot>
-    <cfgRegions mId="1" mTag="main" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
-      <basicBlocks>4</basicBlocks>
+    <cfgRegions mId="1" mTag="main" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1">
+      <subRegions>2</subRegions>
+      <subRegions>3</subRegions>
+      <subRegions>4</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="2" mTag="Entry" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>11</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="3" mTag="VITIS_LOOP_10_1" mII="1" mDepth="1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1" mType="1">
+      <basicBlocks>21</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="4" mTag="Return" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-2" mMaxLatency="-2">
+      <basicBlocks>24</basicBlocks>
       <mDfPipe/>
     </cfgRegions>
   </CFGRegionsRoot>

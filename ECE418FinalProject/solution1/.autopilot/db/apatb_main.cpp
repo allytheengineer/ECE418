@@ -24,6 +24,82 @@ using namespace sc_dt;
 
 #define AUTOTB_TVOUT_PC_return "../tv/rtldatafile/rtl.main.autotvout_ap_return.dat"
 
+
+inline void rev_endian(char* p, size_t nbytes)
+{
+  std::reverse(p, p+nbytes);
+}
+
+template<size_t bit_width>
+struct transaction {
+  typedef uint64_t depth_t;
+  static const size_t wbytes = (bit_width+7)>>3;
+  static const size_t dbytes = sizeof(depth_t);
+  const depth_t depth;
+  const size_t vbytes;
+  const size_t tbytes;
+  char * const p;
+  typedef char (*p_dat)[wbytes];
+  p_dat vp;
+
+  void reorder() {
+    rev_endian(p, dbytes);
+    p_dat vp = (p_dat) (p+dbytes);
+    for (depth_t i = 0; i < depth; ++i) {
+      rev_endian(vp[i], wbytes);
+    }
+  }
+
+  transaction(depth_t depth)
+    : depth(depth), vbytes(wbytes*depth), tbytes(dbytes+vbytes),
+      p(new char[tbytes]) {
+    *(depth_t*)p = depth;
+    vp = (p_dat) (p+dbytes);
+  }
+
+  template<size_t psize>
+  void import(char* param, depth_t num, int64_t offset) {
+    param -= offset*psize;
+    for (depth_t i = 0; i < num; ++i) {
+      memcpy(vp[i], param, wbytes);
+      param += psize;
+    }
+    vp += num;
+  }
+
+  template<size_t psize>
+  void send(char* param, depth_t num) {
+    for (depth_t i = 0; i < num; ++i) {
+      memcpy(param, vp[i], wbytes);
+      param += psize;
+    }
+    vp += num;
+  }
+
+  template<size_t psize>
+  void send(char* param, depth_t num, int64_t skip) {
+    for (depth_t i = 0; i < num; ++i) {
+      memcpy(param, vp[skip+i], wbytes);
+      param += psize;
+    }
+  }
+
+  ~transaction() { if (p) { delete[] p; } }
+};
+      
+
+inline const std::string begin_str(int num)
+{
+  return std::string("[[transaction]] ")
+         .append(std::to_string(num))
+         .append("\n");
+}
+
+inline const std::string end_str()
+{
+  return std::string("[[/transaction]] \n");
+}
+      
 class INTER_TCL_FILE {
   public:
 INTER_TCL_FILE(const char* name) {
@@ -63,47 +139,26 @@ void set_string(std::string list, std::string* class_list) {
     const char* mName;
 };
 
-static void RTLOutputCheckAndReplacement(std::string &AESL_token, std::string PortName) {
-  bool no_x = false;
+static bool RTLOutputCheckAndReplacement(std::string &AESL_token, std::string PortName) {
   bool err = false;
+  size_t x_found;
 
-  no_x = false;
   // search and replace 'X' with '0' from the 3rd char of token
-  while (!no_x) {
-    size_t x_found = AESL_token.find('X', 0);
-    if (x_found != string::npos) {
-      if (!err) { 
-        cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port" 
-             << PortName << ", possible cause: There are uninitialized variables in the C design."
-             << endl; 
-        err = true;
-      }
-      AESL_token.replace(x_found, 1, "0");
-    } else
-      no_x = true;
-  }
-  no_x = false;
+  while ((x_found = AESL_token.find('X', 0)) != string::npos)
+    err = true, AESL_token.replace(x_found, 1, "0");
+  
   // search and replace 'x' with '0' from the 3rd char of token
-  while (!no_x) {
-    size_t x_found = AESL_token.find('x', 2);
-    if (x_found != string::npos) {
-      if (!err) { 
-        cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'x' on port" 
-             << PortName << ", possible cause: There are uninitialized variables in the C design."
-             << endl; 
-        err = true;
-      }
-      AESL_token.replace(x_found, 1, "0");
-    } else
-      no_x = true;
-  }
-}
+  while ((x_found = AESL_token.find('x', 2)) != string::npos)
+    err = true, AESL_token.replace(x_found, 1, "0");
+  
+  return err;}
 extern "C" int main_hw_stub_wrapper();
 
 extern "C" int apatb_main_hw() {
   refine_signal_handler();
   fstream wrapc_switch_file_token;
   wrapc_switch_file_token.open(".hls_cosim_wrapc_switch.log");
+static AESL_FILE_HANDLER aesl_fh;
   int AESL_i;
   if (wrapc_switch_file_token.good())
   {
@@ -112,6 +167,7 @@ extern "C" int apatb_main_hw() {
     static unsigned AESL_transaction_pc = 0;
     string AESL_token;
     string AESL_num;
+
     int AESL_return;
     {
       static ifstream rtl_tv_out_file;
@@ -134,11 +190,11 @@ extern "C" int apatb_main_hw() {
         if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
           std::vector<sc_bv<32> > return_pc_buffer(1);
           int i = 0;
-
+          bool has_unknown_value = false;
           rtl_tv_out_file >> AESL_token; //data
           while (AESL_token != "[[/transaction]]"){
 
-            RTLOutputCheckAndReplacement(AESL_token, "return");
+            has_unknown_value |= RTLOutputCheckAndReplacement(AESL_token, "return");
   
             // push token into output port buffer
             if (AESL_token != "") {
@@ -150,9 +206,17 @@ extern "C" int apatb_main_hw() {
             if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
               exit(1);
           }
-          if (i > 0) {
-            ((int*)&AESL_return)[0] = return_pc_buffer[0].to_int64();
+          if (has_unknown_value) {
+            cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'x' or 'X' on port " 
+                 << "return" << ", possible cause: There are uninitialized variables in the C design."
+                 << endl; 
           }
+  
+          if (i > 0) {((char*)&AESL_return)[0*4+0] = return_pc_buffer[0].range(7, 0).to_int64();
+((char*)&AESL_return)[0*4+1] = return_pc_buffer[0].range(15, 8).to_int64();
+((char*)&AESL_return)[0*4+2] = return_pc_buffer[0].range(23, 16).to_int64();
+((char*)&AESL_return)[0*4+3] = return_pc_buffer[0].range(31, 24).to_int64();
+}
         } // end transaction
       } // end file is good
     } // end post check logic bolck
@@ -161,7 +225,6 @@ extern "C" int apatb_main_hw() {
     return  AESL_return;
   }
 static unsigned AESL_transaction;
-static AESL_FILE_HANDLER aesl_fh;
 static INTER_TCL_FILE tcl_file(INTER_TCL);
 std::vector<char> __xlx_sprintf_buffer(1024);
 CodeState = ENTER_WRAPC;
@@ -171,17 +234,14 @@ int ap_return = main_hw_stub_wrapper();
 CodeState = DUMP_OUTPUTS;
 // print return Transactions
 {
-  sprintf(__xlx_sprintf_buffer.data(), "[[transaction]] %d\n", AESL_transaction);
-  aesl_fh.write(AUTOTB_TVOUT_return, __xlx_sprintf_buffer.data());
-  sc_bv<32> __xlx_tmp_lv = ((int*)&ap_return)[0];
+aesl_fh.write(AUTOTB_TVOUT_return, begin_str(AESL_transaction));
+sc_bv<32> __xlx_tmp_lv = ((int*)&ap_return)[0];
+aesl_fh.write(AUTOTB_TVOUT_return, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
 
-    sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
-    aesl_fh.write(AUTOTB_TVOUT_return, __xlx_sprintf_buffer.data()); 
-  
   tcl_file.set_num(1, &tcl_file.return_depth);
-  sprintf(__xlx_sprintf_buffer.data(), "[[/transaction]] \n");
-  aesl_fh.write(AUTOTB_TVOUT_return, __xlx_sprintf_buffer.data());
+aesl_fh.write(AUTOTB_TVOUT_return, end_str());
 }
+
 CodeState = DELETE_CHAR_BUFFERS;
 AESL_transaction++;
 tcl_file.set_num(AESL_transaction , &tcl_file.trans_num);

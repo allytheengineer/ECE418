@@ -1,0 +1,150 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'prep_Pipeline_VITIS_LOOP_292_4'" level="0">
+<item name = "Date">Mon May  2 01:13:07 2022
+</item>
+<item name = "Version">2021.2 (Build 3367213 on Tue Oct 19 02:48:09 MDT 2021)</item>
+<item name = "Project">ECE418FinalProject</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">artix7</item>
+<item name = "Target device">xc7a100t-csg324-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 5.959 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">148, 148, 1.480 us, 1.480 us, 148, 148, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_292_4">146, 146, 6, 3, 1, 48, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 314, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">-, -, -, -, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, 92, -</column>
+<column name="Register">-, -, 162, -, -</column>
+<specialColumn name="Available">270, 240, 126800, 63400, 0</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+</table>
+</item>
+<item name = "DSP"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="add_ln292_fu_163_p2">+, 0, 0, 14, 7, 1</column>
+<column name="add_ln293_fu_141_p2">+, 0, 0, 14, 6, 5</column>
+<column name="add_ln294_fu_152_p2">+, 0, 0, 14, 6, 3</column>
+<column name="add_ln296_1_fu_324_p2">+, 0, 0, 14, 6, 4</column>
+<column name="add_ln296_2_fu_340_p2">+, 0, 0, 32, 32, 32</column>
+<column name="add_ln296_3_fu_334_p2">+, 0, 0, 39, 32, 32</column>
+<column name="add_ln296_4_fu_344_p2">+, 0, 0, 32, 32, 32</column>
+<column name="add_ln296_fu_314_p2">+, 0, 0, 14, 6, 6</column>
+<column name="icmp_ln292_fu_131_p2">icmp, 0, 0, 11, 7, 8</column>
+<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
+<column name="s0_fu_238_p2">xor, 0, 0, 32, 32, 32</column>
+<column name="s1_fu_308_p2">xor, 0, 0, 32, 32, 32</column>
+<column name="xor_ln293_fu_232_p2">xor, 0, 0, 32, 32, 32</column>
+<column name="xor_ln294_fu_302_p2">xor, 0, 0, 32, 32, 32</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">17, 4, 1, 4</column>
+<column name="ap_done_int">9, 2, 1, 2</column>
+<column name="ap_enable_reg_pp0_iter0">9, 2, 1, 2</column>
+<column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
+<column name="ap_sig_allocacmp_i_2">9, 2, 7, 14</column>
+<column name="i_fu_70">9, 2, 7, 14</column>
+<column name="messageSchedule_address0">17, 4, 6, 24</column>
+<column name="messageSchedule_address1">13, 3, 6, 18</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="add_ln296_3_reg_395">32, 0, 32, 0</column>
+<column name="add_ln296_4_reg_410">32, 0, 32, 0</column>
+<column name="ap_CS_fsm">3, 0, 3, 0</column>
+<column name="ap_done_reg">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter0_reg">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="empty_31_reg_369">6, 0, 6, 0</column>
+<column name="i_2_reg_360">7, 0, 7, 0</column>
+<column name="i_2_reg_360_pp0_iter1_reg">7, 0, 7, 0</column>
+<column name="i_fu_70">7, 0, 7, 0</column>
+<column name="icmp_ln292_reg_365">1, 0, 1, 0</column>
+<column name="messageSchedule_load_2_reg_400">32, 0, 32, 0</column>
+<column name="messageSchedule_load_3_reg_405">32, 0, 32, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, prep_Pipeline_VITIS_LOOP_292_4, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, prep_Pipeline_VITIS_LOOP_292_4, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, prep_Pipeline_VITIS_LOOP_292_4, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, prep_Pipeline_VITIS_LOOP_292_4, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, prep_Pipeline_VITIS_LOOP_292_4, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, prep_Pipeline_VITIS_LOOP_292_4, return value</column>
+<column name="messageSchedule_address0">out, 6, ap_memory, messageSchedule, array</column>
+<column name="messageSchedule_ce0">out, 1, ap_memory, messageSchedule, array</column>
+<column name="messageSchedule_we0">out, 1, ap_memory, messageSchedule, array</column>
+<column name="messageSchedule_d0">out, 32, ap_memory, messageSchedule, array</column>
+<column name="messageSchedule_q0">in, 32, ap_memory, messageSchedule, array</column>
+<column name="messageSchedule_address1">out, 6, ap_memory, messageSchedule, array</column>
+<column name="messageSchedule_ce1">out, 1, ap_memory, messageSchedule, array</column>
+<column name="messageSchedule_q1">in, 32, ap_memory, messageSchedule, array</column>
+</table>
+</item>
+</section>
+</profile>

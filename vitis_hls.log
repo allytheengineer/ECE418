@@ -1,281 +1,53 @@
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vitis_HLS/2020.2/bin/unwrapped/win64.o/vitis_hls.exe'
-INFO: [HLS 200-10] For user 'phelana' on host 'ece419-92rt0q2' (Windows NT_amd64 version 6.2) on Wed Apr 20 16:11:54 -0400 2022
-INFO: [HLS 200-10] In directory 'C:/Users/phelana/Desktop/ECE418-main/ECE418-main'
-Sourcing Tcl script 'C:/Users/phelana/Desktop/ECE418-main/ECE418-main/ECE418FinalProject/solution1/csim.tcl'
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vitis_HLS/2021.2/bin/unwrapped/win64.o/vitis_hls.exe'
+INFO: [HLS 200-10] For user 'addis' on host 'cloctavia' (Windows NT_amd64 version 6.2) on Mon May 02 01:13:53 -0400 2022
+INFO: [HLS 200-10] In directory 'C:/Users/addis/OneDrive/Documents/GitHub/ECE418'
+Sourcing Tcl script 'C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/solution1/export.tcl'
 INFO: [HLS 200-1510] Running: open_project ECE418FinalProject 
-INFO: [HLS 200-10] Opening project 'C:/Users/phelana/Desktop/ECE418-main/ECE418-main/ECE418FinalProject'.
+INFO: [HLS 200-10] Opening project 'C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject'.
 INFO: [HLS 200-1510] Running: set_top main 
 INFO: [HLS 200-1510] Running: add_files ECE418FinalProject/fullCode.c 
 INFO: [HLS 200-10] Adding design file 'ECE418FinalProject/fullCode.c' to the project
 INFO: [HLS 200-1510] Running: add_files -tb ECE418FinalProject/fullCode.c -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
 INFO: [HLS 200-10] Adding test bench file 'ECE418FinalProject/fullCode.c' to the project
 INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
-INFO: [HLS 200-10] Opening solution 'C:/Users/phelana/Desktop/ECE418-main/ECE418-main/ECE418FinalProject/solution1'.
+INFO: [HLS 200-10] Opening solution 'C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [HLS 200-10] Setting target device to 'xc7a100t-csg324-1'
+INFO: [HLS 200-1611] Setting target device to 'xc7a100t-csg324-1'
 INFO: [HLS 200-1505] Using flow_target 'vivado'
-Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2020.2;t=hls+guidance;d=200-1505.html
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Users/addis/Desktop
 INFO: [HLS 200-1510] Running: set_part xc7a100t-csg324-1 
 INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -output C:/Users/addis/Desktop 
 INFO: [HLS 200-1510] Running: set_directive_top -name main main 
-INFO: [HLS 200-1510] Running: csim_design -clean -quiet 
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-   Compiling(apcc) ../../../fullCode.c in debug mode
-INFO: [HLS 200-10] Running 'C:/Xilinx/Vitis_HLS/2020.2/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'phelana' on host 'ece419-92rt0q2' (Windows NT_amd64 version 6.2) on Wed Apr 20 16:12:04 -0400 2022
-INFO: [HLS 200-10] In directory 'C:/Users/phelana/Desktop/ECE418-main/ECE418-main/ECE418FinalProject/solution1/csim/build'
-INFO: [APCC 202-3] Tmp directory is C:/tmp/apcc_db_phelana/191922607727557
-INFO: [APCC 202-1] APCC is done.
-   Generating csim.exe
-
-
-copied message: 0110100001100101011011000110110001101111001000000111011101101111011100100110110001100100°lXû
-
-
-
-
-everything padded: 01101000011001010110110001101100011011110010000001110111011011110111001001101100011001001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001011000
-
-
-
-
-
-
-
-
-
-
-block 0: 01101000011001010110110001101100011011110010000001110111011011110111001001101100011001001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001011000
-
-
-
-split block 0 01101000011001010110110001101100
-
-split block 1 01101111001000000111011101101111
-
-split block 2 01110010011011000110010010000000
-
-split block 3 00000000000000000000000000000000
-
-split block 4 00000000000000000000000000000000
-
-split block 5 00000000000000000000000000000000
-
-split block 6 00000000000000000000000000000000
-
-split block 7 00000000000000000000000000000000
-
-split block 8 00000000000000000000000000000000
-
-split block 9 00000000000000000000000000000000
-
-split block 10 00000000000000000000000000000000
-
-split block 11 00000000000000000000000000000000
-
-split block 12 00000000000000000000000000000000
-
-split block 13 00000000000000000000000000000000
-
-split block 14 00000000000000000000000000000000
-
-split block 15 00000000000000000000000001011000
-
-WORD 0 1751477356
-WORD 1 1864398703
-WORD 2 1919706240
-WORD 3 0
-WORD 4 0
-WORD 5 0
-WORD 6 0
-WORD 7 0
-WORD 8 0
-WORD 9 0
-WORD 10 0
-WORD 11 0
-WORD 12 0
-WORD 13 0
-WORD 14 0
-WORD 15 88
-WORD 16 927400503
-WORD 17 -2033139663
-WORD 18 -742584053
-WORD 19 -1996926
-WORD 20 -721683
-WORD 21 -1939
-WORD 22 -621
-WORD 23 927400501
-WORD 24 -2033139664
-WORD 25 890174870
-WORD 26 -3993852
-WORD 27 -1586914170
-WORD 28 -5817
-WORD 29 -1540975
-WORD 30 -413334982
-WORD 31 786193969
-WORD 32 1551380484
-WORD 33 630718915
-WORD 34 -1825016489
-WORD 35 11569889
-WORD 36 -4034970
-WORD 37 998868681
-WORD 38 -622366759
-WORD 39 2006639423
-WORD 40 1108197617
-WORD 41 -165331327
-WORD 42 1299819791
-WORD 43 -1591110518
-WORD 44 515613209
-WORD 45 -678215982
-WORD 46 1951031464
-WORD 47 -2145978732
-WORD 48 1367510550
-WORD 49 1706065684
-WORD 50 737066136
-WORD 51 1339438667
-WORD 52 1440744851
-WORD 53 -1997932374
-WORD 54 641782529
-WORD 55 1677292424
-WORD 56 444495877
-WORD 57 909628573
-WORD 58 -2064834758
-WORD 59 -515469586
-WORD 60 -1574348622
-WORD 61 -1005046591
-WORD 62 -920021391
-WORD 63 530402265
-
-MESSAGE SCHEDULE
-
-MESSAGE
- 1751477356
-MESSAGE
- 1864398703
-MESSAGE
- 1919706240
-MESSAGE
- 0
-MESSAGE
- 0
-MESSAGE
- 0
-MESSAGE
- 0
-MESSAGE
- 0
-MESSAGE
- 0
-MESSAGE
- 0
-MESSAGE
- 0
-MESSAGE
- 0
-MESSAGE
- 0
-MESSAGE
- 0
-MESSAGE
- 0
-MESSAGE
- 88
-MESSAGE
- 927400503
-MESSAGE
- -2033139663
-MESSAGE
- -742584053
-MESSAGE
- -1996926
-MESSAGE
- -721683
-MESSAGE
- -1939
-MESSAGE
- -621
-MESSAGE
- 927400501
-MESSAGE
- -2033139664
-MESSAGE
- 890174870
-MESSAGE
- -3993852
-MESSAGE
- -1586914170
-MESSAGE
- -5817
-MESSAGE
- -1540975
-MESSAGE
- -413334982
-MESSAGE
- 786193969
-MESSAGE
- 1551380484
-MESSAGE
- 630718915
-MESSAGE
- -1825016489
-MESSAGE
- 11569889
-MESSAGE
- -4034970
-MESSAGE
- 998868681
-MESSAGE
- -622366759
-MESSAGE
- 2006639423
-MESSAGE
- 1108197617
-MESSAGE
- -165331327
-MESSAGE
- 1299819791
-MESSAGE
- -1591110518
-MESSAGE
- 515613209
-MESSAGE
- -678215982
-MESSAGE
- 1951031464
-MESSAGE
- -2145978732
-MESSAGE
- 1367510550
-MESSAGE
- 1706065684
-MESSAGE
- 737066136
-MESSAGE
- 1339438667
-MESSAGE
- 1440744851
-MESSAGE
- -1997932374
-MESSAGE
- 641782529
-MESSAGE
- 1677292424
-MESSAGE
- 444495877
-MESSAGE
- 909628573
-MESSAGE
- -2064834758
-MESSAGE
- -515469586
-MESSAGE
- -1574348622
-MESSAGE
- -1005046591
-MESSAGE
- -920021391
-MESSAGE
- 530402265INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-111] Finished Command csim_design CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 12.617 seconds; current allocated memory: 162.460 MB.
+INFO: [HLS 200-1510] Running: export_design -rtl verilog -format ip_catalog -output C:/Users/addis/Desktop 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2021.2 (64-bit)
+  **** SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+  **** IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+ipx::create_core: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1553.004 ; gain = 0.000
+ERROR: '2205020113' is an invalid argument. Please specify an integer value.
+    while executing
+"rdi::set_property core_revision 2205020113 {component component_1}"
+    invoked from within
+"set_property core_revision $Revision $core"
+    (file "run_ippack.tcl" line 797)
+INFO: [Common 17-206] Exiting Vivado at Mon May  2 01:14:18 2022...
+ERROR: [IMPL 213-28] Failed to generate IP.
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 20.884 seconds; current allocated memory: 0.000 MB.
+command 'ap_source' returned error code
+    while executing
+"source C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/solution1/export.tcl"
+    invoked from within
+"hls::main C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/solution1/export.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel 1 hls::main {*}$newargs"
+    (procedure "hls_proc" line 16)
+    invoked from within
+"hls_proc [info nameofexecutable] $argv"
+INFO: [HLS 200-112] Total CPU user time: 5 seconds. Total CPU system time: 3 seconds. Total elapsed time: 25.328 seconds; peak allocated memory: 1.318 GB.

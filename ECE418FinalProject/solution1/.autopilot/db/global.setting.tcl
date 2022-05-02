@@ -1,13 +1,13 @@
 
 set TopModule "main"
 set ClockPeriod 10
-set ClockList {}
+set ClockList ap_clk
 set HasVivadoClockPeriod 0
-set CombLogicFlag 1
+set CombLogicFlag 0
 set PipelineFlag 0
-set DataflowTaskPipelineFlag 0
+set DataflowTaskPipelineFlag 1
 set TrivialPipelineFlag 0
-set noPortSwitchingFlag 0
+set noPortSwitchingFlag 1
 set FloatingPointFlag 0
 set FftOrFirFlag 0
 set NbRWValue 0
@@ -44,13 +44,13 @@ set SCTraceOption all
 set TargetInfo xc7a100t:-csg324:-1
 set SourceFiles {sc {} c ../fullCode.c}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile C:/Users/pitkinj/eceProj/ECE418/ECE418FinalProject/solution1/solution1.directive
-set TBFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
+set DirectiveFile C:/Users/addis/OneDrive/Documents/GitHub/ECE418/ECE418FinalProject/solution1/solution1.directive
+set TBFiles {verilog ../fullCode.c bc ../fullCode.c vhdl ../fullCode.c sc ../fullCode.c cas ../fullCode.c c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
-set TBTops {bc "" c "" sc "" cas "" vhdl "" verilog ""}
-set TBInstNames {bc "" c "" sc "" cas "" vhdl "" verilog ""}
+set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
+set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
 set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set TBTVFileNotFound {}
@@ -61,5 +61,5 @@ set DefaultPlatform DefaultPlatform
 set multiClockList {}
 set SCPortClockMap {}
 set intNbAccess 0
-set PlatformFiles {{DefaultPlatform {xilinx/artix7/artix7 xilinx/artix7/artix7_fpv6}}}
+set PlatformFiles {{DefaultPlatform {xilinx/artix7/artix7}}}
 set HPFPO 0

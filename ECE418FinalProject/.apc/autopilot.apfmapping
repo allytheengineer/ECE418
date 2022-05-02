@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="fullCode.c" path="C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c"/>
+    <originFiles name="fullCode.c" path="C:\Users\addis\OneDrive\Documents\GitHub\ECE418\ECE418FinalProject\fullCode.c"/>
   </source>
   <testbench>
-    <originFiles name="fullCode.c" path="C:\Users\phelana\Desktop\ECE418-main\ECE418-main\ECE418FinalProject\fullCode.c"/>
+    <originFiles name="fullCode.c" path="C:\Users\addis\OneDrive\Documents\GitHub\ECE418\ECE418FinalProject\fullCode.c"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

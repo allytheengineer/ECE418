@@ -1,0 +1,151 @@
+
+
+================================================================
+== Vitis HLS Report for 'prep_Pipeline_VITIS_LOOP_275_2'
+================================================================
+* Date:           Mon May  2 01:13:06 2022
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:48:09 MDT 2021)
+* Project:        ECE418FinalProject
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: artix7
+* Target device:  xc7a100t-csg324-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.438 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       35|       35|  0.350 us|  0.350 us|   35|   35|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_275_2  |       33|       33|         3|          1|          1|    32|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|     66|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       -|      -|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       -|     36|    -|
+|Register         |        -|    -|      32|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|      32|    102|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      270|  240|  126800|  63400|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+----+---+----+------------+------------+
+    |add_ln275_fu_95_p2     |         +|   0|  0|  14|           6|           1|
+    |add_ln276_2_fu_119_p2  |         +|   0|  0|  24|          17|          17|
+    |add_ln276_fu_105_p2    |         +|   0|  0|  16|           9|           9|
+    |icmp_ln275_fu_89_p2    |      icmp|   0|  0|  10|           6|           7|
+    |ap_enable_pp0          |       xor|   0|  0|   2|           1|           2|
+    +-----------------------+----------+----+---+----+------------+------------+
+    |Total                  |          |   0|  0|  66|          39|          36|
+    +-----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_j_1     |   9|          2|    6|         12|
+    |j_fu_38                  |   9|          2|    6|         12|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  36|          8|   14|         28|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------+---+----+-----+-----------+
+    |               Name               | FF| LUT| Bits| Const Bits|
+    +----------------------------------+---+----+-----+-----------+
+    |add_ln276_reg_154                 |  9|   0|    9|          0|
+    |ap_CS_fsm                         |  1|   0|    1|          0|
+    |ap_done_reg                       |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1           |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2           |  1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg  |  1|   0|    1|          0|
+    |j_1_reg_145                       |  6|   0|    6|          0|
+    |j_1_reg_145_pp0_iter1_reg         |  6|   0|    6|          0|
+    |j_fu_38                           |  6|   0|    6|          0|
+    +----------------------------------+---+----+-----+-----------+
+    |Total                             | 32|   0|   32|          0|
+    +----------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+--------------------------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |          Source Object         |    C Type    |
++------------------------+-----+-----+------------+--------------------------------+--------------+
+|ap_clk                  |   in|    1|  ap_ctrl_hs|  prep_Pipeline_VITIS_LOOP_275_2|  return value|
+|ap_rst                  |   in|    1|  ap_ctrl_hs|  prep_Pipeline_VITIS_LOOP_275_2|  return value|
+|ap_start                |   in|    1|  ap_ctrl_hs|  prep_Pipeline_VITIS_LOOP_275_2|  return value|
+|ap_done                 |  out|    1|  ap_ctrl_hs|  prep_Pipeline_VITIS_LOOP_275_2|  return value|
+|ap_idle                 |  out|    1|  ap_ctrl_hs|  prep_Pipeline_VITIS_LOOP_275_2|  return value|
+|ap_ready                |  out|    1|  ap_ctrl_hs|  prep_Pipeline_VITIS_LOOP_275_2|  return value|
+|tmp_2                   |   in|    9|     ap_none|                           tmp_2|        scalar|
+|add_ln276_1             |   in|   17|     ap_none|                     add_ln276_1|        scalar|
+|messageBlocks_address0  |  out|   17|   ap_memory|                   messageBlocks|         array|
+|messageBlocks_ce0       |  out|    1|   ap_memory|                   messageBlocks|         array|
+|messageBlocks_q0        |   in|    5|   ap_memory|                   messageBlocks|         array|
+|splitBlock_address0     |  out|    6|   ap_memory|                      splitBlock|         array|
+|splitBlock_ce0          |  out|    1|   ap_memory|                      splitBlock|         array|
+|splitBlock_we0          |  out|    1|   ap_memory|                      splitBlock|         array|
+|splitBlock_d0           |  out|    5|   ap_memory|                      splitBlock|         array|
++------------------------+-----+-----+------------+--------------------------------+--------------+
+
