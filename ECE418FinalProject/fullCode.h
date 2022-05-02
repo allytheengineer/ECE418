@@ -42,5 +42,6 @@ extern unsigned int choice(unsigned int x, unsigned int y, unsigned int z);
 extern unsigned int majority(unsigned int x, unsigned int y, unsigned int z);
 extern void compression(unsigned int messageSchedule[]);
 extern void prep(char* message);
+extern char* stringToBinary(char* input, char* output);
 
 #endif

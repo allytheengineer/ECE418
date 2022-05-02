@@ -40,7 +40,7 @@ char* numToBinary(unsigned long num, char* binaryBuffer, int buffer_size) {
 
 
 //input char array.. output is 8*length of input
-char* charToBinary(char* input, char* output){
+char* stringToBinary(char* input, char* output){
 
      int placeholder = 0;
     output[(getStringLength(input)*8)] = '\0';
@@ -281,7 +281,7 @@ int main() {
     //a15c9ccfe5690dfca6fa8af361ba76afefc8c968240586e6f3d4812c7c0925ca
     //28 blocks 865 char
     char* message6 = "Our services allow users to add content in a number of different ways, including via direct messages and in smaller and larger communities. Some of these spaces are public, and if you share content within them, that content may be accessed by people you do not know. For example, some servers are available in the Server Discovery section of the app and do not require an invite link to join. Other server owners may publish their server invite link on public websites. Anyone can access these spaces. You should be aware that these permissions are set by server owners or admins, and they may change over time. Please understand the difference between posting in public and private spaces on Discord, and choose the right space, features, and settings for you and your content. To understand how we treat your personal information, see our Privacy Policy.";
-    prep(charToBinary(message5,messagebinary));
+    prep(stringToBinary(message5,messagebinary));
 
     return 0;
 }
